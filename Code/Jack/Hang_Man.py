@@ -1,4 +1,5 @@
 import turtle
+import random
 
 right_Leg_Length = 30
 right_Arm_Length = 20
@@ -46,5 +47,10 @@ turtle.left(90)
 for num in range(90):
     turtle.forward(1)
     turtle.right(4)
+
+for a in range(10)
+    turtle.setposition(random.choice(0,100),random.choice(0,100))
+    turtle.right(random.randint(0,360))
+    turtle.forward(random.randint(0,100))
 
 done()
