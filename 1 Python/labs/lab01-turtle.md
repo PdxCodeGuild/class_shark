@@ -1,9 +1,8 @@
-
 # Lab 1: Turtle
 
 ## Explanation
 
-Turtle is a python `module` that allows us to move a virtual turtle around the screen using programming statements. This turtle has a position and a heading. Below are a list of commands, you can see more in the [turtle docs](https://docs.python.org/3.6/library/turtle.html).
+Turtle is a python `module` that allows us to move a virtual turtle around the screen using programming statements. This turtle has a position and a heading. Below are a list of commands, you can more in the [turtle docs](https://docs.python.org/3.6/library/turtle.html).
 
 - `forward(distance)` moves the turtle forward the given number of pixels 
 - `left(angle)` and `right(angle)` turns the turtle left or right by the given angle (in degrees)
@@ -89,6 +88,19 @@ i = 0
 while i < 4:
     forward(100)
     left(90)
+    i = i + 1
+
+done()
+```
+
+### Drawing a Circle with a Loop
+```python
+from turtle import *
+
+i = 0
+while i < 100:
+    forward(2)
+    left(360/100)
     i = i + 1
 
 done()
