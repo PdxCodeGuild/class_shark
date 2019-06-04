@@ -36,7 +36,6 @@ z = float('-inf')
 print(math.isinf(z))
 print(math.isfinite(z))
 ```
-The `math` module has many other specialized math functions you can utilize, a full list of them can be found [here](https://docs.python.org/3/library/math.html)
 
 ## Arithmetic Operators
 
@@ -50,7 +49,7 @@ The `math` module has many other specialized math functions you can utilize, a f
 
 Modulus is the 'remainder function' for example, 5%2 is 1, 6%2 is 0, 23%5 is 3, etc. It's also useful for containing the range of a variable.
 
-```python
+```
 i = 0
 while i < 100:
     print(i%3)

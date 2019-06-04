@@ -328,7 +328,7 @@ print(repr(p))
 p_copy = eval(repr(p))
 ```
 
-### \_\_eq__ and \_\_neq__
+### \_\_eq__ and \_\_ne__
 
 These two implements allow the comparison of class instances. Note that `is` will work regardless, because it checks if two variables refer to literally the same object.
 
@@ -338,7 +338,7 @@ class Point:
     def __eq__(self, p):
         return self.x == p.x and self.y == p.y
     
-    def __neq__(self, p):
+    def __ne__(self, p):
         return self.x != p.x or self.y != p.y
 
 p1 = Point(5, 2)

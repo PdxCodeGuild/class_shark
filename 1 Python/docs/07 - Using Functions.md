@@ -35,7 +35,6 @@ Parameters are the values passed to a function, enclosed inside the parantheses.
 ```python
 print('hello ', end='')
 print('there')
->>> hello there
 ```
 
 Functions may or may not return anything. If they don't return anything, any variables they're assigned to will be `None`.
@@ -45,37 +44,16 @@ x = print('hello!')
 print(x)
 >>> None
 ```
-By default if you put multiple arguments into a print statement they will print with a space between them:
 
-```python
-print('hey', 'there')
->>> hey there
-```
-This can be changed by adding the separator argument `sep`.
-```python
-print('hey', 'there', sep='-')
->>>hey-there
-```
-
-
-
-## Returning Something or Nothing
-
-Generally, if they do not return anything, they'll edit the object that they're called on, or the parameters they're passed, or do something else entirely. For example, the `print` function doesn't return anything. Any variable to the result of `print` will be `None`
-
-
-```python
-x = print('hello!')
-print(x) # None
-```
-
-Another example is `list.append()`.
+Generally, if they do not return anything, they'll edit the object that they're called on, or the parameters they're passed.
 
 ```python
 fruits = ['apple', 'banana', 'pear']
 x = fruits.append('cherry')
-print(x) # None
-print(fruits) # ['apple', 'banana', 'pear', 'cherry']
+print(x)
+print(fruits)
+>>> None
+>>> ['apple', 'banana', 'pear', 'cherry']
 ```
 
 Functions on classes are called methods. Methods are a special type of function: all methods are functions, not all functions are methods. Some examples of methods include `list.append()` and `string.split()`. Note that you also have a `.` before a function if it's contained in a module. For example `random.randint()` and `math.sin()`, however these are not methods.
