@@ -15,7 +15,7 @@ M-F 6:00PM – 9:30PM
 ### Python 
 | Assigned on | Lab \#s |
 | ------------- | ---- |
-
+| 6/5 | 2, (3), 4, (5), 6 |
 
 ### HTML/CSS 
 | Assigned on | Lab \#s |
