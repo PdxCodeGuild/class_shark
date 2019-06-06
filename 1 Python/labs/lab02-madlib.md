@@ -5,7 +5,7 @@ Write a simple program that prompts the user for several inputs then
 
 ## Instructions
 
-1. Search the interwebs for an example Mad Lib
+1. Search the interwebs for an example Mad Lib or write your own
 2. Ask the user for each word you'll put in your Mad Lib
 3. Use `string concatenation` to put each word into the Mad Lib
 
