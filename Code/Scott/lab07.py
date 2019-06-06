@@ -1,6 +1,6 @@
 """
 Name:           Scott Tran
-Date            6/5/2019
+Date            6/6/2019
 Assignment:     Pay rock-paper-scissors with the computer
 """
 
