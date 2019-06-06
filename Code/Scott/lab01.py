@@ -28,4 +28,4 @@ t.backward(100)
 t.left(30)
 t.forward(20)
 
-input()
+input() # stops the image from disappearing
