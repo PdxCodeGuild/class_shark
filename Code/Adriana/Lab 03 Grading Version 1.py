@@ -3,8 +3,14 @@
 #Step 2Convert the number grade to a letter grade
 
 #int used to convert string input to an integer
-
-user_score = int(input("What was your number grade? "))
+#input validation - mod class discussion addition
+valid = False
+while not valid:
+    user_score = int(input("What was your number grade? "))
+    if 0 <= user_score < 120:
+        valid = True
+    else:
+        print('invalid grade')
 
 if user_score >= 0 and user_score <=59:
   print("F")
