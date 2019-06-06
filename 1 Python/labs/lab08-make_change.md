@@ -14,17 +14,3 @@ Have the user enter the total number in pennies, e.g. for $1.36, the user will e
 ## Version 2
 
 Have the user enter a dollar amount (1.36), convert this to the total in pennies.
-
-
-## Version 3 (optional)
-
-Instead of hard-coding the coins, store them in a list. This way you can make custom coins.
-
-```python
-coins = [
-    ('quarter', 50),
-    ('dime', 10),
-    ('nickel', 5),
-    ('penny', 1)
-]
-```

@@ -11,17 +11,14 @@ Let's list all the cases:
 - rock vs paper
 - rock vs scissors
 - paper vs rock
-- paper vs paper (tie)
+- paper vs paper
 - paper vs scissors
 - scissors vs rock
 - scissors vs paper
-- scissors vs scissors (tie)
+- scissors vs scissors
 
 ## Version 2 (optional)
 
 After playing, ask them if they'd like to play again. If they say yes, restart the game, otherwise exit.
 
 
-## Version 3 (optional)
-
-Rock, paper, scissors, lizard, Spock! https://www.instructables.com/id/How-to-Play-Rock-Paper-Scissors-Lizard-Spock/
