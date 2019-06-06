@@ -40,4 +40,4 @@ for grade_range in grades:
             print('F')
         else:
             print(letter_grade + out_suffix)
-        break
+        break # if you've calculated a letter grade, you're done! no need to continue the loop
