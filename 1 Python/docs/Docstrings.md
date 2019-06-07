@@ -160,13 +160,7 @@ if __name__ == "__main__":
 ```
 
 
-### Generating Documentation
-
-[pdoc](https://pdoc3.github.io/pdoc/) is a very simple documentation generator that can be installed via pip.
-
-`pip install pdoc3`
-
-`pdoc --html module.py`
+### Sphinx & Epydoc
 
 [Sphinx](http://www.sphinx-doc.org/en/stable/index.html) is a program which can generate documentation in HTML and PDFs from Python source code. You can find a tutorial [here](http://www.sphinx-doc.org/en/stable/tutorial.html). Sphinx allows for two ways of formatting docstrings: [google-style](http://www.sphinx-doc.org/en/stable/ext/example_google.html) and [numpy-style](http://www.sphinx-doc.org/en/stable/ext/example_numpy.html#example-numpy).
 

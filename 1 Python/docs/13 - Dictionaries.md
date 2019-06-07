@@ -25,6 +25,17 @@ product_to_price['banana']  # Throws KeyError
 product_to_price[1.0]  # Throws KeyError
 ```
 
+### Avoiding KeyError
+
+When you access a key that doesn't exist using the indexing (square-bracket) notation, you get a KeyError. To avoid KeyErrors, you can instead use `Dict.get(key, default=None)`. You can also specify a default value if the key does not exist.
+
+```py
+product_to_price = {'apple': 1.0, 'pear': 1.5, 'grapes': 0.75}
+product_to_price.get('apple')    #> 1.0
+product_to_price.get('banana')   #> None
+product_to_price.get('oranges', 1.75)   #> 1.75
+```
+
 ### Adding and Updating Values
 
 Values can then be added or updated by using the assignment operator `=`.
@@ -80,9 +91,15 @@ sorted(product_to_price.keys())  #> ['apple', 'grapes', 'pear']
 
 You can cast a sequences of two-tuples to a dictionary using `dict()`. This means `.items()` and `dict()` are inverses.
 
-```python
+```py
 names_and_fav_colors = [('Alice', 'red'), ('David', 'green')]
 dict(names_and_fav_colors)  #> {'Alice': 'red', 'David': 'green'}
 dict(product_to_price.items()) == product_to_price  #> True
 ```
 
+You can therefore zip together two iterables of the same length and cast it as a dictionary.
+```py
+fruits = ['pear', 'apple', 'grapes']
+prices = [0.75, 1.0, 1.5]
+product_to_price = dict(zip(fruits, prices)) # == {'apple': 1.0, 'pear': 1.5, 'grapes': 0.75}
+```

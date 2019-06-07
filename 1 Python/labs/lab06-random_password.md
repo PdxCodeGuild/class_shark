@@ -10,7 +10,7 @@ Hint: random.choice can be used to pick a character out of a string, as well as 
 - input, print
 - looping
 - random.choice
-- the 'sting builder pattern'
+- the 'string builder pattern'
 
 ## Version 2
 
