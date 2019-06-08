@@ -1,7 +1,7 @@
 # Class Shark
 Repo for the PDX Code Guild Python Full Stack night course starting 06/03/2019
 
-Class is held from **June 3rd, 2019 - Sept 27th, 2019**
+Class is held from **June 3rd, 2019 - ~Sept 27th, 2019~ Oct 9th**
 
 M-F 6:00PM – 9:30PM
 
