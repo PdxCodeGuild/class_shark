@@ -43,10 +43,81 @@ def opposite(a, b):
     return (a > 0) != (b > 0)
 
 
-# Tests
-print(is_even(5)) # → False
-print(is_even(6)) # → True
+# Strings 1
+def double_letters(text):
+    '''
+    returns text with doubled letters
+    '''
+    # doubled = []
+    # for letter in text:
+    #     doubled.append(letter + letter)
+    # return ''.join(doubled)
 
-print(opposite(10, -1)) # → True
-print(opposite(2, 3))  # → False
-print(opposite(-1, -1)) # → False
+    # # equivalent to above
+    return ''.join([letter + letter for letter in text])
+
+    # doubled = ''
+    # for letter in text:
+    #     doubled += letter * 2
+    # return doubled
+
+
+# Strings 2
+def missing_char(text):
+    '''
+    returns list of every permutation of text with a character missing
+    '''
+    missing = []
+    for i in range(len(text)):
+        left = text[:i]
+        right = text[i+1:]
+        # print(i, 'left', left, 'right', right)
+        # # text[start:end:step] # slicing syntax
+        missing.append(left + right)
+    return missing
+
+
+def powers_of_two(n):
+    '''
+    returns the n first powers of two
+    '''
+    return [2**i for i in range(n)]
+
+    # # equivalent to above
+    # nums = []
+    # for i in range(n):
+    #     nums.append(2**i)
+    # return nums
+
+
+def odds(n):
+    '''
+    returns odd numbers up to n
+    '''
+    return [i for i in range(n) if i % 2]
+
+    # # equivalent to above
+    # nums = []
+    # for i in range(n):
+    #     if i % 2 != 0:
+    #         nums.append(i)
+    # return nums
+
+
+
+
+if __name__ == '__main__':
+    # Tests
+    print(is_even(5)) # → False
+    print(is_even(6)) # → True
+
+    print(opposite(10, -1)) # → True
+    print(opposite(2, 3))  # → False
+    print(opposite(-1, -1)) # → False
+
+    print(double_letters('hello')) # -> 'hheelllloo'
+    # print(double_letters(input('Enter a string you want to double: ')))
+    print(missing_char('kitten')) # → ['itten', 'ktten', 'kiten', 'kiten', 'kittn', 'kitte']
+
+    print(powers_of_two(10))
+    print(odds(10))

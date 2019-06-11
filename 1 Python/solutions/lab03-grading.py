@@ -1,14 +1,24 @@
 # lab 3 - grading.py
-
+import sys 
 # input validation
 valid = False
 while not valid:
     # get grade from input
-    grade = int(input("Enter a number between 0-100: "))
-    if 0 <= grade < 120:
-        valid = True
-    else:
+    try: 
+        grade = int(input("Enter a number between 0-100: "))
+        if 0 <= grade < 120:
+            valid = True
+        else:
+            raise ValueError
+
+    except ValueError:
         print('Invalid')
+
+    # else: 
+    #     print('Valid')
+
+    # finally: 
+    #     print('Done')
 
 # figure out if grade is + or -
 if grade % 10 < 5:
