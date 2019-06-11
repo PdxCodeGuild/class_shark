@@ -1,4 +1,4 @@
-# lab4_magic8.py
+# lab04_magic8.py
 
 from random import choice
 
