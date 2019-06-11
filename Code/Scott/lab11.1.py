@@ -35,6 +35,7 @@ def second_num():
 x = operation()
 y = first_num()
 z = second_num()
-a = int(y) + int(z)
+a = eval(y + x + z)
+
 
 print(f"{y} {x} {z} = {a}")
