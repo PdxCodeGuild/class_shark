@@ -10,7 +10,6 @@
 #   Allow the user to enter the value of n, remember to convert its type, as input returns a string.
 # Version 3 (optional)
 # Ask the user for how many lowercase letters, uppercase letters, numbers, and special characters they'd like in their password. Generate a password accordingly.
-menu_check1 = True
 
 # import random module
 import random
@@ -64,12 +63,13 @@ def password_generator_advanced(lower_num, upper_num, digit_num, punc_num):
     return custom_pw
 
 # Establish a menu_check variable to be true. Will be used to confirm validity of user inputs
-menu_check1=True
+# menu_check1=True
 # Declare a menu_check variable to be false, this will be used to validate the input from the user in the second menu for the advanced password
-menu_check2=False
+# menu_check2=False
 
 # define a function 'menu_check_one' to confirm the input from the user is valid
 def menu_check_one():
+    menu_check1 = True
     first_pw_length = int(input("Please enter the desired length of your first custom pseudo-random password: "))
     if first_pw_length > 0:
         menu_check1 = False
@@ -86,7 +86,7 @@ def menu_check_two():
     uppercase_input_num = int(input('Enter the number of uppercase letters you would like in your pseudo-random custom password: '))
     digit_input_num = int(input('Enter the number of digits you would like in your pseudo-random custom password: '))
     punc_input_num = int(input('Enter the number of punctuation characters you would like in your pseudo-random custom password: '))
-    while menu_check2 == True:
+    while menu_check2:
         if lowercase_input_num >= 0 or uppercase_input_num >= 0 or digit_input_num >= 0 or punc_input_num >= 0:
             print('Your custom pseudo-random password is:')
             print(password_generator_advanced(lowercase_input_num, uppercase_input_num, digit_input_num,punc_input_num))
