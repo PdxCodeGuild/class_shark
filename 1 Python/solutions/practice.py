@@ -1,4 +1,5 @@
 # practice.py
+from time import clock
 
 # Fundamentals 1
 def is_even(a):
@@ -104,6 +105,30 @@ def odds(n):
     # return nums
 
 
+# Lists 3 
+def eveneven(nums):
+    '''
+    returns true if there is an even number of evens in nums
+    '''
+    # evens = 0
+    # for item in nums:
+    #     if item % 2 == 0:
+    #         evens += 1
+    # return evens % 2 == 0
+
+    evens = []
+    for i in nums:
+        if int(i) % 2 == 0:
+            evens.append(i)
+
+    return len(evens) % 2 == 0
+
+
+def eveneven_comprehension(nums):
+    '''
+    equivalent to the solution above
+    '''
+    return len([i for i in nums if int(i) % 2 == 0]) % 2 == 0
 
 
 if __name__ == '__main__':
@@ -116,8 +141,14 @@ if __name__ == '__main__':
     print(opposite(-1, -1)) # → False
 
     print(double_letters('hello')) # -> 'hheelllloo'
-    # print(double_letters(input('Enter a string you want to double: ')))
     print(missing_char('kitten')) # → ['itten', 'ktten', 'kiten', 'kiten', 'kittn', 'kitte']
 
-    print(powers_of_two(10))
-    print(odds(10))
+    print(powers_of_two(10)) # [1, 2, 4, 8, 16, 32, 64, 128, 256, 512]
+    print(odds(10)) # [1, 3, 5, 7, 9]
+
+    start = clock()
+    print(eveneven([5, 5, 2])) # → False
+    print('loop done in: ',  clock() - start,  's')
+    start = clock()
+    print(eveneven_comprehension([5, 5, 2])) # → False
+    print('comprehension done in: ', clock() - start , 's')
