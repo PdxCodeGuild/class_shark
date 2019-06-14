@@ -1,5 +1,6 @@
 # practice.py
 from time import clock
+from string import (ascii_letters as alpha, punctuation)
 
 # Fundamentals 1
 def is_even(a):
@@ -146,6 +147,7 @@ def eveneven_comprehension(nums):
     return len([i for i in nums if int(i) % 2 == 0]) % 2 == 0
 
 
+# Dict 1
 def combine(keys, values):
     '''
     :keys: list
@@ -166,6 +168,37 @@ def combine(keys, values):
 
     # best solution
     return dict(zip(keys, values))
+
+
+def latest_letter(text):
+    '''
+    :text: string
+    returns the letter that appears the latest in the english alphabet
+    '''
+    translator = str.maketrans('', '', punctuation + '1234567890')
+    text = text.translate(translator).lower() # remove punctuation and make lowercase
+
+    last = ''
+    for letter in text:
+        if alpha.find(letter) > alpha.find(last):
+            last = letter 
+    return last
+
+    return max(text)
+
+
+def count_hi(text):
+    '''
+    :text: string
+    returns the number of occurances of 'hi' in a given string
+    '''
+    count = 0
+    for i in range(len(text)-1):
+        # if text[i:i+2] == 'hi':
+        # print(i, text[i])
+        if text[i] + text[i+1] == 'hi':
+            count += 1
+    return count
 
 
 if __name__ == '__main__':
@@ -189,6 +222,12 @@ if __name__ == '__main__':
     # start = clock()
     # print(eveneven_comprehension([5, 5, 2])) # → False
     # print('comprehension done in: ', clock() - start , 's')
-    k = ['a', 'b', 'c']
-    v = ['apples', 'beef', 'corn']
-    print(combine(k, v))
+    # k = ['a', 'b', 'c']
+    # v = ['apples', 'beef', 'corn']
+    # print(combine(k, v))
+    print(latest_letter('pneumonoultramicroscopicsilicovolcanoconiosis')) # -> 'v'
+    print(latest_letter('123')) # -> 'v'
+    print(count_hi('hihi')) # -> 2 
+    print(count_hi('wallaby')) # -> 0 
+    print(count_hi('')) # -> 0 
+    print(count_hi('high noon in ohio')) # -> 2

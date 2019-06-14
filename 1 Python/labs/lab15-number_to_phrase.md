@@ -9,7 +9,8 @@ x = 67
 tens_digit = x//10
 ones_digit = x%10
 ```
-Hint 2: use the digit as an index for a list of strings OR as a key for a dict of digit:phrase pairs.
+Hint 2: use the digit as an index for a list 
+OR as a key for a dict of digit: phrase pairs.
 
 ## Version 2
 

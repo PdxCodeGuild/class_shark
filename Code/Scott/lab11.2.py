@@ -38,22 +38,23 @@ def second_num():
         else:
             print(f"{x} was not an integer number. Please try again...") 
 
-def arithmetic(a, b):
-    if x == "+":
-        return operator.add(a, b)
-    elif x == "-":
-        return operator.sub(a, b)
-    elif x == "*":
-        return operator.mul(a, b)
-    elif x == "/":
-        return operator.truediv(a, b)
+def arithmetic(first, second, op):
+    if op == "+":
+        return operator.add(first, second)
+    elif op == "-":
+        return operator.sub(first, second)
+    elif op == "*":
+        return operator.mul(first, second)
+    elif op == "/":
+        return operator.truediv(first, second)
     else:
         print("error!!!!")
+
 
 while True:
     x = operation()
     y = first_num()
     z = second_num()
 
-    print(f"{y} {x} {z} = {arithmetic(y, z)}")
+    print(f"{y} {x} {z} = {arithmetic(y, z, x)}")
 
