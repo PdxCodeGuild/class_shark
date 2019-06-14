@@ -1,9 +1,9 @@
+fruits = ['apple', 'banana', 'pear']
+prices = [1.2, 3.3, 2.1]
 
 
-def is_even():
-    x = int(raw_input("Enter number"))
-    if x % 2 == 0:
-        return x, "is an even number"
-    else:
-        return x, "is not an even number"
-print(is_even())
+def combine(f, p):
+    return dict(zip(f, p))
+
+
+print(combine(fruits, prices))
