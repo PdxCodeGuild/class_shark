@@ -71,8 +71,8 @@ def test_time():
 
 
 def main():
-    # test_nts()
-    # test_time()
+    test_nts()
+    test_time()
 
 
 main()
