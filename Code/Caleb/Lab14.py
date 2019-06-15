@@ -10,17 +10,20 @@
 # - if 5 numbers match, you win $1,000,000
 # - if 6 numbers match, you win $25,000,000
 
+# Import Random Module
 import random
 
+# Display Welcome Screen
 print('Welcome to Lab 14, a program coded in python by Caleb Mealey')
 
+# Define a function 'pick_6', will shoot out a random ticket of 6 numbers between 1-99
 def pick_6():
     ticket = []
     for i in range(6):
-        ticket.append(random.choice(range(1, 100)))
+        ticket.append(random.choice(range(1, 99)))
     return ticket
 
-
+# Define a function 'ticket_matches' that counts how many matches a ticket has when analyzed against the winning ticket
 def ticket_matches(winning_ticket, purchased_ticket):
     total_matches = 0
     for y in range(6):
@@ -28,6 +31,7 @@ def ticket_matches(winning_ticket, purchased_ticket):
             total_matches += 1
     return total_matches
 
+# Define a function 'ticket_winnings' that will return the total winnings an individual ticket earned
 def ticket_winnings(matches_num):
     winnings = 0
     if matches_num == 1:
@@ -58,6 +62,9 @@ ROI = (earnings - expenses) / expenses
 
 print('-' * 60)
 print(f'The winning ticket was: {winning_ticket}')
+print('-' * 60)
 print(f'After purchasing 100,000 tickets, your total earnings was: ${earnings}')
 print(f'After purchasing 100,000 tickets, your total expenses was: ${expenses}')
-print(f'After purchasing 100,000 tickets, your total ROI (return on investment) was: ${ROI}')
+print('-' * 60)
+print(f'After purchasing 100,000 tickets, your ROI (return on investment) was: ${ROI}')
+print('-' * 60)
