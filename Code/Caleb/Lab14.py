@@ -1,4 +1,4 @@
-# Lab 14
+# Lab 14: Pick 6
 # Have the computer play pick6 many times and determine net balance
 # Inititally the program will pick 6 random numbers as the 'winner'. Then try playing pick6 100,000 times, with the ticket cost and payoff below.
 # A ticket contains 6 numbers, 1 to 99, and the number of matches between the ticket and the winning number determines the payoff. Order matters, if the winning numbers are [5,10] and your ticket numbers are [10, 5] you have 0 matches. If the winning numberes are [5,10,2] and your ticket numbers are [10,5,2], you have 1 match. Calculate your net winnings (the sum of all expenses and earnings).
@@ -12,17 +12,11 @@
 
 import random
 
+print('Welcome to Lab 14, a program coded in python by Caleb Mealey')
 
-def pick_6_winning_ticket():
-    winning_numbers = []
-    for i in range(6):
-        winning_numbers.append(random.choice(range(1, 100)))
-    return winning_numbers
-
-
-def pick_6_purchased_tickets():
+def pick_6():
     ticket = []
-    for z in range(6):
+    for i in range(6):
         ticket.append(random.choice(range(1, 100)))
     return ticket
 
@@ -48,16 +42,22 @@ def ticket_winnings(matches_num):
         winnings = 1,000,000
     elif matches_num == 6:
         winnings = 25,000,000
-    else:
-        winnings = 0
     return winnings
 
+expenses = 0
+earnings = 0
+final_balance = 0
+winning_ticket = pick_6()
 
-balance = 0
-winning_ticket = pick_6_winning_ticket()
+for x in range(100000):
+    expenses -= 2
+    earnings += ticket_winnings(ticket_matches(winning_ticket, pick_6()))
 
-for x in range(100001):
-    balance -= 2
-    balance += ticket_winnings(ticket_matches(winning_ticket, pick_6_purchased_tickets()))
+final_balance = earnings + expenses
+ROI = (earnings - expenses) / expenses
 
-print(balance)
+print('-' * 60)
+print(f'The winning ticket was: {winning_ticket}')
+print(f'After purchasing 100,000 tickets, your total earnings was: ${earnings}')
+print(f'After purchasing 100,000 tickets, your total expenses was: ${expenses}')
+print(f'After purchasing 100,000 tickets, your total ROI (return on investment) was: ${ROI}')
