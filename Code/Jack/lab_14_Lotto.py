@@ -38,16 +38,20 @@ def main():
     num_of_wins = 0
     earnings = 0
     expenses = float(num_of_tickets * 2)
-    for i in range(num_of_tickets):
+    for itm in range(num_of_tickets):
         match = 0
         my_ticket = make_Ticket()
         money -= 2
-        i = 0
-        for num in winner:
-            if num == my_ticket[i]:
+        # i = 0
+        for i in range(len(winner)):
+            if my_ticket[i] == winner[i]:
                 match += 1
                 num_of_wins += 1
-            i += 1
+        # for num in winner:
+        #     if num == my_ticket[i]:
+        #         match += 1
+        #         num_of_wins += 1
+        #     i += 1
         earnings += winnings(match)
         money += winnings(match)
     print('\nwinning numbers:', winner
