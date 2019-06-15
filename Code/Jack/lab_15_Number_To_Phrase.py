@@ -49,6 +49,19 @@ def num_to_time(num):
     return t_str + ' o\'clock'
 
 
+def roman(num):
+    d_rmn = {1: 'I', 5: 'V', 10: 'X', 50: 'L', 100: 'C', 500: 'D', 1000: 'M'}
+    s_rmn = ''
+    t_num = num
+    ls_num = list(str(num))
+    # li_num = [int(x) for x in ls_num]
+    # li_num.reverse()
+
+
+
+
+
+
 def test_nts():
     for i in range(20):
         nts = Number_To_String()
