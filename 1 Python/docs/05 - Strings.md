@@ -3,7 +3,7 @@
 
 Strings represent text in Python. Strings in Python are encoded in Unicode, which means their reach extends far beyond ASCII. You can use Chinese characters, Arabic characters, and more. For more information about unicode support, look [here](https://docs.python.org/3.6/howto/unicode.html).
 
-To define a string literal, you can enclose text in either single-quotes or double-quotes, but you should stay consistent. You can use single-quotes inside a string enclosed in double-quotes and vice-versa.
+To define a string literal, you can enclose text in either single-quotes or double-quotes, but you should stay consistent. You can use single-quotes inside a string enclosed in double-quotes and vice-versa. According to the Pep8 specification, you should use single-quotes.
 
 ```python
 s = 'hello world!'
@@ -60,22 +60,6 @@ s.lower() # this returns a new string, use s = s.lower()
 s.strip() # this returns a new string, use s = s.strip()
 print(s) # ' Hello! ' original value is unchanged
 ```
-`strip` and `split` can take arguments or not:
-```python
-s = " Hello there"
-a = s.strip()
-b = s.strip('e')
-c = s.split()
-d = s.split('e')
-print(a)
->>> 'Hello there' #Stripped it of the whitespace at the beginning
-print(b)
->>> ' Hello ther' #Stripped it of the 'e' at the end
-print(c)
->>> ['Hello', 'there'] #Split it into a list, getting rid of and splitting at the whitespace
-print(d)
->>> [' H', 'llo th', 'r', ''] #Split it into a list, this time getting rid of and splitting at the 'e'
-```
 
 
 ### Formatting
@@ -104,34 +88,12 @@ You can also format strings with the `format` function.
 ```python
 >>> a = 'one'
 >>> b = 2
->>> print(f'a is {a} and b is {2}')
-a is one and b is two
+>>> print(f'a is {a} and b is {b}')
+a is one and b is 2
 ```
 
-### Conditionals
 
-You can also use `if`, `for`, and `in` with strings!
 
-```python
-my_string = 'Hey!'
-some_char = 'e'
-if some_char in my_string:
-  print(my_string)
-  
-# iterate over the characters
-for character in my_string:
-    print(character)
-
->>> Hey!
->>> H
->>> e
->>> y
->>> !
-```
-
-### Docstrings
-
-Docstrings are a special kind of multi-line string that's used for generating documentation. You can read more [here](Docstrings.md)
 
 
 

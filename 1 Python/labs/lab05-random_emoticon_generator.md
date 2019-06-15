@@ -27,4 +27,4 @@ Example output:
 
 ## Version 2
 
-Use a `while` loop to generate 5 emoticons.
+Use a loop to generate 5 emoticons.

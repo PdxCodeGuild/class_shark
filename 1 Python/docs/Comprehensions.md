@@ -87,8 +87,8 @@ Set comprehensions can be written much like list comprehensions. Remember that s
 Dict comprehensions also look similar to list comprehensions, but with curly braces and colons.
 
 ```py
-names_to_ages = {'Amanda': 90, 'David': 50}
-{name: age / 2 for name, age in names_to_ages.items()}  #> {'Amanda': 45, 'David': 25}
+names_to_ages = {'Amanda': '90', 'David': '50'}
+{name: int(age) for name, age in names_to_ages.items()}  #> {'Amanda': 90, 'David': 50}
 ```
 
 

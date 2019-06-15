@@ -1,15 +1,49 @@
-"""
-Lab 3: convert a number grade into a letter grade
-"""
+# lab 3 - grading.py
+import sys 
+# input validation
+valid = False
+while not valid:
+    # get grade from input
+    try: 
+        grade = int(input("Enter a number between 0-100: "))
+        if 0 <= grade < 120:
+            valid = True
+        else:
+            raise ValueError
 
-grade = int(input('what is the number grade? '))
-if grade >= 90:
-    print('A')
-elif grade >= 80:
-    print('B')
-elif grade >= 70:
-    print('C')
-elif grade >= 60:
-    print('D')
+    except ValueError:
+        print('Invalid')
+
+    # else: 
+    #     print('Valid')
+
+    # finally: 
+    #     print('Done')
+
+# figure out if grade is + or -
+if grade % 10 < 5:
+    out_suffix = '-'
+elif grade % 10 > 5:
+    out_suffix = '+'
 else:
-    print('F')
+    out_suffix = ''
+
+# figure out letter grade
+if 90 <= grade:
+    letter_grade = 'A'
+elif 80 <= grade:
+    letter_grade = 'B'
+elif 70 <= grade:
+    letter_grade = 'C'
+elif 60 <= grade:
+    letter_grade = 'D'
+else:
+    letter_grade = 'F'
+
+# print grade
+if letter_grade == 'F':
+    # F has no + or -
+    # e.g. 19 should not give you an F+
+    print(letter_grade)
+else:
+    print(letter_grade + out_suffix)

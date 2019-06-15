@@ -1,82 +1,123 @@
-"""
-lab 13: rot 13
-"""
+# rot13.py
+from string import (ascii_lowercase as lower, ascii_uppercase as upper)
 
-# start with a blank output string
-# loop through every character of the string that the user entered
-# find the index of that character in the alphabet
-# using that index, find the character in the rotated alphabet
-# append that character to the output string
+def encode(text, rotation=13):
+    '''
+    :text: string
+    :rotation: int
+    return text rotated by rotation
+    '''
+    cyph = []
 
-
-def rot13(text):
-
-    alphabet         = 'abcdefghijklmnopqrstuvwxyz'
-    alphabet_rotated = 'nopqrstuvwxyzabcdefghijklm'
-
-    output = ''
-    for char in text:
-        index = alphabet.find(char)
-        output += alphabet_rotated[index]
-    return output
-
-
-def rotn(text, n):
-    alphabet = 'abcdefghijklmnopqrstuvwxyz'
-    output = ''
-    for char in text:
-        index = alphabet.find(char)
-        index += n
-
-        while index >= len(alphabet):
-            index -= len(alphabet)
-
-        #if index >= len(alphabet):
-        #    index -= len(alphabet)
-        output += alphabet[index]
-    return output
-
-# print(rotn('hello', 2))
-
-
-# add support for non-letter characters
-# use the modulus operator to wrap the index around
-def rotn_v2(text, n):
-    alphabet = 'abcdefghijklmnopqrstuvwxyz'
-    output = ''
-    for char in text:
-        index = alphabet.find(char)
-        if index == -1:
-            output += char
+    for letter in text:
+        if letter.islower():
+            cyph.append(lower[(lower.find(letter) + rotation) % 26])
+        elif letter.isupper():
+            cyph.append(upper[(upper.find(letter) + rotation) % 26])
         else:
-            index += n
-            index %= len(alphabet)
-            output += alphabet[index]
-    return output
-
-print(rotn_v2('hello world!', 13))
+            cyph.append(letter)    
+    return ''.join(cyph)
 
 
-def rotn_v3(text, offset):
-    output = ''
-    for char in text:
-        index = ord(char)
-        if ord('a') <= index <= ord('z'):
-            index -= ord('a')
-            index += offset
-            index %= ord('z') - ord('a') + 1
-            output += chr(ord('a')+index)
-        elif ord('A') <= index <= ord('Z'):
-            index -= ord('A')
-            index += offset
-            index %= ord('Z') - ord('A') + 1
-            output += chr(ord('A') + index)
+def encode_dict_solution(text, rotation=13):
+    '''
+    dict implementation
+    '''
+    rotation %= 26
+    # rotation = rotation % 26
+    translate = dict(zip(lower, lower[rotation:] + lower[:rotation]))
+    translate.update(dict(zip(upper, upper[rotation:] + upper[:rotation])))
+    cyph = ''
+    for letter in text:
+        cyph += translate.get(letter, letter)
+        # if letter in translate:
+        #     cyph += translate[letter]
+        # else:
+        #     cyph += letter
+    return cyph
+
+
+def encode_ascii_solution(text, rotation=13):
+    '''
+    ascii implementation
+    '''
+    upper = range(65, 91) # upper 65-90
+    lower = range(97, 123) # lower 97-122
+    cyph = ''
+    for letter in text:
+        ascii_val = ord(letter)
+        if letter.isalpha():
+            if ascii_val in upper:
+                shift = 65
+            elif ascii_val in lower:
+                shift = 97
+            ascii_val -= shift
+            rotated = (ascii_val + rotation) % 26            
+            cyph += chr(rotated + shift)
         else:
-            output += char
-
-    print(output)
-
-def rotn_v4(text, offset):
-    return ''.join([chr(ord('a')+(ord(c)-ord('a')+offset)%26) if ord(c)>=ord('a') and ord(c)<=ord('z') else chr(ord('A')+(ord(c)-ord('A')+offset)%26) if ord(c)>=ord('A') and ord(c)<=ord('Z') else c for c in text])
+            cyph += letter
+    return cyph
 
 
+def decode(text, rotation=13):
+    '''
+    :text: string
+    :rotation: int
+    return text rotated by -rotation
+    '''
+    return encode(text, -rotation)
+
+
+def main():
+    # # tests
+    # message = 'hello with spaces'
+    # coded = encode(message, 100)
+    # decoded = decode(coded, 100)
+    # print(message, coded, decoded)
+
+    # print(encode_dict_solution(message, 100))
+    # print(encode_ascii_solution(message, 100))
+
+    print('-'*60)
+    print('Welcome to the ROT-Cypher')
+    print('-'*60)
+
+    play_again = True
+
+    while play_again:
+        msg = input('Enter as message: ')
+
+        invalid = True
+        while invalid:
+            cypher = input('(e)ncode or (d)ecode: ').strip().lower()
+            if cypher in ['encode', 'e', 'decode', 'd']:
+                invalid = False
+
+        tries = 0
+        invalid = True
+        while invalid:
+            try:
+                rot = int(input('How much to rotate by: '))
+                invalid = False
+            except ValueError:
+                tries += 1
+                if tries < 3:
+                    print('Enter a number')
+                else:
+                    print('ur dumb :,(((')
+
+        if cypher.startswith('e'):
+            print('Encrypting...')
+            print(encode(msg, rot))
+        else:
+            print('Decrypting...')
+            print(decode(msg, rot))
+
+        while True:
+            again = input('Do you want to play again: ').strip().lower()
+            if again in ['yes', 'y', 'no', 'n']:
+                play_again = again.startswith('y')
+                break
+
+
+main()

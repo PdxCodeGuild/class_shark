@@ -9,7 +9,7 @@ In case you aren't familiar with how paths on a computer are represented, there 
 
 **Relative paths** are followed relative to the file they're found in.
 
-- `file.txt` or `./file.txt` represents the current directory
+- `file.txt` or `./file.txt` represents a file in the current directory
 - `./folder/file.txt` to represent a child directory
 - `../file.txt` represents the parent directory
 - `../../project/files/data.txt` these can can be used to move up and down, relative to the current file 
