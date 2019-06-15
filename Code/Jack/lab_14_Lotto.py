@@ -5,12 +5,12 @@ num_of_tickets = 100000
 
 
 def make_Ticket():
-    ls = []
-    for i in range(6):
-        ls.append(randint(1, 99))
-
-    return ls
-    # return [[i for i in range(0, 100)] for ls in range(6)]
+    # ls = []
+    # for i in range(6):
+    #     ls.append(randint(1, 99))
+    #
+    # return ls
+    return [randint(0, 99) for ls in range(6)]
 
 
 def winnings(num_matched):
