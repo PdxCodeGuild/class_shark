@@ -30,7 +30,7 @@ def main():
 
     winner = make_Ticket()
 
-    for itm in range(num_of_tickets):
+    for _ in range(num_of_tickets):
         money -= 2
         my_ticket = make_Ticket()
         t_money = find_matches(winner, my_ticket)
