@@ -72,7 +72,12 @@ Write a function to move all the elements of a list with value less than 10 to a
 ## Problem 7
 Write a function to find all common elements between two lists.
 
-`def common_elements(nums1, nums2):`
+```py
+def common_elements(nums1, nums2):
+    ...
+    
+common_elements([1,2,3], [2,3,4,5]) → [2, 3]
+```
 
 
 ## Problem 8
