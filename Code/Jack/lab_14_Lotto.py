@@ -1,15 +1,10 @@
 from random import randint
 
 
-num_of_tickets = 100000
+
 
 
 def make_Ticket():
-    # ls = []
-    # for i in range(6):
-    #     ls.append(randint(1, 99))
-    #
-    # return ls
     return [randint(1, 99) for _ in range(6)]
 
 
@@ -22,7 +17,7 @@ def find_matches(win_ticket, my_ticket):
     return winnings[match]
 
 
-def main():
+def play(num_of_tickets=100000):
     money = 0
     num_of_wins = 0
     earnings = 0
@@ -38,6 +33,8 @@ def main():
             money += t_money
             earnings += t_money
             num_of_wins += 1
+            if t_money > 49000:
+                print('You Won $', t_money, '!!!!')
 
     print('\nwinning numbers:', winner
           , '\nMoney: $', money
@@ -47,5 +44,5 @@ def main():
           , '\n')
 
 
-
-main()
+for _ in range(5):
+    play()
