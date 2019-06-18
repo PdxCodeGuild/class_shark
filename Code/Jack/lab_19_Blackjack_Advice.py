@@ -1,7 +1,10 @@
 from random import choice
 
+
 def advice(hand):
-    cards = [0, 'a', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'j', 'q', 'k']
+    cards = [0, 'a', '2', '3', '4',
+             '5', '6', '7', '8', '9',
+             '10', 'j', 'q', 'k']
     hand_val = []
     ace = 0
 
