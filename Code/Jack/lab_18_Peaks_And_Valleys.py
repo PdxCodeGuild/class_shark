@@ -25,11 +25,12 @@ def find_end(i, j, l_data):
     # print('col:', j, 'row:', i, end, peak)
     # check to see if 'peak' is less than next
     j += 1 # [1] = 4
-    for itr in range(j, len(l_data)):
-        #1           1      12
-        if l_data[itr] == peak:
-            end = itr
-            return end
+    if peak >= l_data[j]:
+        for itr in range(j, len(l_data)):
+            #1           1      12
+            if l_data[itr] == peak:
+                end = itr
+                return end
     return end
 
 
@@ -45,11 +46,10 @@ def y_draw(l_data):
                 next = l_data[j + 1]
             else:
                 next = l_data[j]
-            # not 'always' finding proper end
             if l_data[j] > next and l_data[j] >= i:
-                peak = j
-                end = find_end(i, j, l_data)
-
+                if i > next:  # <- this was the conditional that I couldn't get
+                    peak = j
+                    end = find_end(i, j, l_data)
             if peak < j < end:
                 print_out += ' 0 '
             elif i <= l_data[j]:
@@ -60,9 +60,9 @@ def y_draw(l_data):
     print(print_out)
 
 
-# data = [1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 5, 6, 7, 8, 9, 8, 7, 6, 7, 8, 9]
+data = [1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 5, 6, 7, 8, 9, 8, 7, 6, 7, 8, 9]
 # data = [4,5,6,7,8,9,8,7,6,5,6,7,8,9,8,7,6,7,8,9,8,7,6,5,4,3,4,5,6,7,8]
-data = [5,4,3,4,5,6,5,4,3,2,3,4]
+# data = [5,4,3,4,5,6,5,4,3,2,3,4]
 l_pv = peaks_and_valleys(data)
 l_pv.sort()
 print(y_draw(data))
