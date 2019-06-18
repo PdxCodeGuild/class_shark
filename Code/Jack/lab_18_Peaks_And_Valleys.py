@@ -18,28 +18,38 @@ def peaks_and_valleys(l_data):
     return find_peaks(l_data) + find_valley(l_data)
 
 
-def x_draw(l_data):
+# def fill(i, j, l_data):
+#     end = 0
+#     s_graph = ''
+#     for point in range(j, len(l_data)):
+#         if i == l_data[point]:
+#             end = point
+#     if end > 0:
+#         for a in range(i, end):
+#             s_graph += ' 0 '
+#     return s_graph
+
+
+def y_draw(l_data):
+    x = [x for x in range(0, len(l_data))]
+    y = [y for y in range(max(l_data)+1, 0, -1)]
     print_out = ''
-    j = find_peaks(l_data)
-    rows = max(l_data) + 1
-    print(rows, '\n', '*'*50)
-    prev_num = j[0]
-    for i in range(rows, 0, -1):
-        for num in l_data:
-            if (num < prev_num) and (num < i):
-                print_out += ' O '
-            elif num >= i:
+    for i in y:
+        for j in x:
+            # if l_data[j-1] > l_data[j] and i <= l_data[j]:
+            #     print_out += fill(i, j, l_data)
+            if i <= l_data[j]:
                 print_out += ' X '
             else:
                 print_out += '   '
-            prev_num = num
         print_out += '\n'
-    return print_out
+    print(print_out)
 
 
-data = [1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 5, 6, 7, 8, 9, 8, 7, 6, 7, 8, 9]
+# data = [1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 5, 6, 7, 8, 9, 8, 7, 6, 7, 8, 9]
+data = [4,5,6,7,8,9,8,7,6,5,6,7,8,9,8,7,6,7,8,9,8,7,6,5,4,3,4,5,6,7,8]
 l_pv = peaks_and_valleys(data)
 l_pv.sort()
-print(x_draw(data))
+print(y_draw(data))
 print(data)
 print(l_pv)
