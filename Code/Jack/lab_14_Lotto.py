@@ -10,7 +10,7 @@ def make_Ticket():
     #     ls.append(randint(1, 99))
     #
     # return ls
-    return [randint(0, 99) for ls in range(6)]
+    return [randint(0, 99) for _ in range(6)]
 
 
 def winnings(num_matched):
