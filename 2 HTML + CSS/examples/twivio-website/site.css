@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css?family=Fugaz+One');
+
+.logo {
+    font-family: "Fugaz One", sans-serif;
+    font-size: 2rem;
+}
+
+.call-to-action {
+    color: white;
+    background: url("/aaa.jpg");
+    background-size: cover;
+    background-position: 50% 50%;
+
+    padding: 7em;
+}
+
+.call-to-action .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.call-to-action .display-2 {
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
+}
+
+.call-to-action .lead {
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 1em;
+    border-radius: 15px;
+}
+
+.lrlr .row {
+    display: flex;
+    align-items: center;
+}
+
+.lrlr-one {
+    background: #333;
+    color: #75AEB2;
+}
+
+.lrlr-two {
+    background: #C1FAFF;
+}
+
+.left, .right {
+    padding: 12em 3em;
+}
+
+.left h2, .right h2 {
+    font-family: "Fugaz One", sans-serif;
+    font-size: 3em;
+    letter-spacing: 2px;
+}
+
+.clients {
+    display: flex;
+    height: 50vh;
+    min-height: 400px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.clients img {
+    width: 300px;
+}
+
+footer {
+    background: #333;
+    color: white;
+
+    padding: 3em;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3em;
+}

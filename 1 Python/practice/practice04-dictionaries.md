@@ -40,6 +40,6 @@ average(combined) -> 2.2
 Average numbers whose keys start with the same letter. Output a dictionary containing those letters as keys and the averages.
 
 ```python
-d = {'a1':5, 'a2':2, 'a3':3, 'b1':10, 'b2':1, 'b3':1, 'c1':4, 'c2':5, 'c3':6}
+d = {'a1':4, 'a2':2, 'a3':3, 'b1':10, 'b2':1, 'b3':1, 'c1':4, 'c2':5, 'c3':6}
 unify(d) -> {'a':3, 'b':4, 'c':5}
 ```
