@@ -237,6 +237,21 @@ def common_set_elements(list1, list2):
     return list(set1 & set2)
 
 
+# Dict 2
+def average(d):
+    '''
+    :d: dict
+    returns the average of d's values
+    '''
+    # count = 0
+    # total = 0
+    # for key in d:
+    #     count += 1 
+    #     total += d[key]
+    # return float("{0:.2f}".format(total / count))
+
+    return float('{0:.2f}'.format(sum(d.values()) / len(d)))
+
 if __name__ == '__main__':
     # # Tests
     # print(is_even(5)) # → False
@@ -269,11 +284,14 @@ if __name__ == '__main__':
     # print(count_hi('wallaby')) # -> 0 
     # print(count_hi('')) # -> 0 
     # print(count_hi('high noon in ohio')) # -> 2
-    print(common_elements([1,2,3], [2,3,4,5])) # [2, 3]
-    print(common_elements([1,2,2,3,3,3,3], [2,3,3,4,5])) # [2, 3]
-    print(common_elements([1,2,3], [4,5,6])) # []
+    # print(common_elements([1,2,3], [2,3,4,5])) # [2, 3]
+    # print(common_elements([1,2,2,3,3,3,3], [2,3,3,4,5])) # [2, 3]
+    # print(common_elements([1,2,3], [4,5,6])) # []
 
-    print(common_set_elements([1,2,3], [2,3,4,5])) # [2, 3]
-    print(common_set_elements([1,2,2,3,3,3,3], [2,3,3,4,5])) # [2, 3]
-    print(common_set_elements([1,2,3], [4,5,6])) # []
+    # print(common_set_elements([1,2,3], [2,3,4,5])) # [2, 3]
+    # print(common_set_elements([1,2,2,3,3,3,3], [2,3,3,4,5])) # [2, 3]
+    # print(common_set_elements([1,2,3], [4,5,6])) # []
 
+    
+    combined = {'apple':1.2, 'banana':3.3, 'pear':2.1}
+    print(average(combined)) # -> 2.2
