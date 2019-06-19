@@ -14,8 +14,8 @@ def comb(ls1, ls2):
     return {dict(zip(ls1, ls2))}
 
 
-ls1 = ['a', 'b', 'c', 'd', 'e']
-ls2 = [1, 2, 3, 4, 5]
+# ls1 = ['a', 'b', 'c', 'd', 'e']
+# ls2 = [1, 2, 3, 4, 5]
 # print(comb(ls1, ls2))
 
 
@@ -56,20 +56,56 @@ def count_letter(letter, word):
 
 
 # print(count_letter('i', 'antidisestablishmentterianism'))  # 5
-# print(count_letter('p', 'pneumonoultramicroscopicsilicovolcanoconiosis'))  # 2
+# print(count_letter('p', 'pneumonoultramicroscopicsilicovolcanoconiosis'))  #2
 
 
 def common_elements(nums1, nums2):
-    # for num in nums1:
-        # if num in nums2:
-            # common.append(num)
 
-    return [num for num in nums1 if num in nums2]
+    # set1 = set(nums1)
+    # set2 = set(nums2)
 
-    # return [i for i in range(len(nums1)) if nums1[i] == nums2[i]]
+    # return [num for num in set(nums1) if num in set(nums2)]
+    return list(set(nums1) & set(nums2))
+
+    # a & b AND
+    # a | b OR
+    # a - b Diff
+    # a ^ b XOR
 
 
-ls1 = [1,2,3,4,5,6]
-ls2 = [2,2,2,4,4,6]
-print(ls1, ls2)
-print(f'the common elements between ls1 and ls2 are {common_elements(ls1, ls2)}')
+# ls1 = [1,2,3,4,5,6]
+# ls2 = [2,2,2,4,4,6]
+# print(ls1, ls2)
+# print(f'the common elements between ls1 and ls2 are {common_elements(ls2, ls1)}')
+
+
+# dict prac prob 1
+def combine(ls1, ls2):
+    # t_dict = {}
+    # for i in range(len(ls1)):
+    #     t_dict[ls1[i]] = ls2[i]
+    #
+    # return t_dict
+
+    return {ls1[i]: ls2[i] for i in range(len(ls1))}
+
+
+# fruits = ['apple', 'banana', 'pear']
+# prices = [1.2, 3.3, 2.1]
+# dict = combine(fruits, prices)
+# print(dict.items())
+
+
+# dict prac prob 2
+def average(d_in):
+    # f_avg = 0.0
+    # for f_val in d_in.values():
+    #     f_avg += f_val
+    # f_avg /= len(d_in.values())
+    #
+    # return f_avg
+
+    return float('{0:.2f}'.format(sum(d.values()) / len(d)))
+
+
+# print(average(dict))
