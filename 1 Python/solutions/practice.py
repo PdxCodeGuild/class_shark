@@ -119,7 +119,18 @@ def odds(n):
     # return nums
 
 
+def get_runtime(fn):
+    def timer(*args, **kwargs):        
+        start = clock()
+        result = fn(*args, **kwargs)
+        print(f'Completed {fn.__name__} in {clock() - start} s')
+        return result
+    
+    return timer
+
+
 # Lists 3 
+@get_runtime
 def eveneven(nums):
     '''
     :nums: list
@@ -131,7 +142,6 @@ def eveneven(nums):
     #     if item % 2 == 0:
     #         evens += 1
     # return evens % 2 == 0
-
     evens = []
     for i in nums:
         if int(i) % 2 == 0:
@@ -139,7 +149,7 @@ def eveneven(nums):
 
     return len(evens) % 2 == 0
 
-
+@get_runtime
 def eveneven_comprehension(nums):
     '''
     equivalent to the solution above
@@ -201,6 +211,47 @@ def count_hi(text):
     return count
 
 
+# Lists 7
+@get_runtime
+def common_elements(list1, list2):
+    '''
+    returns list of common elements between list1 and list2
+    '''
+    common = []
+    for item in list1:
+        if item in list2 and item not in common:
+            common.append(item)
+    return common
+
+    return [item for item in list1 if item in list2]
+
+
+@get_runtime
+def common_set_elements(list1, list2):
+    '''
+    set implementation of common_elements()
+    '''
+    set1 = set(list1)
+    set2 = set(list2)
+
+    return list(set1 & set2)
+
+
+# Dict 2
+def average(d):
+    '''
+    :d: dict
+    returns the average of d's values
+    '''
+    # count = 0
+    # total = 0
+    # for key in d:
+    #     count += 1 
+    #     total += d[key]
+    # return float("{0:.2f}".format(total / count))
+
+    return float('{0:.2f}'.format(sum(d.values()) / len(d)))
+
 if __name__ == '__main__':
     # # Tests
     # print(is_even(5)) # → False
@@ -221,13 +272,26 @@ if __name__ == '__main__':
     # print('loop done in: ',  clock() - start,  's')
     # start = clock()
     # print(eveneven_comprehension([5, 5, 2])) # → False
+
+    # print(get_runtime(eveneven([2,3,4])))
     # print('comprehension done in: ', clock() - start , 's')
     # k = ['a', 'b', 'c']
     # v = ['apples', 'beef', 'corn']
     # print(combine(k, v))
-    print(latest_letter('pneumonoultramicroscopicsilicovolcanoconiosis')) # -> 'v'
-    print(latest_letter('123')) # -> 'v'
-    print(count_hi('hihi')) # -> 2 
-    print(count_hi('wallaby')) # -> 0 
-    print(count_hi('')) # -> 0 
-    print(count_hi('high noon in ohio')) # -> 2
+    # print(latest_letter('pneumonoultramicroscopicsilicovolcanoconiosis')) # -> 'v'
+    # print(latest_letter('123')) # -> 'v'
+    # print(count_hi('hihi')) # -> 2 
+    # print(count_hi('wallaby')) # -> 0 
+    # print(count_hi('')) # -> 0 
+    # print(count_hi('high noon in ohio')) # -> 2
+    # print(common_elements([1,2,3], [2,3,4,5])) # [2, 3]
+    # print(common_elements([1,2,2,3,3,3,3], [2,3,3,4,5])) # [2, 3]
+    # print(common_elements([1,2,3], [4,5,6])) # []
+
+    # print(common_set_elements([1,2,3], [2,3,4,5])) # [2, 3]
+    # print(common_set_elements([1,2,2,3,3,3,3], [2,3,3,4,5])) # [2, 3]
+    # print(common_set_elements([1,2,3], [4,5,6])) # []
+
+    
+    combined = {'apple':1.2, 'banana':3.3, 'pear':2.1}
+    print(average(combined)) # -> 2.2
