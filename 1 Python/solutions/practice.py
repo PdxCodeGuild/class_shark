@@ -88,21 +88,6 @@ def missing_char(text):
     return missing
 
 
-def powers_of_two(n):
-    '''
-    :n: int
-
-    returns the n first powers of two
-    '''
-    return [2**i for i in range(n)]
-
-    # # equivalent to above
-    # nums = []
-    # for i in range(n):
-    #     nums.append(2**i)
-    # return nums
-
-
 def odds(n):
     '''
     :n: int
@@ -252,6 +237,55 @@ def average(d):
 
     return float('{0:.2f}'.format(sum(d.values()) / len(d)))
 
+
+# Comprehensions 1
+def powers_of_two(n):
+    '''
+    :n: int
+
+    returns the n first powers of two
+    '''
+    return [2**i for i in range(n)]
+    
+    # # equivalent to above
+    # nums = []
+    # for i in range(n):
+    #     nums.append(2**i)
+    # return nums
+
+    # # bitwise left shift operator
+    # return [1 << exp for exp in range(n)]
+
+
+# Comprehensions 2
+@get_runtime
+def evens(n):
+    '''
+    :n: int
+    returns the first n even numbers
+    '''
+    return [2*i for i in range(n)] # map
+    # # equivalent to above
+    # evens_list = []
+    # for i in range(n):
+    #     evens_list.append(2*i)    
+    # return evens_list
+
+    return [i for i in range(n*2) if i % 2 == 0] # filter
+    # # equivalent to above
+    # evens_list = []
+    # for i in range(n*2):
+    #     if i % 2 == 0:
+    #         evens_list.append(i)
+    # return evens_list
+
+
+
+@get_runtime
+def evens_range(n):
+    return list(range(0,20,2))
+
+
 if __name__ == '__main__':
     # # Tests
     # print(is_even(5)) # → False
@@ -293,5 +327,9 @@ if __name__ == '__main__':
     # print(common_set_elements([1,2,3], [4,5,6])) # []
 
     
-    combined = {'apple':1.2, 'banana':3.3, 'pear':2.1}
-    print(average(combined)) # -> 2.2
+    # combined = {'apple':1.2, 'banana':3.3, 'pear':2.1}
+    # print(average(combined)) # -> 2.2
+
+    print(powers_of_two(10))
+    print(evens(10))
+    print(evens_range(10))
