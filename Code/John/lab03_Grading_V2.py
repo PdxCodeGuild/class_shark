@@ -1,5 +1,5 @@
 # lab03_grading.py
-print('\nBy inputing your number grade you will see what your letter grade is.\n')
+print('\nBy inputing your number grade you will see what your letter grade is.')
 user_input = input('What is your number grade? >> ')
 user_input = int(user_input)
 user_input % 10
@@ -10,7 +10,7 @@ elif user_input % 10 > 5:
 else:
     out_suffix = ''
 if user_input > 100 or user_input < 0:
-    print(f'Invalid input, please try again.' )
+    print(f'Invalid input, please try again.')
 elif user_input >= 90:
     print(f'Your letter grade: A {out_suffix}')
 elif user_input >= 80:
