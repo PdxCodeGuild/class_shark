@@ -23,6 +23,16 @@ def ver_two(s):
     return d_word
 
 
+def ver_three(s, key_word):
+    td_d = {}
+    for i in range(len(s)-1):
+        if s[i] == key_word:
+            td_d[s[i+1]] = td_d.get(s[i+1], 0) + 1
+
+    return td_d
+
+
+
 def not_in_SW(s):
     return [word for word in s if word not in STOPWORDS]
 
@@ -34,9 +44,12 @@ def main():
         translator = str.maketrans('', '', punctuation)
         s = s.translate(translator)
         s = s.split()
-        tl_s = not_in_SW(s)
-        word_dict = ver_one(tl_s)
+        # tl_s = not_in_SW(s)
+        # word_dict = ver_one(tl_s)
         # word_dict = ver_two(tl_s)
+        key_word = input('Please enter word: ')
+        key_word = key_word.translate(translator)
+        word_dict = ver_three(s, key_word)
 
     # word_dict is a dictionary where the key is the word and the value is the count
         words = list(word_dict.items())  # .items() returns a list of tuples
