@@ -2,70 +2,70 @@
 
 import turtle
 
-#right arm
-turtle.setposition(0,0)
+# right arm
+turtle.setposition(0, 0)
 turtle.left(45)
 turtle.forward(35)
 
-#left arm
+# left arm
 turtle.penup()
-turtle.setposition(0,0)
+turtle.setposition(0, 0)
 turtle.pendown()
 turtle.left(90)
 turtle.forward(35)
 
 # body
 turtle.penup()
-turtle.setposition(0,35)
+turtle.setposition(0, 35)
 turtle.pendown()
 turtle.left(135)
 turtle.forward(70)
 
-#right leg
+# right leg
 turtle.left(45)
 turtle.forward(45)
 turtle.penup()
 
-#left leg
-turtle.setposition(0,-35)
+# left leg
+turtle.setposition(0, -35)
 turtle.pendown()
 turtle.right(90)
 turtle.forward(45)
 
-#left eye
+# left eye
 turtle.fillcolor('green')
 turtle.begin_fill()
 turtle.penup()
-turtle.setposition(-14,70)
+turtle.setposition(-14, 70)
 turtle.pendown()
 turtle.circle(5)
 turtle.end_fill()
 
-#right eye
+# right eye
 turtle.fillcolor('green')
 turtle.begin_fill()
 turtle.penup()
-turtle.setposition(8,70)
+turtle.setposition(8, 70)
 turtle.pendown()
 turtle.circle(5)
 turtle.end_fill()
 
-#mouth
+# mouth
 turtle.penup()
-turtle.setposition(-6,45)
+turtle.setposition(-6, 45)
 turtle.left(135)
 turtle.pendown()
 turtle.forward(20)
 
-#head
+# head
 turtle.penup()
-turtle.setposition(0,35)
+turtle.setposition(0, 35)
 turtle.pendown()
 turtle.circle(25)
 
-#nose
+# nose
 turtle.penup()
-turtle.setposition(-5,52)
+turtle.setposition(-5, 52)
 turtle.right(145)
 
 turtle.done()
