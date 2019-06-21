@@ -109,3 +109,23 @@ def average(d_in):
 
 
 # print(average(dict))
+
+
+def unify(d_in):
+
+    d_out = {}
+    for item in d_in:
+        count = 0
+        t_val = 0
+        for k in d_in:
+            if k.startswith(item[0]):
+                t_val += d_in[k]
+                count += 1
+        av = t_val / count
+        d_out.setdefault(item[0], av)
+
+    return d_out
+
+
+d = {'a1':4, 'a2':2, 'a3':3, 'b1':10, 'b2':1, 'b3':1, 'c1':4, 'c2':5, 'c3':6}
+print(unify(d))
