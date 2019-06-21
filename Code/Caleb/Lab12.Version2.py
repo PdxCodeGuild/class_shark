@@ -13,7 +13,7 @@ import random
 # Define a function, 'Version2' 
 def Version2():
     # Display Welcome Screen
-    print('Welcome to Version 1 of the Lab 12: Guess the Number. This is a game coded in python by Caleb Mealey.')
+    print('Welcome to Version 2 of the Lab 12: Guess the Number. This is a game coded in python by Caleb Mealey.')
     # Display Rules of the game
     print('In this game, the user will be given an unlimited amount of attempts to guess the number that the computer pseudo-randomly picked between 1-10. The computer will keep track of how many guesses the user has made, and tell them at the end.')
     # Declare a variable, 'x', set its value to be a pseudo-random integer selected between 1-10
