@@ -286,6 +286,35 @@ def evens_range(n):
     return list(range(0,20,2))
 
 
+# Dict 3
+def average_values(d):
+    '''
+    :d: dict
+    returns dict of average values for keys that start with the same letter
+    '''
+    sums = {}
+    count = {}
+
+    for key, val in d.items():
+        # print(count)
+        # print(key, key[0])
+        # if key[0] in sums:
+        #     sums[key[0]] += val
+        # else:
+        #     sums[key[0]] = val
+        # # equivalent to above
+        sums[key[0]] = sums.get(key[0], 0) + val
+        count[key[0]] = count.get(key[0], 0) + 1
+
+    # avgs = {}
+    # for key, val in sums.items():
+    #     avgs[key] = val / count[key]
+    # return avgs
+
+    # # equivalent to above for loop
+    return {key: val / count[key] for key, val in sums.items()}
+
+
 if __name__ == '__main__':
     # # Tests
     # print(is_even(5)) # → False
@@ -330,6 +359,11 @@ if __name__ == '__main__':
     # combined = {'apple':1.2, 'banana':3.3, 'pear':2.1}
     # print(average(combined)) # -> 2.2
 
-    print(powers_of_two(10))
-    print(evens(10))
-    print(evens_range(10))
+    # print(powers_of_two(10))
+    # print(evens(10))
+    # print(evens_range(10))
+
+    d = {'a1':4, 'a2':2, 'a3':3, 'b1':10, 'b2':1, 'b3':1, 'c1':4, 'c2':5, 'c3':6}
+    fruits = {'apples': 2, 'beef': 0.99, 'bananas': .67, 'cherries': 7, 'crawfish': 5}
+    print(average_values(d)) # -> {'a':3.0, 'b':4.0, 'c':5.0}
+    print(average_values(fruits)) # -> {'a':3.0, 'b':4.0, 'c':5.0}
