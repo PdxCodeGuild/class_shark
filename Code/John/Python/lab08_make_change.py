@@ -5,7 +5,7 @@ print("Let's convert your dollars to change!!! " + '\n')
 invalid = True
 while invalid:
     dollar_amount = float(input("How much money do you have? Remeber the correct decimal place please!! :"))
-    if dollar_amount %1 != 0:
+    if dollar_amount % 1 != 0:
         invalid = False
 
 dollar_amount *= 100

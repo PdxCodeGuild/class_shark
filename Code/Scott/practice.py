@@ -1,7 +1,6 @@
-x = 3000000
-y = 30000000
-print("\nOriginal Number: ", x)
-print("Formatted Number with comma separator: "+"{:,}".format(x))
-print("Original Number: ", y)
-print("Formatted Number with comma separator: "+"{:,}".format(y))
-print()
+d = [1, 3, 5, 7, 9] 
+
+for i in d:
+    i = i*5
+print(d)
+    

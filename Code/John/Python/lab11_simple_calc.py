@@ -16,7 +16,7 @@ while invalid_operator:
         if user_operation == "done":
             print("\n" + "Goodbye!!")
             print("-" * 109)
-            break   #using break as instructions said to
+            break   # using break as instructions said to
         else:
             num1 = None
             num2 = None

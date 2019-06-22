@@ -1,5 +1,5 @@
 import string
-
+from runtime import get_runtime as gt_r
 
 def comb(ls1, ls2):
     # d_tmp = {}
@@ -113,19 +113,52 @@ def average(d_in):
 
 def unify(d_in):
 
+    # d_out = {}
+    # for item in d_in:
+    #     count = 0
+    #     t_val = 0
+    #     for k in d_in:
+    #         if k.startswith(item[0]):
+    #             t_val += d_in[k]
+    #             count += 1
+    #     av = t_val / count
+    #     d_out.setdefault(item[0], av)
+    #
+    # return d_out
+
     d_out = {}
-    for item in d_in:
-        count = 0
-        t_val = 0
-        for k in d_in:
-            if k.startswith(item[0]):
-                t_val += d_in[k]
-                count += 1
-        av = t_val / count
-        d_out.setdefault(item[0], av)
+    count = {}
+    for key, val in d_in.items():
+        d_out[key[0]] = d_out.get(key[0], 0) + val
+        count[key[0]] = count.get(key[0], 0) + 1
 
-    return d_out
+    # for k, v in d_out.items():
+    #     d_out[key] = val / count[key]
+    # return d_out
+
+    return {key: val / count[key] for key, val in d_out.items()}
 
 
-d = {'a1':4, 'a2':2, 'a3':3, 'b1':10, 'b2':1, 'b3':1, 'c1':4, 'c2':5, 'c3':6}
-print(unify(d))
+# d = {'a1':4, 'a2':2, 'a3':3, 'b1':10, 'b2':1, 'b3':1, 'c1':4, 'c2':5, 'c3':6}
+# print(unify(d))
+
+@gt_r
+def find_pair(num, target):
+    # for i in range(len(num)):
+    #     for j in range(i+1, len(num)):
+    #         if num[i] + num[j] == target:
+    #             return [i, j]
+
+    for s1 in num:
+        s1_ind = num.index(s1)
+        match = target - s1
+        if match in num and num.index(match) != s1_ind:
+            print(s1, s1_ind)
+            return [s1_ind, num.index(match)]
+
+
+nums = [0 for i in range(1000)] + [5, 6, 2, 3, 4, 6, 8, 7, 9, 10]
+print(nums)
+target = 11
+sum1, sum2 = find_pair(nums, target)
+print(nums[sum1], '+', nums[sum2], '=', target)

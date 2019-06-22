@@ -32,10 +32,14 @@ def valleys():
             valley.append(i)
     return valley 
 
+x = peaks()
+y = valleys()
+combined = sorted(list(set(x) | set(y)))
 
 print(f"In the following list, {data}: ")
-print(f"The peaks are at {peaks()}.")
-print(f"The valleys are at {valleys()}.")
+print(f"The peaks are at {x}.")
+print(f"The valleys are at {y}.")
+print(f"the combined positions for peaks and valleys is {combined}.")
 
 
 
