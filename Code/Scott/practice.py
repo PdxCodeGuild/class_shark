@@ -1,6 +1,7 @@
-d = [1, 3, 5, 7, 9] 
+words = ['a', 'b', 'a', 'c', 'd']
+stopwords = ['a', 'c']
+for word in list(words):  # iterating on a copy since removing will mess things up
+    if word in stopwords:
+        words.remove(word)
 
-for i in d:
-    i = i*5
-print(d)
-    
+print(words)
