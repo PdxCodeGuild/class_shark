@@ -21,13 +21,13 @@ def peaks_and_valleys(l_data):
 def find_end(i, j, l_data):
     #        5  0
     end = 0
-    peak = l_data[j] # [0] = 5
+    peak = l_data[j]  # [0] = 5
     # print('col:', j, 'row:', i, end, peak)
     # check to see if 'peak' is less than next
-    j += 1 # [1] = 4
+    j += 1  # [1] = 4
     if peak >= l_data[j]:
         for itr in range(j, len(l_data)):
-            #1           1      12
+            # 1           1      12
             if l_data[itr] == peak:
                 end = itr
                 return end
@@ -63,6 +63,7 @@ def y_draw(l_data):
 data = [1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 5, 6, 7, 8, 9, 8, 7, 6, 7, 8, 9]
 # data = [4,5,6,7,8,9,8,7,6,5,6,7,8,9,8,7,6,7,8,9,8,7,6,5,4,3,4,5,6,7,8]
 # data = [5,4,3,4,5,6,5,4,3,2,3,4]
+# data = [1,2,3,4,5,6,7,8,9,8,7,6,5,4,3,2,1,2,3,4,5,4,3,2,1,2,3,4,5,6,7,8,9,8,7,6]
 l_pv = peaks_and_valleys(data)
 l_pv.sort()
 print(y_draw(data))
