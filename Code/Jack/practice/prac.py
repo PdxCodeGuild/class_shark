@@ -185,13 +185,12 @@ def combine_all(l_nest):
     #
     # return t_l_out
 
-
     # # comprehension
     # return [j for layer1 in l_nest for j in layer1]
 
 
 ###############################################################################
-    # this version will take in any number of nests within a list
+    # # this version will take in any number of nests within a list
     temp = []
     for layer1 in l_nest:
         if type(layer1) == type(l_nest):
@@ -201,5 +200,39 @@ def combine_all(l_nest):
     return temp
 
 
-num = [[[5, 2, 3], [4, 5, 1], [7, 6, 3]], [[5, 2, 3], [4, 5, 1], [7, 6, 3]], [[5, 2, 3], [4, 5, 1], [7, 6, 3]]]
-print(combine_all(num))
+# num = [[[5, 2, 3], [4, 5, 1], [7, 6, 3]], [[5, 2, 3], [4, 5, 1], [7, 6, 3]], [[5, 2, 3], [4, 5, 1], [7, 6, 3]]]
+# num = [[5, 2, 3], [4, 5, 1], [7, 6, 3]]
+# num = [[[[1,2], [3,4], [5,6]], [[1,2], [3,4], [5,6]], [[1,2], [3,4], [5,6]], [1,2], [3,4], [5,6]], [[[1,2], [3,4], [5,6]], [[1,2], [3,4], [5,6]], [[1,2], [3,4], [5,6]], [1,2], [3,4], [5,6]]]
+# print(combine_all(num))
+
+def outer():
+    x = 'here'
+
+    def inner():
+        x = 'inner'
+        print(x)
+
+    def inner2():
+        x = 'inner2'
+        print(x)
+
+    if x != 'here':
+        return inner
+    else:
+        return inner2
+
+
+def multiply(x):
+    def times(y):
+        return x * y
+    return times
+
+
+times_three = multiply(3)
+times_four = multiply(4)
+
+outer()()
+it = outer()
+it()
+print(times_three(10))
+print(times_four(10))
