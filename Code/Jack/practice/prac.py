@@ -1,4 +1,5 @@
 import string
+from random import randint
 from runtime import get_runtime as gt_r
 
 def comb(ls1, ls2):
@@ -149,16 +150,89 @@ def find_pair(num, target):
     #         if num[i] + num[j] == target:
     #             return [i, j]
 
-    for s1 in num:
-        s1_ind = num.index(s1)
-        match = target - s1
-        if match in num and num.index(match) != s1_ind:
-            print(s1, s1_ind)
-            return [s1_ind, num.index(match)]
+    # for s1 in num:
+    #     s1_ind = num.index(s1)
+    #     match = target - s1
+    #     if match in num and num.index(match) != s1_ind:
+    #         print(s1, s1_ind)
+    #         return [s1_ind, num.index(match)]
+
+    num_set = set(num)
+    for n in num_set:
+        if target - n in num_set and num.index(n) != num.index(target - n):
+            return [num.index(n), num.index(target - n)]
 
 
-nums = [0 for i in range(1000)] + [5, 6, 2, 3, 4, 6, 8, 7, 9, 10]
-print(nums)
-target = 11
-sum1, sum2 = find_pair(nums, target)
-print(nums[sum1], '+', nums[sum2], '=', target)
+# nums = [randint(0, 250) for i in range(1000)]
+# target = 11
+# sum1, sum2 = find_pair(nums, target)
+# print(nums[sum1], '+', nums[sum2], '=', target)
+
+
+def combine_all(l_nest):
+    '''
+    takes in nested list and unpacks it into a single list
+
+    >>> combine_all([[5, 2, 3], [4, 5, 1], [7, 6, 3]])
+    [5, 2, 3, 4, 5, 1, 7, 6, 3]
+
+    '''
+    # # writen out form of comprehension below
+    # t_l_out = []
+    # for layer1 in l_nest:
+    #     for layer2 in layer1:
+    #         t_l_out.append(layer2)
+    #
+    # return t_l_out
+
+    # # comprehension
+    # return [j for layer1 in l_nest for j in layer1]
+
+
+###############################################################################
+    # # this version will take in any number of nests within a list
+    temp = []
+    for layer1 in l_nest:
+        if type(layer1) == type(l_nest):
+            temp += combine_all(layer1)
+        else:
+            temp.append(layer1)
+    return temp
+
+
+# num = [[[5, 2, 3], [4, 5, 1], [7, 6, 3]], [[5, 2, 3], [4, 5, 1], [7, 6, 3]], [[5, 2, 3], [4, 5, 1], [7, 6, 3]]]
+# num = [[5, 2, 3], [4, 5, 1], [7, 6, 3]]
+# num = [[[[1,2], [3,4], [5,6]], [[1,2], [3,4], [5,6]], [[1,2], [3,4], [5,6]], [1,2], [3,4], [5,6]], [[[1,2], [3,4], [5,6]], [[1,2], [3,4], [5,6]], [[1,2], [3,4], [5,6]], [1,2], [3,4], [5,6]]]
+# print(combine_all(num))
+
+def outer():
+    x = 'here'
+
+    def inner():
+        x = 'inner'
+        print(x)
+
+    def inner2():
+        x = 'inner2'
+        print(x)
+
+    if x != 'here':
+        return inner
+    else:
+        return inner2
+
+
+def multiply(x):
+    def times(y):
+        return x * y
+    return times
+
+
+times_three = multiply(3)
+times_four = multiply(4)
+
+outer()()
+it = outer()
+it()
+print(times_three(10))
+print(times_four(10))
