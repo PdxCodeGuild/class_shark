@@ -535,6 +535,77 @@ def sum_combine_all(list_of_lists):
     return sum(list_of_lists, [])
 
 
+def minimum(nums):
+    '''
+    :nums: list of numbers
+    returns minimum of nums
+
+    >>> minimum([1,2,3,-9000,4])
+    -9000
+    '''
+    running_min = float('inf')
+    for num in nums:
+        if num < running_min:
+            running_min = num 
+    return running_min
+
+    return min(nums)
+
+
+def maximum(nums):
+    '''
+    :nums: list of numbers
+    returns maximum of nums
+
+    >>> maximum([1,20,3,4,5])
+    20
+    >>> maximum([-1,-20,-3,-4,-5])
+    -1
+    '''
+    return max(nums)
+
+
+def mean(nums):
+    '''
+    :nums: list of numbers
+    returns mean of nums
+
+    >>> mean([1,2,3,4,5]) == 3
+    True
+    '''
+    return sum(nums) / len(nums)
+
+
+def mode(nums):
+    '''
+    :nums: list of numbers
+    returns mode of nums (or list of modes if there are multiple)
+
+    >>> mode([1,2,2,3])
+    2
+    >>> mode([1,2,2,3,3])
+    [2, 3]
+    >>> mode([1,2,3])
+    >>> mode([1,1,2,2,3,3])
+    '''
+    count = {}
+    modes = []
+    largest_count = 0
+    for num in nums:
+        count[num] = count.get(num, 0) + 1
+        if count[num] > largest_count:
+            largest_count = count[num]
+            modes = [num]
+        elif count[num] == largest_count:
+            modes.append(num)
+
+    if len(modes) == 1:
+        return modes[0]
+    elif len(set(count.values())) > 1:
+        return modes
+    return None
+
+
 if __name__ == '__main__':
     combine_all([[0] for _ in range(10000)])
     extend_combine_all([[0] for _ in range(10000)])
