@@ -141,7 +141,7 @@ def odds(n):
 
 
 # Lists 3 
-@get_runtime
+# @get_runtime
 def eveneven(nums):
     '''
     :nums: list
@@ -149,7 +149,7 @@ def eveneven(nums):
     returns true if there is an even number of evens in nums
 
     >>> eveneven([5, 5, 2])
-    False    
+    False
     '''
     # evens = 0
     # for item in nums:
@@ -163,7 +163,7 @@ def eveneven(nums):
 
     return len(evens) % 2 == 0
 
-@get_runtime
+# @get_runtime
 def eveneven_comprehension(nums):
     '''
     equivalent to the solution above
@@ -324,7 +324,7 @@ def powers_of_two(n):
 
 
 # Comprehensions 2
-@get_runtime
+# @get_runtime
 def evens(n):
     '''
     :n: int
@@ -350,7 +350,7 @@ def evens(n):
 
 
 
-@get_runtime
+# @get_runtime
 def evens_range(n):
     return list(range(0,20,2))
 
@@ -398,7 +398,7 @@ def find_pair(nums, target):
     pass 
 
 
-# @get_runtime
+@get_runtime
 def brute_force_find_pair(nums, target):
     '''
     >>> brute_force_find_pair([5, 6, 2, 3], 7)
@@ -414,7 +414,7 @@ def brute_force_find_pair(nums, target):
     print(count, 'tries')
 
 
-# @get_runtime
+@get_runtime
 def optimized_brute_force_find_pair(nums, target):
     '''
     >>> optimized_brute_force_find_pair([5, 6, 2, 3], 7) 
@@ -496,6 +496,48 @@ def optimized_set_find_pair(nums, target):
     # return [[num, target - num] for num in num_set & diff_set]
 
 
+# List 11 
+@get_runtime
+def combine_all(list_of_lists):
+    '''
+    :list_of_lists: 2d list
+
+    returns list_of_lists flattened (1d list)
+
+    >>> combine_all([[5,2,3],[4,5,1],[7,6,3]]) == [5,2,3,4,5,1,7,6,3]
+    True
+    '''
+    ret = []
+    for inner_list in list_of_lists:
+        for item in inner_list:
+            ret.append(item)
+    return ret 
+
+
+# @get_runtime
+def extend_combine_all(list_of_lists):
+    ret = []
+    for inner_list in list_of_lists:
+        ret.extend(inner_list)
+    return ret
+
+
+# @get_runtime
+def concat_combine_all(list_of_lists):
+    ret = []
+    for inner_list in list_of_lists:
+        ret += inner_list
+    return ret
+
+
+# @get_runtime
+def sum_combine_all(list_of_lists):
+    return sum(list_of_lists, [])
+
+
 if __name__ == '__main__':
-    pass
+    combine_all([[0] for _ in range(10000)])
+    extend_combine_all([[0] for _ in range(10000)])
+    concat_combine_all([[0] for _ in range(10000)])
+    sum_combine_all([[0] for _ in range(10000)])
 
