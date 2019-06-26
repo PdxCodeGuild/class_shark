@@ -213,7 +213,7 @@ def outer():
         print(x)
 
     def inner2():
-        x = 'inner2'
+        nonlocal x
         print(x)
 
     if x != 'here':
@@ -231,8 +231,43 @@ def multiply(x):
 times_three = multiply(3)
 times_four = multiply(4)
 
-outer()()
-it = outer()
-it()
-print(times_three(10))
-print(times_four(10))
+# outer()()
+# it = outer()
+# it()
+# print(times_three(10))
+# print(times_four(10))
+
+
+def minimum(nums):
+    '''
+    >>> minimum([1, 2, 3, -9000, 0])
+    -9000
+    '''
+    return min(nums)
+
+
+def maximum(nums):
+    '''
+    >>> maximum([1, 2, 3, 9000, 0])
+    9000
+    '''
+    return max(nums)
+
+
+def mean(nums):
+    '''
+    >>> mean([1,2,3,4,5,6,6,6,5,4,3])
+    6
+    '''
+    return sum(nums)/len(nums)
+
+
+def mode(nums):
+    d = {}
+    for num in nums:
+        d[num] = d.get(num, 0) + 1
+    mode = max(d.values())
+    for k, v in d.items():
+        if v == mode:
+            return k
+    return None
