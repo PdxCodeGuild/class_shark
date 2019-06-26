@@ -1,3 +1,6 @@
+from termcolor import colored as c
+
+
 class crud_repl():
     '''
     class for viewing and modifying contact information on a csv file
@@ -36,13 +39,13 @@ class crud_repl():
         for i in self.contacts:
             print(i)
 
-    def get_contact(self, con):
+    def get_contact(self, name):
         '''
         returns contact as a dict, if contact is not found, returns empty
         '''
-        if con in self.contacts:
-            # print(self.contacts[con])
-            return self.contacts[con]
+        if name in self.contacts:
+            # print(self.contacts[name])
+            return self.contacts[name]
         else:
             print('contact not found:')
             return {'name': '', 'fav_food': '', 'fav_color': ''}
@@ -71,24 +74,102 @@ class crud_repl():
             print('record not found\n')
 
 
-crd = crud_repl()
-crd.pull_contacts()
-crd.view_contacts()
-n = 'Kipper'
-ff = 'burgers'
-fc = 'forest green'
-crd.update_contacts(n, ff, fc)
-crd.view_contacts()
-crd.remove_contact('Kipper')
-crd.view_contacts()
+# crd = crud_repl()
+# crd.pull_contacts()
+# crd.view_contacts()
+# n = 'Kipper'
+# ff = 'burgers'
+# fc = 'forest green'
+# crd.update_contacts(n, ff, fc)
+# crd.view_contacts()
+# crd.remove_contact('Kipper')
+# crd.view_contacts()
 # cur_con = crd.get_contact('Kip')
-crd.update_file()
+# crd.update_file()
 # crd.remove_contact('Kip')
 # crd.view_contacts()
 # print(crd.contacts.items())
+def create(object):
+    while True:
+        name = input('Name: ').strip().lower()
+        food = input('Favorite food: ').strip().lower()
+        color = input('Favorite color: ').strip().lower()
+        print(name, food, color)
+        ch = input('is this correct? y/n\n').strip().lower()
+        if ch.startswith('y'):
+            object.update_contacts(name, food, color)
+            break
+
+
+def retrieve(object):
+    object.view_contacts()
+    name = input('Name: ').strip().lower()
+    print(object.get_contact(name))
+
+
+def update_con(object):
+    object.view_contacts()
+    name = input('Name: ').strip().lower()
+    cur_con = object.get_contact(name)
+    print(cur_con[name]['name'], cur_con['fav_food'], cur_con['fav_color'])
+    print('what would you like to update?\n',
+          c('N', 'red'), 'ame\n',
+          c('F', 'red'), 'ood\n',
+          c('C', 'red'), 'olor')
+    ch = input().strip().lower()
+    if ch.startswith('n'):
+        n_name = input('New name: ').strip().lower()
+        object.update_contacts(n_name,
+                               cur_con[name]['fav_food'],
+                               cur_con[name]['fav_color'])
+    elif ch.startswith('f'):
+        pass
+    elif ch.startswith('c'):
+        pass
+    else:
+        print('incorrect input')
+    object.update_contacts(n_name,
+                           cur_con[name]['fav_food'],
+                           cur_con[name]['fav_color'])
+    cur_con.remove_contact(name)
+
+    food = input('New favorite food: ').strip().lower()
+    color = input('New favorite color: ').strip().lower()
+    print(name, food, color)
+    ch = input('is this correct? y/n\n').strip().lower()
+    if ch.startswith('y'):
+        object.update_contacts(name, food, color)
+        break
+
+
+def del_con(object):
+    pass
+
 
 def main():
-    pass
+    exit = False
+    while not exit:
+        con = crud_repl()
+        con.view_contacts()
+        print(c('C', 'red'), 'reate, ',
+              c('R', 'red'), 'etrieve, ',
+              c('U', 'red'), 'pdate, ',
+              c('D', 'red'), 'elete, or ',
+              c('E', 'red'), 'xit: ')
+        user_ch = input().strip().lower()
+        if user_ch.startswith('e'):
+            con.update_file()
+            exit = True
+        elif user_ch.startswith('c'):
+            create(con)
+        elif user.ch.startswith('r'):
+            retrieve(con)
+        elif user_ch.startswith('u'):
+            update_con(con)
+        elif user_ch.startswith('d'):
+            del_con(con)
+        else:
+            print('incorrect input')
 
 
 main()
