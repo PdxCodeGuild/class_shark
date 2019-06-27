@@ -271,3 +271,38 @@ def mode(nums):
         if v == mode:
             return k
     return None
+
+
+def fizz_buzz():
+    for i in range(100):
+        if i % 9 == 0:
+            print('Baz')
+        if i % 3 == 0 and i % 5 ==0:
+            print('FizzBuzz')
+        elif i % 3 == 0:
+            print('Fizz')
+        elif i % 5 == 0:
+            print('Buzz')
+        elif i % 7 == 0:
+            print('Fuzz')
+        else:
+            print(i)
+
+# fizz_buzz()
+
+
+def f_b(d_mult, rang=100):
+    for i in range(rang):
+        pr_o = ''
+        f_no_match = True
+        for mult in d_mult:
+            if i % mult == 0:
+                pr_o += d_mult[mult]
+                f_no_match = False
+        if f_no_match:
+            pr_o = str(i)
+        print(pr_o)
+
+
+mult = {3:'Fizz', 5:'Buzz', 7:'Fuzz', 9:'Baz'}
+f_b(mult)
