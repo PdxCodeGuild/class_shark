@@ -7,6 +7,7 @@ M-F 6:00PM – 9:30PM
 
 ## No class the following dates
 - **Thursday, July 4th**
+- **Friday, July 5th**
 - **Monday, Sept 2nd** (Labor Day)
 
 ## Labs Assigned
