@@ -606,9 +606,53 @@ def mode(nums):
     return None
 
 
+def fizzbuzz():
+    '''
+    Prints out each number from 1-100, where: 
+    - For each multiple of 3, print "Fizz" instead of the number. 
+    - For each multiple of 5, print "Buzz" instead of the number. 
+
+    For numbers which are multiples of both 3 and 5, print "FizzBuzz" instead of the number.    
+    '''
+    for i in range(100):
+        numstring = ''
+        if i % 3 == 0:
+            numstring += 'Fizz'
+        if i % 5 == 0:
+            numstring += 'Buzz'
+        
+        if not numstring:
+            numstring = i
+        print(numstring)
+
+
+def fizzbuzzfuzzbaz(multiples={3:'Fizz', 5:'Buzz', 7:'Fuzz', 9:'Baz'}, numrange=100):
+    '''
+    Prints out each number from 1-100, where: 
+    - For each multiple of 3, print "Fizz" instead of the number. 
+    - For each multiple of 5, print "Buzz" instead of the number. 
+    - For each multiple of 7, print "Fuzz" instead of the number. 
+    - For each multiple of 9, print "Baz" instead of the number. 
+
+    For numbers which are multiples of any of the above, join the strings.
+    For example, for 15 (multiple of 3 and 5), print "FizzBuzz" instead of the number   
+    '''
+    for i in range(1, numrange):
+        numstring = ''
+        for mult in multiples:
+            if i % mult == 0:
+                numstring += multiples[mult]
+        if not numstring:
+            numstring = i
+        print(numstring)
+
+
 if __name__ == '__main__':
-    combine_all([[0] for _ in range(10000)])
-    extend_combine_all([[0] for _ in range(10000)])
-    concat_combine_all([[0] for _ in range(10000)])
-    sum_combine_all([[0] for _ in range(10000)])
+    # combine_all([[0] for _ in range(10000)])
+    # extend_combine_all([[0] for _ in range(10000)])
+    # concat_combine_all([[0] for _ in range(10000)])
+    # sum_combine_all([[0] for _ in range(10000)])
+
+    fizzbuzz()
+    fizzbuzzfuzzbaz()
 
