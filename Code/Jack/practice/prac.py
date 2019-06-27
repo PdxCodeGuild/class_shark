@@ -274,7 +274,7 @@ def mode(nums):
 
 
 def fizz_buzz():
-    for i in range(100):
+    for i in range(1, 101):
         if i % 9 == 0:
             print('Baz')
         if i % 3 == 0 and i % 5 ==0:
@@ -291,18 +291,16 @@ def fizz_buzz():
 # fizz_buzz()
 
 
-def f_b(d_mult, rang=100):
-    for i in range(rang):
+def f_b(d_mult, rang=101):
+    for i in range(1, rang):
         pr_o = ''
-        f_no_match = True
         for mult in d_mult:
             if i % mult == 0:
                 pr_o += d_mult[mult]
-                f_no_match = False
-        if f_no_match:
-            pr_o = str(i)
+        if not pr_o:
+            pr_o = i
         print(pr_o)
 
 
-mult = {3:'Fizz', 5:'Buzz', 7:'Fuzz', 9:'Baz'}
+mult = {3: 'Fizz', 5: 'Buzz', 7: 'Fuzz', 9: 'Baz'}
 f_b(mult)
