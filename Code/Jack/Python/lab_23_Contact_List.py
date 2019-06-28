@@ -21,15 +21,23 @@ class crud_repl():
         '''
         with open(self.source_file, 'r') as file:
             lines = file.read().split('\n')
+
         for i in range(len(lines)):
             lines[i] = lines[i].replace(' ', '')
         lines.pop()
-        rows = [item.split(',') for item in lines]
-        self.headings = rows[0]
-        for i in range(1, len(rows)):
-            contact = dict(zip(self.headings, rows[i]))
-            # self.contacts[rows[0]] = [rows[1], rows[2]]
+        self.headings = lines[0].split(',')
+        for i in range(1, len(lines)):
+            row = lines[i].split(',')
+            contact = dict(zip(self.headings, row))
             self.contacts[contact['name']] = contact
+
+        # # This one has two for loops the above has only one:
+        # rows = [item.split(',') for item in lines]
+        # self.headings = rows[0]
+        # for i in range(1, len(rows)):
+        #     contact = dict(zip(self.headings, rows[i]))
+        #     # self.contacts[rows[0]] = [rows[1], rows[2]]
+        #     self.contacts[contact['name']] = contact
 
     def view_contacts(self):
         '''
@@ -43,28 +51,34 @@ class crud_repl():
         '''
         returns contact as a dict, if contact is not found, returns empty
         '''
-        if name in self.contacts:
-            # print(self.contacts[name])
-            return self.contacts[name]
-        else:
-            print('contact not found:')
-            return {'name': '', 'fav_food': '', 'fav_color': ''}
+        return self.contacts.get(name, 'contact not found:')
 
-    def update_contacts(self, name, fav_food, fav_color):
-        '''
-        updates contacts csv file
-        '''
+    # def update_contacts_v1(self, name, fav_food, fav_color):
+    #     '''
+    #     creates new contact, if 'updating' be sure to 'remove' old contact
+    #     '''
+    #     self.contacts.update({name: dict(zip(self.headings,
+    #                                          [name, fav_food, fav_color]))})
 
-        self.contacts.update({name: dict(zip(self.headings,
-                                             [name, fav_food, fav_color]))})
+    def update_contacts(self, name, details):
+        self.contacts[name].update(details)
+
+    def add_contact(self, contact):
+        '''
+        creates new contact, if 'updating' be sure to 'remove' old contact
+        '''
+        self.contacts[contact['name']] = contact
 
     def update_file(self):
-        lines = 'name, fav_food, fav_color\n'
+        lines = [','.join(self.headings)]
+        # for item in self.contacts:
+        #     lines += (self.contacts[item]['name'] + ', ' +
+        #               self.contacts[item]['fav_food'] + ', ' +
+        #               self.contacts[item]['fav_color'] + '\n')
         for item in self.contacts:
-            lines += (self.contacts[item]['name'] + ', ' +
-                      self.contacts[item]['fav_food'] + ', ' +
-                      self.contacts[item]['fav_color'] + '\n')
-        with open(self.source_file, 'w') as file:
+            lines.append(','.join(self.contacts[item].values()))
+        lines = '\n'.join(lines)
+        with open('./Resources/contacts2.csv', 'w') as file:
             file.write(lines)
 
     def remove_contact(self, name):
@@ -74,21 +88,24 @@ class crud_repl():
             print('record not found\n')
 
 
-# crd = crud_repl()
-# crd.pull_contacts()
-# crd.view_contacts()
-# n = 'Kipper'
-# ff = 'burgers'
-# fc = 'forest green'
-# crd.update_contacts(n, ff, fc)
-# crd.view_contacts()
+crd = crud_repl()
+crd.pull_contacts()
+crd.view_contacts()
+n = 'Kipper'
+ff = 'burgers'
+fc = 'forest green'
+# crd.update_contacts(n,{'name':n, 'fav_food':ff, 'fav_color':fc})
+crd.add_contact({'name': n, 'fav_food': ff, 'fav_color': fc})
+crd.view_contacts()
 # crd.remove_contact('Kipper')
 # crd.view_contacts()
 # cur_con = crd.get_contact('Kip')
-# crd.update_file()
+crd.update_file()
 # crd.remove_contact('Kip')
 # crd.view_contacts()
 # print(crd.contacts.items())
+
+
 def create(object):
     while True:
         name = input('Name: ').strip().lower()
@@ -108,30 +125,33 @@ def retrieve(object):
 
 
 def update_con(object):
-    object.view_contacts()
-    name = input('Name: ').strip().lower()
-    cur_con = object.get_contact(name)
-    print(cur_con[name]['name'], cur_con['fav_food'], cur_con['fav_color'])
-    print('what would you like to update?\n',
-          c('N', 'red'), 'ame\n',
-          c('F', 'red'), 'ood\n',
-          c('C', 'red'), 'olor')
-    ch = input().strip().lower()
-    if ch.startswith('n'):
-        n_name = input('New name: ').strip().lower()
-        object.update_contacts(n_name,
-                               cur_con[name]['fav_food'],
-                               cur_con[name]['fav_color'])
-    elif ch.startswith('f'):
-        pass
-    elif ch.startswith('c'):
-        pass
-    else:
-        print('incorrect input')
-    object.update_contacts(n_name,
-                           cur_con[name]['fav_food'],
-                           cur_con[name]['fav_color'])
-    cur_con.remove_contact(name)
+    '''
+    updates any field within contacts.
+    will update field, create new contact, delete old contact
+    '''
+    while True:
+        object.view_contacts()
+        name = input('Name: ').strip().lower()
+        cur_con = object.get_contact(name)
+        prev_name = name
+        food = cur_con['fav_food']
+        color = cur_con['fav_color']
+        print(cur_con[name]['name'], cur_con['fav_food'], cur_con['fav_color'])
+        print('what would you like to update?\n',
+              c('N', 'red'), 'ame\n',
+              c('F', 'red'), 'ood\n',
+              c('C', 'red'), 'olor')
+        ch = input().strip().lower()
+        if ch.startswith('n'):
+            name = input('New name: ').strip().lower()
+        elif ch.startswith('f'):
+            food = input('New favorite food: ').strip().lower()
+        elif ch.startswith('c'):
+            color = input('New favorite color: ').strip().lower()
+        else:
+            print('incorrect input')
+    cur_con.remove_contact(prev_name)
+    object.update_contacts(name, food, color)
 
     food = input('New favorite food: ').strip().lower()
     color = input('New favorite color: ').strip().lower()
@@ -139,7 +159,7 @@ def update_con(object):
     ch = input('is this correct? y/n\n').strip().lower()
     if ch.startswith('y'):
         object.update_contacts(name, food, color)
-        break
+        # break
 
 
 def del_con(object):
@@ -147,29 +167,57 @@ def del_con(object):
 
 
 def main():
+    # exit = False
+    # while not exit:
+    #     con = crud_repl()
+    #     con.view_contacts()
+    #     print(c('C', 'red'), 'reate, ',
+    #           c('R', 'red'), 'etrieve, ',
+    #           c('U', 'red'), 'pdate, ',
+    #           c('D', 'red'), 'elete, or ',
+    #           c('E', 'red'), 'xit: ')
+    #     user_ch = input().strip().lower()
+    #     if user_ch.startswith('e') or user_ch == 'x':
+    #         con.update_file()
+    #         exit = True
+    #     elif user_ch.startswith('c'):
+    #         create(con)
+    #     elif user_ch.startswith('r'):
+    #         retrieve(con)
+    #     elif user_ch.startswith('u'):
+    #         update_con(con)
+    #     elif user_ch.startswith('d'):
+    #         del_con(con)
+    #     else:
+    #         print('incorrect input')
+
+    con = crud_repl()
+    con.view_contacts()
+    commands = [
+        'c', 'create',
+        'r', 'retrieve',
+        'u', 'update',
+        'd', 'delete',
+        'h', 'help',
+        'l', 'list',
+        'x', 'exit'
+    ]
     exit = False
     while not exit:
-        con = crud_repl()
-        con.view_contacts()
-        print(c('C', 'red'), 'reate, ',
-              c('R', 'red'), 'etrieve, ',
-              c('U', 'red'), 'pdate, ',
-              c('D', 'red'), 'elete, or ',
-              c('E', 'red'), 'xit: ')
-        user_ch = input().strip().lower()
-        if user_ch.startswith('e'):
+        while True:
+            cmd = input('(c)reate, (r)etrieve, (u)pdate, (d)elete, (l)ist, or e(x)it: ').lower().strip()
+            if cmd in commands:
+                break
+        if cmd.startswith('e') or cmd == 'x':
             con.update_file()
             exit = True
-        elif user_ch.startswith('c'):
+        elif cmd.startswith('c'):
             create(con)
-        elif user.ch.startswith('r'):
+        elif cmd.startswith('r'):
             retrieve(con)
-        elif user_ch.startswith('u'):
+        elif cmd.startswith('u'):
             update_con(con)
-        elif user_ch.startswith('d'):
+        elif cmd.startswith('d'):
             del_con(con)
-        else:
-            print('incorrect input')
 
-
-main()
+# main()
