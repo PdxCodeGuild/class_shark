@@ -109,20 +109,57 @@ def repl():
     '''
     REPL user interface
     '''
+    headers = ['name', 'age', 'job']
     contact_list = read_csv('contact_list.csv')
-    print_all(contact_list)
-    print(read(contact_list, 'bobra'))
-    print(read(contact_list, 'bobrah'))
-    print(delete(contact_list, 'bobra'))
-    print_all(contact_list)
-    print(delete(contact_list, 'bobrah'))
-    print_all(contact_list)
-    print(create(contact_list, {'name': 'rabob', 'age':'600000', 'job': 'embrolmber'}))
-    print_all(contact_list)
-    print(update(contact_list, 'rabob', {'job': 'captain embrholmhber'}))
-    print_all(contact_list)
-    print(update(contact_list, 'rabobra', {'job': 'captain embrholmhber'}))
-    write_csv(contact_list, ['name', 'age', 'job'], 'contact_list2.csv')
+    commands = [
+        'c', 'create',
+        'r', 'read',
+        'u', 'update',
+        'd', 'delete',
+        'h', 'help',
+        'l', 'list',
+        'x', 'exit'
+    ]
+    help_msg = '(c)reate, (r)ead, (u)pdate, (d)elete, (l)ist, or e(x)it'
+    loop = True
+    print('Welcome to your contact list')
+    print(help_msg)
+    while loop:
+        while True:
+            cmd = input('>').strip().lower()
+            if cmd in commands:
+                break
+            print(help_msg)
+
+        if cmd.startswith('c'):
+            contact = {}
+            for key in headers:
+                val = input(f'{key}: ')
+                contact[key] = val
+            print(create(contact_list, contact))
+        elif cmd in ['r', 'read', 'u', 'update', 'd', 'delete']:
+            name = input('Name: ')
+            if cmd.startswith('r'):
+                read(contact_list, name)
+                print_contact(contact_list, name)
+            elif cmd.startswith('u'):
+                print('Enter updated values, or leave blank for original.')            
+                details = {}
+                for key in headers:
+                    val = input(f'{key}: ')
+                    if val:
+                        details[key] = val
+                print(update(contact_list, name, details))                        
+            elif cmd.startswith('d'):
+                print(delete(contact_list, name))
+        elif cmd.startswith('h'):
+            print(help_msg)
+        elif cmd.startswith('l'):
+            print_all(contact_list)
+        else:
+            loop = False
+            print('Saving to file...')
+            write_csv(contact_list, headers, 'contact_list.csv')
 
 
 if __name__ == '__main__':
