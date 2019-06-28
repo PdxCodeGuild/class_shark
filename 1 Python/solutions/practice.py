@@ -646,6 +646,40 @@ def fizzbuzzfuzzbaz(multiples={3:'Fizz', 5:'Buzz', 7:'Fuzz', 9:'Baz'}, numrange=
             numstring = i
         print(numstring)
 
+@get_runtime
+def plus_one(digits):
+    '''
+    :digits: list of digits representing one number (e.g. [1,2,3] represents the number 123)
+    returns list of digits plus one
+    
+    >>> plus_one([1,2,3]) # returns [1,2,4], because 123+1 = 124
+    [1, 2, 4]
+    >>> plus_one([1,2,9]) # returns [1,3,0] because 129+1 = 130
+    [1, 3, 0]
+    '''
+    # str_num = ''
+    # list_num = []
+    # for num in digits:
+    #     str_num += str(num)
+    # sum_num = int(str_num) + 1
+    # for digit in str(sum_num):
+    #     list_num.append(int(digit))
+    # return list_num
+
+    str_num = ''.join([str(digit) for digit in digits])
+    return [int(digit) for digit in str(int(str_num)+1)]
+
+@get_runtime
+def old_fashioned_plus_one(digits):
+    digits = digits[:]
+    carry = 1
+    for i in range(len(digits)-1, -1, -1):
+        digit_sum = digits[i] + carry
+        remainder = digit_sum % 10
+        carry = digit_sum // 10
+        digits[i] = remainder
+    return digits
+
 
 if __name__ == '__main__':
     # combine_all([[0] for _ in range(10000)])
@@ -653,6 +687,9 @@ if __name__ == '__main__':
     # concat_combine_all([[0] for _ in range(10000)])
     # sum_combine_all([[0] for _ in range(10000)])
 
-    fizzbuzz()
-    fizzbuzzfuzzbaz()
-
+    # fizzbuzz()
+    # fizzbuzzfuzzbaz()
+    digits = [9 for _ in range(10000)]
+    plus_one(digits)
+    old_fashioned_plus_one(digits)
+    # print(digits)
