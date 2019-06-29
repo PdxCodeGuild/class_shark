@@ -1,14 +1,27 @@
 class Player():
+    '''
+    Player object
+    '''
+    # TODO implement betting mechanic
 
     NAME = ''
 
-    def __init__(self):
+    def __init__(self, *args):
+        '''
+        trying to overload init func to take player name or not
+        '''
+        # TODO add starting money/ points
         self.hand = []
+        if args:
+            self.NAME = args[0]
 
     def __repr__(self):
         return str(self.hand)
 
     def set_name(self, name):
+        '''
+        secondary method if init is not used for naming
+        '''
         self.NAME = name
 
     def score(self):
@@ -19,7 +32,11 @@ class Player():
 
         return sum([card.value for card in self.hand])
 
-    def add(self, card):
+    def take_card(self, card):
+        '''
+        takes in card object
+        '''
+        # TODO add card obj type check?
         self.hand.append(card)
 
 
