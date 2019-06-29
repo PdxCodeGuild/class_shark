@@ -7,6 +7,13 @@ Open/modify/save contact list as csv file
 - Uses REPL user interface to allow CRUD (create, read, update, delete) methods on contact list
 - Saves contact list dictionary back into csv file.
 '''
+class InvalidContactListException(Exception):
+    def __init__(self):
+        super().__init__()
+        self.msg = 'Not a valid ContactList object'
+
+    def __repr__(self):
+        return self.msg
 
 class ContactList:
     def __init__(self, filename=None, headers=None):
@@ -15,6 +22,49 @@ class ContactList:
         else:
             self.contacts = {}
             self.headers = headers
+
+    def __str__(self):
+        str_repr = '-'*60 + '\n'
+        for contact in self.contacts:
+            str_repr += self.contact_to_str(contact) + '-'*60 + '\n'
+        return str_repr
+
+    def __eq__(self, contact_list):
+        if type(contact_list) is ContactList:
+            return self.contacts == contact_list.contacts
+        return False
+
+    def __len__(self):
+        return len(self.contacts)
+
+    def __contains__(self, element):
+        return element in self.contacts
+
+    def __getitem__(self, key):
+        return self.contacts[key]
+
+    def __add__(self, element):
+        if type(element) is ContactList or type(element) is dict:
+            temp = self.contacts.copy()
+            if type(element) is ContactList:
+                temp.update(element.contacts)
+            elif type(element) is dict:
+                temp = ContactList(headers=self.headers)
+                temp.contacts = self.contacts
+                temp.create(element)
+            return temp
+        else:
+            raise InvalidContactListException
+
+    def __iadd__(self, element):
+        if type(element) is ContactList:
+            self.contacts.update(element.contacts)
+            return self
+        elif type(element) is dict:
+            self.create(element)
+            return self
+        else:
+            raise InvalidContactListException
 
     def read_csv(self, filename):
         '''
@@ -97,12 +147,6 @@ class ContactList:
         str_repr = ''
         for key, val in self.contacts[name].items():
             str_repr += f'{key}: {val}' + '\n'
-        return str_repr
-
-    def __str__(self):
-        str_repr = '-'*60 + '\n'
-        for contact in self.contacts:
-            str_repr += self.contact_to_str(contact) + '-'*60 + '\n'
         return str_repr
 
 
