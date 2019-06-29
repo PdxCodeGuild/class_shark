@@ -15,7 +15,7 @@ class Card:
     def __init__(self, rank, suit):
         self.rank = rank
         self.suit = suit
-        self.value = self.VALUES[rank]
+        self.value = self.VALUES.get(rank)
 
     def __repr__(self):
         return f'Card({self.rank}, {self.suit})'
