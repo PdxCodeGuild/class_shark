@@ -36,8 +36,8 @@ class Deck:
 
     def __init__(self):
         # self.cards = []
-        # for suit in self.SUITS:
-        #     for rank in self.RANKS:
+        # for suit in self.SUITS: # loops 4x
+        #     for rank in self.RANKS: # loops 4 * 13 = 52x
         #         self.cards.append(Card(rank, suit))
         self.cards = [Card(rank, suit) for suit in self.SUITS for rank in self.RANKS]
 
