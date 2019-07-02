@@ -30,7 +30,6 @@ class Deck:
     '''
     Represents a deck of poker cards
     '''
-
     RANKS = ['A'] + list(range(2, 11)) + list('JQK')
     SUITS = ['Clubs', 'Diamonds', 'Hearts', 'Spades']
 
@@ -56,6 +55,9 @@ class Deck:
     def draw(self):
         return self.cards.pop()
 
+    def cut(self, index):
+        self.cards = self.cards[index:] + self.cards[:index]
+                     # move top         to          bottom
 
 if __name__ == '__main__':
     # tests
