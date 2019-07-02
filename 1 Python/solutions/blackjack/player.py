@@ -1,7 +1,15 @@
-# player.py
+'''
+player.py
+
+Player and Dealer models for Blackjack
+'''
 from deck import Deck, Card
 
 class Player:
+    '''
+    Represents a player in blackjack
+    '''
+
     def __init__(self):
         self.hand = []
 
@@ -21,6 +29,11 @@ class Player:
 
 
 class Dealer(Player):
+    '''
+    Represents the dealer in blackjack
+    Extends the player class but keeps the first card in its hand hidden
+    '''
+
     def __init__(self):
         super().__init__()
 
@@ -36,6 +49,7 @@ class Dealer(Player):
 
 
 if __name__ == '__main__':
+    # tests
     deck = Deck()
     deck.shuffle()
     p = Player()

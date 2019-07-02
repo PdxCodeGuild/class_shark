@@ -1,14 +1,19 @@
 '''
 deck.py
 
-Deck model
+Deck and Card models
 '''
 from random import shuffle
 
 class Card:
+    '''
+    Represents a poker card
+    '''
+
     # values = {'A':10}
     # values.update({i:i for i in range(2, 11)})
     # values.update({face: 10 for face in 'JQK'})
+
     # # equivalent to above
     VALUES = {'A':10, **{i:i for i in range(2, 11)}, **{face: 10 for face in 'JQK'}}
 
@@ -22,6 +27,10 @@ class Card:
 
 
 class Deck:
+    '''
+    Represents a deck of poker cards
+    '''
+
     RANKS = ['A'] + list(range(2, 11)) + list('JQK')
     SUITS = ['Clubs', 'Diamonds', 'Hearts', 'Spades']
 
@@ -49,6 +58,7 @@ class Deck:
 
 
 if __name__ == '__main__':
+    # tests
     deck = Deck()
     print(deck)
     print(deck.draw())
