@@ -1,16 +1,18 @@
 class Player():
     '''
     Player object
-    '''
+
     # TODO implement betting mechanic
+    '''
 
     NAME = ''
 
     def __init__(self, *args):
         '''
         trying to overload init func to take player name or not
-        '''
+
         # TODO add starting money/ points
+        '''
         self.hand = []
         if args:
             self.NAME = args[0]
@@ -35,13 +37,16 @@ class Player():
     def take_card(self, card):
         '''
         takes in card object
-        '''
+
         # TODO add card obj type check?
+        '''
         self.hand.append(card)
 
 
 class Dealer(Player):
-    """docstring forDealer."""
+    """docstring for Dealer.
+        extends player, overwrites player repr to hide first card
+    """
 
     def __init__(self):
         super().__init__()
