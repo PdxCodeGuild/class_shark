@@ -606,9 +606,108 @@ def mode(nums):
     return None
 
 
-if __name__ == '__main__':
-    combine_all([[0] for _ in range(10000)])
-    extend_combine_all([[0] for _ in range(10000)])
-    concat_combine_all([[0] for _ in range(10000)])
-    sum_combine_all([[0] for _ in range(10000)])
+def fizzbuzz():
+    '''
+    Prints out each number from 1-100, where: 
+    - For each multiple of 3, print "Fizz" instead of the number. 
+    - For each multiple of 5, print "Buzz" instead of the number. 
 
+    For numbers which are multiples of both 3 and 5, print "FizzBuzz" instead of the number.    
+    '''
+    for i in range(100):
+        numstring = ''
+        if i % 3 == 0:
+            numstring += 'Fizz'
+        if i % 5 == 0:
+            numstring += 'Buzz'
+        
+        if not numstring:
+            numstring = i
+        print(numstring)
+
+
+def fizzbuzzfuzzbaz(multiples={3:'Fizz', 5:'Buzz', 7:'Fuzz', 9:'Baz'}, numrange=100):
+    '''
+    Prints out each number from 1-100, where: 
+    - For each multiple of 3, print "Fizz" instead of the number. 
+    - For each multiple of 5, print "Buzz" instead of the number. 
+    - For each multiple of 7, print "Fuzz" instead of the number. 
+    - For each multiple of 9, print "Baz" instead of the number. 
+
+    For numbers which are multiples of any of the above, join the strings.
+    For example, for 15 (multiple of 3 and 5), print "FizzBuzz" instead of the number   
+    '''
+    for i in range(1, numrange):
+        numstring = ''
+        for mult in multiples:
+            if i % mult == 0:
+                numstring += multiples[mult]
+        if not numstring:
+            numstring = i
+        print(numstring)
+
+@get_runtime
+def plus_one(digits):
+    '''
+    :digits: list of digits representing one number (e.g. [1,2,3] represents the number 123)
+    returns list of digits plus one
+    
+    >>> plus_one([1,2,3]) # returns [1,2,4], because 123+1 = 124
+    [1, 2, 4]
+    >>> plus_one([1,2,9]) # returns [1,3,0] because 129+1 = 130
+    [1, 3, 0]
+    '''
+    # str_num = ''
+    # list_num = []
+    # for num in digits:
+    #     str_num += str(num)
+    # sum_num = int(str_num) + 1
+    # for digit in str(sum_num):
+    #     list_num.append(int(digit))
+    # return list_num
+
+    str_num = ''.join([str(digit) for digit in digits])
+    return [int(digit) for digit in str(int(str_num)+1)]
+
+@get_runtime
+def old_fashioned_plus_one(digits):
+    digits = digits[:]
+    carry = 1
+    for i in range(len(digits)-1, -1, -1):
+        digit_sum = digits[i] + carry
+        remainder = digit_sum % 10
+        carry = digit_sum // 10
+        digits[i] = remainder
+    return digits
+
+
+class Dog:
+    def __init__(self, name, breed, age):
+        self.name = name
+        self.breed = breed
+        self.age = age 
+
+    def bark(self):
+        return f'{self.name}: woof'
+
+
+    def __add__(self, dog2):
+        # self + dog2
+        # self.__add__(dog2)
+        temp_breed = self.breed[:len(self.breed)//2] + dog2.breed[len(dog2.breed)//2:] 
+        # temp_breed = self.breed[0:len(self.breed)//2] + dog2.breed[len(dog2.breed)//2:len(dog2.breed)] 
+        #                         '(Labr)ador'                      'Poo(dle)'
+        return Dog('Pup', temp_breed, 'Puppy')
+
+if __name__ == '__main__':
+    # combine_all([[0] for _ in range(10000)])
+    # extend_combine_all([[0] for _ in range(10000)])
+    # concat_combine_all([[0] for _ in range(10000)])
+    # sum_combine_all([[0] for _ in range(10000)])
+
+    # fizzbuzz()
+    # fizzbuzzfuzzbaz()
+    digits = [9 for _ in range(10000)]
+    plus_one(digits)
+    old_fashioned_plus_one(digits)
+    # print(digits)
