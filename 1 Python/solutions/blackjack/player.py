@@ -11,14 +11,24 @@ class Player:
     '''
 
     def __init__(self):
+        '''
+        Initializes player with empty hand list
+        '''
         self.hand = []
         self.stay = False
         self.busted = False
 
     def __repr__(self):
+        '''
+        Returns string representation of hand
+        '''
         return str(self.hand)
 
     def score(self):
+        '''
+        Returns sum of card values in hand
+        Starts out with ace high. If busted, reduce ace to low as need.
+        '''
         points = 0
         aces = 0
         for card in self.hand:
@@ -36,6 +46,9 @@ class Player:
         # return sum([card.value for card in self.hand])
 
     def add(self, card):
+        '''
+        Adds card to hand
+        '''
         self.hand.append(card)
 
 
@@ -46,16 +59,28 @@ class Dealer(Player):
     '''
 
     def __init__(self):
+        '''
+        Initializes dealer with empty hand
+        '''
         super().__init__()
 
     def __repr__(self):
+        '''
+        Returns string representation of hand with the first card hidden
+        '''
         visible_cards = [Card('Hidden', 'Hidden'), self.hand[1:]]
         return str(visible_cards)        
 
     def reveal(self):
+        '''
+        Calls superclass's __repr__() to show all cards in hand
+        '''
         return super().__repr__()
 
     def visible_score(self):
+        '''
+        Returns sum of all visible cards in hand
+        '''
         return sum([card.value for card in self.hand[1:]])
 
 
