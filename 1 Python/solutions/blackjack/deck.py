@@ -15,7 +15,7 @@ class Card:
     # values.update({face: 10 for face in 'JQK'})
 
     # # equivalent to above
-    VALUES = {'A':10, **{i:i for i in range(2, 11)}, **{face: 10 for face in 'JQK'}}
+    VALUES = {'A':11, **{i:i for i in range(2, 11)}, **{face: 10 for face in 'JQK'}}
 
     def __init__(self, rank, suit):
         self.rank = rank

@@ -12,17 +12,28 @@ class Player:
 
     def __init__(self):
         self.hand = []
+        self.stay = False
+        self.busted = False
 
     def __repr__(self):
         return str(self.hand)
 
     def score(self):
-        # points = 0
-        # for card in self.hand:
-        #     points += card.value 
-        # return points
+        points = 0
+        aces = 0
+        for card in self.hand:
+            if card.rank == 'A':
+                aces += 1
+            points += card.value 
 
-        return sum([card.value for card in self.hand])
+        for ace in range(aces):
+            if points > 21:
+                points -= 10
+            else:
+                break
+        return points
+
+        # return sum([card.value for card in self.hand])
 
     def add(self, card):
         self.hand.append(card)

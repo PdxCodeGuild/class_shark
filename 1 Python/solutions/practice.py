@@ -681,6 +681,24 @@ def old_fashioned_plus_one(digits):
     return digits
 
 
+class Dog:
+    def __init__(self, name, breed, age):
+        self.name = name
+        self.breed = breed
+        self.age = age 
+
+    def bark(self):
+        return f'{self.name}: woof'
+
+
+    def __add__(self, dog2):
+        # self + dog2
+        # self.__add__(dog2)
+        temp_breed = self.breed[:len(self.breed)//2] + dog2.breed[len(dog2.breed)//2:] 
+        # temp_breed = self.breed[0:len(self.breed)//2] + dog2.breed[len(dog2.breed)//2:len(dog2.breed)] 
+        #                         '(Labr)ador'                      'Poo(dle)'
+        return Dog('Pup', temp_breed, 'Puppy')
+
 if __name__ == '__main__':
     # combine_all([[0] for _ in range(10000)])
     # extend_combine_all([[0] for _ in range(10000)])
