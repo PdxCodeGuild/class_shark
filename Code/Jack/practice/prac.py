@@ -343,3 +343,42 @@ def plus_one_v2(l_digits):
     return t_digits
 
 # print(plus_one_v2([1, 2, 9]))
+
+
+class Dog():
+    """docstring for Dog."""
+
+    def __init__(self, name='UpDog', breed, age):
+        self.name = name
+        self.breed = breed
+        self.age = age
+
+
+    def bark(self):
+        return f'{self.name}: WHOOF!'
+
+    def rename(self, name):
+        self.name = name
+
+    def birthday(self):
+        self.age += 1
+
+    def has_chip(self, TF):
+        '''
+        takes in boolean for chip flag
+        '''
+
+        self.chip = TF
+
+    def __str__(self):
+        return self.bark()
+
+    def __repr__(self):
+        return f'{self.name}, {self.breed}, {self.age}'
+
+    def __add__(self, dog2):
+        '''
+        returns a new dog object with a mixed breed
+        '''
+        t_breed = self.breed[:len(self.breed)//2] + dog2.breed[len(dog2.breed)//2:]
+        return Dog('Pup', t_breed, 'Puppy')
