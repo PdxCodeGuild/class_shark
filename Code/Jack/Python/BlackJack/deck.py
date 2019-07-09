@@ -5,8 +5,9 @@ class Deck():
     """docstring for Deck.
         On init makes an ordered deck
         shuffle, draw, and cut
+
+        # TODO __sub__(num_of_cards) = draw(num_of_cards) func?
     """
-    # TODO __sub__(num_of_cards) = draw(num_of_cards) func?
 
     RANK = 'A' + list(range(2, 11)) + list('JQK')
     SUIT = ['Spades', 'Diamonds', 'Clubs', 'Hearts']

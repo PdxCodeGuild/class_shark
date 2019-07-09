@@ -1,18 +1,17 @@
-# words = ['a', 'b', 'a', 'c', 'd']
-# words2 = list(words)
-# stopwords = ['a', 'c']
-# for word in words2:  # iterating on a copy since removing will mess things up
-#     if word in stopwords:
-#         words.remove(word)
+class Dog:
 
-# print(words)
+    def __init__(self, name, breed, weight):
+        self.name = name
+        self.breed = breed
+        self.weight = weight
+    
+    def bark(self):
+        print(f"A {self.breed} dog named {self.name} just barked at me.")
 
-nums = [[5,2,3],[4,5,1],[7,6,3]]
-# new = []
+d1 = Dog("Lassi", "Collie", 75 )
+d2 = Dog("Spuds McKenzie", "Bull Terrier", 30) 
+d3 = Dog("Brian", "lab", 50)
 
-# for num in nums:
-#     new.extend(num)
-# print(new)
-
-d = [new.extend(num) for num in nums]
-print(d)
+d1.bark()
+d2.bark()
+d3.bark()
