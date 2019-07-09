@@ -699,6 +699,41 @@ class Dog:
         #                         '(Labr)ador'                      'Poo(dle)'
         return Dog('Pup', temp_breed, 'Puppy')
 
+
+import re
+def unique_phone_numbers(call_list):
+    '''
+    :call_list: list of phone numbers (strings)
+    returns number of unique phone numbers in call_list
+
+    >>> unique_phone_numbers(['(555)555-5555', '555-555-5555', '555.555.5555']) 
+    1
+    >>> unique_phone_numbers(['(555)555-5555', '555-555-5556', '555.555.5555']) 
+    2
+    >>> unique_phone_numbers(['(555)555-5555', '555-555-5556', '555.555$5555']) 
+    2
+    '''
+    remove_punc = str.maketrans('', '', '()-. ')
+    # numset = set()
+    # for number in call_list:
+    #     number = number.translate(remove_punc)
+    #     if number.isdigit():
+    #         numset.add(number)
+    # return len(numset)
+
+    return len(set([number.translate(remove_punc) for number in call_list]))
+
+    # # regex solution
+    # pattern = r'^\(?(\d{3})\)?[\s.-]?(\d{3})[\s.-]?(\d{4})$'
+    # numset = set()
+    # for number in call_list:
+    #     match = re.match(pattern, number)
+    #     if match:
+    #         number = match.group(1) + match.group(2) + match.group(3)
+    #         numset.add(number)
+    # return len(numset)
+
+
 if __name__ == '__main__':
     # combine_all([[0] for _ in range(10000)])
     # extend_combine_all([[0] for _ in range(10000)])
@@ -707,7 +742,10 @@ if __name__ == '__main__':
 
     # fizzbuzz()
     # fizzbuzzfuzzbaz()
-    digits = [9 for _ in range(10000)]
-    plus_one(digits)
-    old_fashioned_plus_one(digits)
+    # digits = [9 for _ in range(10000)]
+    # plus_one(digits)
+    # old_fashioned_plus_one(digits)
     # print(digits)
+    unique_phone_numbers(['(555)555-5555', '555-555-5555', '555.555.5555']) 
+    unique_phone_numbers(['(555)555-5555', '555-555-5575', '555.555.5557']) 
+    unique_phone_numbers(['(555)555-5555', '525-555-5555', '515.555.5555']) 
