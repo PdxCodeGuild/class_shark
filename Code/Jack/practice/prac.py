@@ -56,9 +56,6 @@ from runtime import get_runtime as gt_r
 #     return count
 #
 #
-# # print(count_letter('i', 'antidisestablishmentterianism'))  # 5
-# # print(count_letter('p', 'pneumonoultramicroscopicsilicovolcanoconiosis'))  #2
-#
 #
 # def common_elements(nums1, nums2):
 #
@@ -382,19 +379,37 @@ from runtime import get_runtime as gt_r
 #         '''
 #         t_breed = self.breed[:len(self.breed)//2] + dog2.breed[len(dog2.breed)//2:]
 #         return Dog('Pup', t_breed, 'Puppy')
+#
+#
+# def unique_phone_numbers(phn_num):
+#     '''
+#     >>> unique_phone_numbers(['555.555.5555', '555,555,5555', '(555) 555-555'])
+#     1
+#     >>> unique_phone_numbers(['555.555.5555', '555,555,5557', '(555) 555-575'])
+#     3
+#     '''
+#
+#     remove_punc = str.maketrans('', '', string.punctuation)
+#     phn = len(set([number.translate(remove_punc) for number in phn_num]))
+#     print(phn)
+#
+#
+# unique_phone_numbers(['555.555.5555', '555,555,5557', '(555) 555-575'])
+
+cached = [0, 1, 1]
 
 
-def unique_phone_numbers(phn_num):
+def fib_mem(n):
     '''
-    >>> unique_phone_numbers(['555.555.5555', '555,555,5555', '(555) 555-555'])
-    1
-    >>> unique_phone_numbers(['555.555.5555', '555,555,5557', '(555) 555-575'])
-    3
+    >>> fib_mem(5)
+    5
     '''
+    if n < len(cached):
+        return cached[n]
+    else:
+        comp = fib_mem(n-1) + fib_mem(n-2)
+        cached.append(comp)
+        return comp
 
-    remove_punc = str.maketrans('', '', string.punctuation)
-    phn = len(set([number.translate(remove_punc) for number in phn_num]))
-    print(phn)
 
-
-unique_phone_numbers(['555.555.5555', '555,555,5557', '(555) 555-575'])
+print(fib_mem(1000))
