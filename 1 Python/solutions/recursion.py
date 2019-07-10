@@ -217,7 +217,7 @@ if __name__ == '__main__':
     #         break
 
     # start = time.clock()
-    # n = 1000
+    # n = 2000
     # for i in range(2, n, 20):
     #     fib(i)
     #     memoized_fib(i)

@@ -710,7 +710,7 @@ def unique_phone_numbers(call_list):
     1
     >>> unique_phone_numbers(['(555)555-5555', '555-555-5556', '555.555.5555']) 
     2
-    >>> unique_phone_numbers(['(555)555-5555', '555-555-5556', '555.555$5555']) 
+    >>> unique_phone_numbers(['(555)555-5555', '555-555-5556', '555.5555555']) 
     2
     '''
     remove_punc = str.maketrans('', '', '()-. ')
@@ -732,6 +732,38 @@ def unique_phone_numbers(call_list):
     #         number = match.group(1) + match.group(2) + match.group(3)
     #         numset.add(number)
     # return len(numset)
+
+cache = [0, 1]
+def fibonacci(n):
+    '''
+    returns nth fibonacci number
+    '''
+    if n < len(cache):
+        return cache[n]
+    nth = fibonacci(n-1) + fibonacci(n-2)
+    cache.append(nth)
+    return nth
+
+def fib_list(n):
+    '''
+    returns list of first n fibonacci numbers
+    >>> fib_list(8)
+    [0, 1, 1, 2, 3, 5, 8, 13, 21]
+    '''
+    if n >= len(cache):
+        fibonacci(n)
+    return cache[:n+1]
+
+def fib_list_loop(n):
+    '''
+    returns list of first n fibonacci numbers
+    >>> fib_list(8)
+    [0, 1, 1, 2, 3, 5, 8, 13, 21]
+    '''    
+    cache = [0, 1]
+    for i in range(2, n+1):
+        cache.append(cache[i-1]+cache[i-2])
+    return cache
 
 
 if __name__ == '__main__':
