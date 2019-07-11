@@ -7,6 +7,15 @@ class Stack:
     def __init__(self):
         self.stack = []
 
+    def __repr__(self):
+        return str(self.stack)
+
+    def __len__(self):
+        return len(self.stack)
+
+    def __bool__(self):
+        return not self.isempty()
+
     def push(self, item):
         '''
         add item to the end of the stack
