@@ -8,6 +8,7 @@ Open/modify/save contact list as csv file
 - Saves contact list dictionary back into csv file.
 '''
 from data_structures.Stack import Stack
+from copy import deepcopy
 
 class InvalidContactListException(Exception):
     def __init__(self):
@@ -27,7 +28,7 @@ class ContactList:
             self.headers = headers
         self.state = Stack()
         self.redo_stack = Stack()
-        self.state.push(self.contacts.copy())
+        self.state.push(deepcopy(self.contacts))
 
     def __str__(self):
         str_repr = '-'*60 + '\n'
@@ -118,7 +119,7 @@ class ContactList:
         creates contact and adds to contact list
         '''
         self.contacts[contact['name']] = contact
-        self.state.push(self.contacts.copy())
+        self.state.push(deepcopy(self.contacts))
         self.__clear_redo()
         return f"Added {contact['name']}"
 
@@ -143,7 +144,7 @@ class ContactList:
         '''
         if name in self.contacts:
             self.contacts[name].update(details)
-            self.state.push(self.contacts.copy())   
+            self.state.push(deepcopy(self.contacts))   
             self.__clear_redo()
         return self.read(name)
 
@@ -155,7 +156,7 @@ class ContactList:
         '''
         if name in self.contacts:
             del self.contacts[name]
-            self.state.push(self.contacts.copy())  
+            self.state.push(deepcopy(self.contacts))  
             self.__clear_redo()              
             return f'Deleted {name}'
         else:
@@ -174,7 +175,7 @@ class ContactList:
         '''
         if len(self.state) > 1:
             self.redo_stack.push(self.state.pop())
-            self.contacts = self.state.peek().copy()
+            self.contacts = deepcopy(self.state.peek())
 
     def redo(self):
         '''
@@ -183,7 +184,7 @@ class ContactList:
         '''        
         if redo_stack:
             self.state.push(self.redo_stack.pop())
-            self.contacts = self.state.peek().copy()
+            self.contacts = deepcopy(self.state.peek())
 
 
 def repl():

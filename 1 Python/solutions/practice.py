@@ -733,6 +733,7 @@ def unique_phone_numbers(call_list):
     #         numset.add(number)
     # return len(numset)
 
+
 cache = [0, 1]
 def fibonacci(n):
     '''
@@ -744,6 +745,7 @@ def fibonacci(n):
     cache.append(nth)
     return nth
 
+
 def fib_list(n):
     '''
     returns list of first n fibonacci numbers
@@ -753,6 +755,7 @@ def fib_list(n):
     if n >= len(cache):
         fibonacci(n)
     return cache[:n+1]
+
 
 def fib_list_loop(n):
     '''
@@ -764,6 +767,37 @@ def fib_list_loop(n):
     for i in range(2, n+1):
         cache.append(cache[i-1]+cache[i-2])
     return cache
+
+
+from data_structures.Stack import Stack
+def palindrome(word):
+    '''
+    returns if word is the same backwards as it is forwards
+    stack implementation
+
+    >>> palindrome('racecar')
+    True
+    >>> palindrome('a')
+    True
+    >>> palindrome('ab')
+    False
+    '''
+    # return reversed(word) == word
+    
+    stack = Stack()
+    length = len(word)
+    mid = length // 2 
+
+    for i in range(mid):
+        stack.push(word[i])
+
+    if length % 2 != 0: 
+        mid += 1 
+
+    for i in range(mid, len(word)):
+        if word[i] != stack.pop():
+            return False
+    return True
 
 
 if __name__ == '__main__':
