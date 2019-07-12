@@ -20,7 +20,7 @@ Possible modifications:
 - re-use previous labs (guess the number, rock-paper-scissors)
 
 
-Here's a procedural example. Try to get similar functionality using OOP. There is starter code ['./adventure/'](here) that you should extend. 
+Here's a procedural example. Try to get similar functionality using OOP. There is starter code in [this repository](https://github.com/tomaccosheep/game_start_code) that you should extend. 
 
 ```python
 import random
