@@ -220,4 +220,4 @@ def main():
         elif cmd.startswith('d'):
             del_con(con)
 
-# main()
+main()
