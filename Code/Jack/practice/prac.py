@@ -412,4 +412,31 @@ def fib_mem(n):
         return comp
 
 
-print(fib_mem(1000))
+# print(fib_mem(1000))
+
+def palindrome(word):
+    '''
+    >>> palindrome('racecar')
+    True
+    >>> palindrome('pittip')
+    True
+    >>> palindrome('roth')
+    False
+    >>> palindrome('trail')
+    False
+    '''
+    stack = []
+    leng = len(word)
+    mid = leng//2
+    for i in range(leng//2):
+        stack.append(word[i])
+    if leng % 2 != 0:
+        mid += 1
+    for i in range(mid, len(word)):
+        if word[i] != stack.pop():
+            return False
+    return True
+
+l = ['racecar', 'pittip', 'roth', 'trail']
+for word in l:
+    print(palindrome(word))
