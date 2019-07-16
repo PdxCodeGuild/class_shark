@@ -64,36 +64,85 @@ class ConnectN:
         self.calc_winner(x, y)
         return True
 
+    # def calc_winner(self, x, y):
+    #     '''
+    #     returns winner if one exists or none
+    #     '''
+    #     cell = self.board[y][x]
+    #     if type(cell) is Player:
+    #         # compare cell with n-1 cells before it and n-1 cells after
+    #         for i in range(-self.n+1, self.n-1):
+    #             row = True
+    #             col = True
+    #             ldiag = True 
+    #             rdiag = True
+    #             for j in range(self.n): # loop to check n in a row
+    #                 if not (row or col or ldiag or rdiag):
+    #                     break
+    #                 # check if this is a valid x and y index and if this position == player
+    #                 if row: 
+    #                     row = 0 <= x+i+j < self.width and self.board[y][x+i+j] == cell
+    #                 if col:
+    #                     col = 0 <= y+i+j < self.height and self.board[y+i+j][x] == cell
+    #                 if ldiag: 
+    #                     r = y+i+j 
+    #                     c = x+i+j
+    #                     ldiag = 0 <= c < self.width and 0 <= r < self.height and self.board[r][c] == cell
+    #                 if rdiag:
+    #                     r = y+i+j 
+    #                     c = x+i-j
+    #                     rdiag = 0 <= c < self.width and 0 <= r < self.height and self.board[r][c] == cell
+
+    #             if row or col or ldiag or rdiag: # if there is a match, return the winnder
+    #                 self.winner = cell
+    #                 return cell
+
     def calc_winner(self, x, y):
         '''
-        returns winner if one exists or none
+        recursively calculate winner from position
         '''
-        cell = self.board[y][x]
-        if type(cell) is Player:
-            for i in range(-self.n+1, self.n):
-                row = True
-                col = True
-                ldiag = True 
-                rdiag = True
-                for j in range(self.n):
-                    if not (row or col or ldiag or rdiag):
-                        break
-                    if row:
-                        row = 0 <= x+i+j < self.width and self.board[y][x+i+j] == cell
-                    if col:
-                        col = 0 <= y+i+j < self.height and self.board[y+i+j][x] == cell
-                    if ldiag:
-                        r = y+i+j 
-                        c = x+i+j
-                        ldiag = 0 <= c < self.width and 0 <= r < self.height and self.board[r][c] == cell
-                    if rdiag:
-                        r = y+i+j 
-                        c = x+i-j
-                        rdiag = 0 <= c < self.width and 0 <= r < self.height and self.board[r][c] == cell
+        directions = {
+            (0,-1): (0,1), # left, right
+            (-1,0): (1,0), # up, down
+            (1,1): (-1,-1), # downright diagonal
+            (-1,1): (1,-1), # upright diagonal
+        }
+        player = self.board[y][x]
 
-                if row or col or ldiag or rdiag:
-                    self.winner = cell
-                    return cell
+        for direction in directions:
+            # search for matches in direction
+            matches = self.matches(player, (y, x), direction)
+            if matches == self.n:
+                self.winner = player
+                return player
+            # search in opposite direction 
+            opposite_direction = self.matches(player, (y, x), directions[direction], matches)
+            if opposite_direction == self.n:
+                self.winner = player
+                return player
+
+
+    def matches(self, player, position, direction, num_matches=1):
+        '''
+        :player: player object
+        :position: tuple of (i, j) coordinates on board
+        :direction: tuple to modify position in a direction
+        :num_matches: number of positions matching player
+
+        recursively find matches from the direction of position 
+        '''
+        # modify position by direction
+        delta = (position[0] + direction[0], position[1] + direction[1])
+        # print(player, position, direction, delta, num_matches)
+        i, j = delta
+        if not (0 <= i < self.height and \
+                0 <= j < self.width): # base case, invalid move
+            return num_matches
+        if self.board[i][j] != player: # base case, no match
+            return num_matches
+
+        # recursive case, keep chasing in that direction 
+        return self.matches(player, delta, direction, num_matches+1)
 
     def is_full(self):
         '''
@@ -113,7 +162,7 @@ class ConnectN:
 
 
 if __name__ == '__main__':
-    game = ConnectN()
+    game = ConnectN(n=4)
     print(game)
     players = [
         Player(input('Player one: '), 'X'), 
@@ -127,7 +176,7 @@ if __name__ == '__main__':
         player = players[current_round % 2]
         while True:
             try:
-                move = input('Move: ').strip().upper()
+                move = input(f'Player {player.name}\'s move: ').strip().upper()
                 x = int(move[1:]) - 1
                 y = move[0]
                 if not (0 <= x < game.width) or y not in y_coord[:game.width]:
