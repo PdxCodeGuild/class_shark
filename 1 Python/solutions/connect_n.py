@@ -162,7 +162,16 @@ class ConnectN:
 
 
 if __name__ == '__main__':
-    game = ConnectN(n=4)
+      while True:
+            try:
+                n = int(input(f'n: ').strip())
+                width = int(input(f'width: ').strip())
+                height = int(input(f'height: ').strip())
+                game = ConnectN(width, height, n)
+                
+            except ValueError:
+                print('Enter a number')
+
     print(game)
     players = [
         Player(input('Player one: '), 'X'), 
