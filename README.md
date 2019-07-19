@@ -33,6 +33,7 @@ M-F 6:00PM – 9:30PM
 ### HTML/CSS 
 | Assigned on | Lab \#s |
 | ------------- | ---- |
+7/18 | 1 |
 
 ### JS
 | Assigned on | Lab \#s |
