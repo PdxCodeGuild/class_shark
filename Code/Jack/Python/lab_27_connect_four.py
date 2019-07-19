@@ -41,6 +41,14 @@ class Game(object):
                 pos = self.board[i][j]
                 if pos != '':
                     if self.board[i][j-1] == pos:
+                    	return self.vert_serch(i,j, pos)
+
+    def vert_search(self, i, j, pos):
+    	count = 0
+    	while self.board[i][j] == pos:
+    		count += 1
+    		j -= 1
+
 
     def is_full(self):
         for col in self.board:
