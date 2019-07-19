@@ -27,11 +27,13 @@ M-F 6:00PM – 9:30PM
 | 6/21 | 0, 23 |
 | 6/25 | (24) |
 | 7/1 | 25, 26, (27) |
+| 7/15 | 28 |
 
 
 ### HTML/CSS 
 | Assigned on | Lab \#s |
 | ------------- | ---- |
+7/18 | 1 |
 
 ### JS
 | Assigned on | Lab \#s |
@@ -63,6 +65,7 @@ M-F 6:00PM – 9:30PM
         
 - Frontend (HTML/CSS/JS):
     - https://www.freecodecamp.org/ (Practice, projects, (almost) textbook all-in-one!)
+    - https://www.codepen.io/ (Live-rendering static websites, showcases for cool html/css/js projects)
     - https://sayazamurai.github.io/python-vs-javascript/#control-flow (Python3 and ES6 JS side by side comparisons)
     - https://sass-lang.com/guide (SASS: CSS preprocessor tutorial)
     - https://vuejs.org/v2/guide/ (Vue.js official guide)
