@@ -1,0 +1,94 @@
+
+Skip to content
+Pull requests
+Issues
+Marketplace
+Explore
+@JackBragg
+Code Issues 0 Pull requests 0 Projects 0 Wiki Security Pulse Community
+class_shark/2 HTML + CSS/solutions/lab01-bio.html
+@DED8IRD DED8IRD html bio example 4444d79 16 hours ago
+69 lines (68 sloc) 3.45 KB
+<html>
+    <head>
+        <title>Albert Einstein</title>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <style>
+            #maindiv {
+                background-color:rgba(0,0,0,0.8);
+                margin: 0 200px;
+                padding:0 20px;
+            }
+            img {
+                display: block;
+                border: 1px solid white;
+                float:right;
+                margin:8px;
+            }
+            html, body {
+                margin:0;
+                padding:0;
+            }
+            body {
+                color:white;
+                background-image:url("http://farm9.staticflickr.com/8076/8276144516_8ed5cd4fd3_o.jpg");
+                background-size:cover;
+                font-family:'Open Sans';
+                font-size:18px;
+            }
+            h1 {
+                font-weight:normal;
+                text-align:center;
+                font-size:40px;
+                padding:10px;
+                margin:0px;
+            }
+            a {
+                text-decoration:none;
+                color:white;
+            }
+            a:visited {
+                color:goldenrod;
+            }
+            #footer {
+                text-align:center;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="maindiv">
+            <h1>Albert Einstein</h1>
+            <hr/>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Einstein_1921_by_F_Schmutzer_-_restoration.jpg" width="200px"/>
+            <p>Nikola Tesla was a Serbian-American inventor, electrical engineer, mechanical engineer, and futurist who is best known for his contributions to the design of the modern alternating current (AC) electricity supply system.</p>
+            <ul style="float:left;width:20%">
+                <li>Nikola Tesla Award</li>
+                <li>Nikola Motor Company</li>
+                <li>Tesla inc,</li>
+                <li>'Tesla Girls' - UK pop band</li>
+            </ul>
+            <div>"I hold that space cannot be curved, for the simple reason that it can have no properties. It might as well be said that God has properties. He has not, but only attributes and these are of our own making. Of properties we can only speak when dealing with matter filling the space. To say that in the presence of large bodies space becomes curved is equivalent to stating that something can act upon nothing. I, for one, refuse to subscribe to such a view."</div>
+            <br style="clear:both"/>
+            <hr style="margin-top:40px"/>
+            <div id="footer">
+                <a href=https://en.wikipedia.org/wiki/Nikola_Tesla>Wikipedia Entry</a>
+            </div>
+        </div>
+    </body>
+</html>
+
+    © 2019 GitHub, Inc.
+    Terms
+    Privacy
+    Security
+    Status
+    Help
+
+    Contact GitHub
+    Pricing
+    API
+    Training
+    Blog
+    About
+

@@ -5,6 +5,9 @@ class Player(object):
         self.name = name
         self.token = token
 
+    def __repr__(self):
+        return self.token
+
 
 class Game(object):
     """docstring for Game."""
@@ -18,19 +21,19 @@ class Game(object):
         self.board[1][1] = '_'
         self.board[1][0] = '_'
 
-    def __str__(self):
+    def __repr__(self):
         s_board = ''
         for line in self.board:
+            line = [str(token) for token in line]
             s_board += '|'.join(line) + '\n'
         return s_board
 
     def move(self, row, column, token):
-        while True:
-            if self.board[row][column] != 'O' and self.board[row][column] != 'X':
-                self.board[row][column] = token
-                return True
-            else:
-                return False
+        if self.board[row][column] is not Player:
+            self.board[row][column] = token
+            return True
+        else:
+            return False
 
     def is_full(self):
         temp = []
@@ -40,26 +43,59 @@ class Game(object):
 
     def win(self):
         # diag
-        if self.board[0][0] == self.board[1][1] and self.board[1][1] == self.board[2][2]:
-            return f'{self.board[0][0]} wins1!'
-        elif self.board[0][2] == self.board[1][1] and self.board[1][1] == self.board[2][0]:
-            return f'{self.board[0][0]} wins2!'
+        if type(self.board[1][1]) is Player:
+            if (self.board[0][0] == self.board[1][1] == self.board[2][2]) or \
+               (self.board[0][2] == self.board[1][1] == self.board[2][0]):
+               return True
+
+        for i in range(3)
         # col
-        elif self.board[0][0] == self.board[1][0] and self.board[1][0] == self.board[2][0]:
-            return f'{self.board[0][0]} wins3!'
-        elif self.board[0][1] == self.board[1][1] and self.board[1][1] == self.board[2][1]:
-            return f'{self.board[0][0]} wins4!'
-        elif self.board[0][2] == self.board[1][2] and self.board[1][2] == self.board[2][2]:
-            return f'{self.board[0][0]} wins5!'
+            if self.board[i][0] == self.board[i][0] == self.board[i][0]:
+                return True
         # row
-        elif self.board[0][0] == self.board[0][1] and self.board[0][1] == self.board[0][2]:
-            return f'{self.board[0][0]} wins6!'
+            if self.board[0][i] == self.board[0][1] == self.board[0][i]:
+                return True
         elif self.board[1][0] == self.board[1][1] and self.board[1][1] == self.board[1][2]:
             return f'{self.board[0][0]} wins7!'
         elif self.board[2][0] == self.board[2][1] and self.board[2][1] == self.board[2][2]:
             return f'{self.board[0][0]} wins8!'
         else:
             return False
+
+    # def diag_search(i,j):
+    #     pos = self.board[i][j]
+    #     x = i
+    #     y = j
+    #     count = 0
+    #     try:
+    #         while self.board[i][j] == pos:
+    #             i += 1
+    #             j -= 1
+    #             count += 1
+    #     except IndexError:
+    #         break
+    #     i = x
+    #     j = y
+    #     if count < 2:
+    #         count -= 1
+    #         try:
+    #             while self.board[i][j] == pos:
+    #                 i -= 1
+    #                 j += 1
+    #                 count += 1
+    #         except IndexError:
+    #             break
+    #     i = x
+    #     j = y
+    #     if count < 2:
+    #         count -= 1
+    #         try:
+    #             while self.board[i][j] == pos:
+    #                 i += 1
+    #                 j += 1
+    #                 count += 1
+    #         except IndexError
+
 
     def is_game_over(self):
         if self.is_full() or self.win():
