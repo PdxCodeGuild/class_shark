@@ -1,0 +1,13 @@
+/*stylesheet.css*/
+
+.site-brand {
+    padding-left: 1em !important;
+}
+
+#pho-image {
+    float: right;
+}
+
+.container > * {
+    margin: 1.5em;
+}
