@@ -4,10 +4,52 @@
     padding-left: 1em !important;
 }
 
+.header {
+    font-family: 
+}
+
 #pho-image {
     float: right;
 }
 
 .container > * {
     margin: 1.5em;
+}
+
+.parallax-container {
+  min-height: 380px;
+  line-height: 0;
+  height: auto;
+  color: rgba(255,255,255,.9);
+}
+.parallax-container .section {
+    width: 100%;
+    position: absolute;
+}
+
+#hero{
+  height: 100vh;
+}
+
+.parallax { 
+  /* Set a specific height */
+  height: 100%; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#vermicelli {
+  background-image: url("https://image.freepik.com/free-photo/close-up-rice-vermicelli-noodles-round-plate-with-table-cloth-white-background_23-2148097254.jpg");
+}
+
+#pho-bowl {
+  background-image: url('https://thewoksoflife.com/wp-content/uploads/2019/01/instant-pot-pho-3.jpg');
+}
+
+#pho-bowl-3 {
+  background-image: url("https://www.sbs.com.au/food/sites/sbs.com.au.food/files/pho.jpg");
 }
