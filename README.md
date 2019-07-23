@@ -34,6 +34,7 @@ M-F 6:00PM – 9:30PM
 | Assigned on | Lab \#s |
 | ------------- | ---- |
 7/18 | 1 |
+7/22 | 2, 3, (4), 5 |
 
 ### JS
 | Assigned on | Lab \#s |
