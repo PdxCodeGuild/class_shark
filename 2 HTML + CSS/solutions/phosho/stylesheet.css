@@ -1,0 +1,33 @@
+/*stylesheet.css*/
+
+.site-brand {
+    padding-left: 1em !important;
+}
+
+.header {
+    font-family: 
+}
+
+#pho-image {
+    float: right;
+}
+
+.container > * {
+    margin: 1.5em;
+}
+
+.parallax-container {
+  min-height: 380px;
+  line-height: 0;
+  height: auto;
+  color: rgba(255,255,255,.9);
+}
+
+.parallax-container .section {
+    width: 100%;
+    position: absolute;
+}
+
+#hero{
+  height: 100vh;
+}
