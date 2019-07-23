@@ -1,13 +1,11 @@
 // script.js
 
-// navbar collapse logic
 document.addEventListener('DOMContentLoaded', function() {
-  var elems = document.querySelectorAll('.sidenav');
-  var instances = M.Sidenav.init(elems, {});
-});
+// navbar collapse logic
+  var sidenavElem = document.querySelectorAll('.sidenav');
+  var sidenav = M.Sidenav.init(sidenavElem, {});
 
 // parallax logic
-document.addEventListener('DOMContentLoaded', function() {
-  var elems = document.querySelectorAll('.parallax');
-  var instances = M.Parallax.init(elems, {});
+  var parallaxElems = document.querySelectorAll('.parallax');
+  var parallax = M.Parallax.init(parallaxElems, {});
 });

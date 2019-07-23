@@ -22,6 +22,7 @@
   height: auto;
   color: rgba(255,255,255,.9);
 }
+
 .parallax-container .section {
     width: 100%;
     position: absolute;
@@ -29,15 +30,4 @@
 
 #hero{
   height: 100vh;
-}
-
-.parallax { 
-  /* Set a specific height */
-  height: 100%; 
-
-  /* Create the parallax scrolling effect */
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
