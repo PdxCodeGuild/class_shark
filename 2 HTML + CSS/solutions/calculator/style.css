@@ -1,0 +1,98 @@
+#calc-body {
+    margin: auto;
+    width: 300px;
+    height: 400px;
+    padding: 1em;
+    background-color: grey;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas: 
+        "display display display display"
+        "display display display display"
+        "ac      ce      mult    div"
+        "seven   eight   nine    plus"
+        "four    five    six     minus"
+        "one     two     three   eq"
+        "zero    zero    dec     eq"
+    ;
+    grid-gap: 0.7em;
+}
+
+#display {
+    grid-area: display;
+    background-color: darkgrey;
+}
+
+#ac {
+    grid-area: ac;
+}
+
+#ce {
+    grid-area: ce;
+}
+
+#mult {
+    grid-area: mult;
+}
+
+#div {
+    grid-area: div;
+}
+
+#add {
+    grid-area: plus;
+}
+
+#sub {
+    grid-area: minus;
+}
+
+#dec {
+    grid-area: dec;
+}
+
+#eq {
+    grid-area: eq;
+}
+
+#btn-0 {
+    grid-area: zero;
+}
+
+#btn-1 {
+    grid-area: one;
+}
+
+#btn-2 {
+    grid-area: two;
+}
+
+#btn-3 {
+    grid-area: three;
+}
+
+#btn-4 {
+    grid-area: four;
+}
+
+#btn-5 {
+    grid-area: five;
+}
+
+#btn-6 {
+    grid-area: six;
+}
+
+#btn-7 {
+    grid-area: seven;
+}
+
+#btn-8 {
+    grid-area: eight;
+}
+
+#btn-9 {
+    grid-area: nine;
+}
+
+
