@@ -1,0 +1,110 @@
+#calc-body {
+	/*
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	justify-content: center;
+	*/
+	margin: auto;
+	display: grid;
+	width: 300px;
+	height: 400px;
+	background-color: grey;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-areas: 
+		"calc-display	calc-display	calc-display	calc-display"
+		"calc-display	calc-display	calc-display	calc-display"
+		"ac				ce 				mult 			divide"
+		"btn-seven		btn-eight		btn-nine		plus"
+		"btn-four		btn-five		btn-six			minus"
+		"btn-one		btn-two			btn-three		enter"
+		"btn-zer		btn-zer			decima			enter";
+	grid-gap: 1px;
+}
+
+#calc-display {
+	background-color: darkgrey;
+	grid-area: calc-display;
+}
+
+#buttons-container {
+	/*display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;*/
+}
+
+button {
+
+}
+
+#btn-one {
+	grid-area: btn-one;
+}
+
+#btn-two {
+	grid-area: btn-two;
+}
+
+#btn-three {
+	grid-area: btn-three;
+}
+
+#btn-four {
+	grid-area: btn-four;
+}
+
+#btn-five {
+	grid-area: btn-five;
+}
+
+#btn-six {
+	grid-area: btn-six;
+}
+
+#btn-seven {
+	grid-area: btn-seven;
+}
+
+#btn-eight {
+	grid-area: btn-eight;
+}
+
+#btn-nine {
+	grid-area: btn-nine;
+}
+
+#btn-zer {
+	grid-area: btn-zer;
+}
+
+#ce {
+	grid-area: ce;
+}
+
+#ac {
+	grid-area: ac;
+}
+
+#mult {
+	grid-area: mult;
+}
+
+#divide {
+	grid-area: divide;
+}
+
+#plus {
+	grid-area: plus;
+}
+
+#minus {
+	grid-area: minus;
+}
+
+#decima {
+	grid-area: decima;
+}
+
+#enter {
+	grid-area: enter;
+}
