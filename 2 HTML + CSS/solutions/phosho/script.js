@@ -8,4 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
 // parallax logic
   var parallaxElems = document.querySelectorAll('.parallax');
   var parallax = M.Parallax.init(parallaxElems, {});
+
+// materialize dropdown menus
+  var elems = document.querySelectorAll('select');
+  var instances = M.FormSelect.init(elems, {});
 });
