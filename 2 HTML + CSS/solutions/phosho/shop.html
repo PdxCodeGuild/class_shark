@@ -50,41 +50,41 @@
   </header>
     
   <main class='container'>
-    <form class="col s12" action='http://requestbin.fullcontact.com/xrew2bxr' method='post'>
+    <form class="col s12" action='https://webhook.site/9294d25a-464a-4fee-8de4-d9e9fe082204' method='post'>
       <div class='input-group' id='customer-details'>
-        <h5 label-for='customer-details'>Customer Details</h5>
+        <h5 id='customer-details'>Customer Details</h5>
         <div class="row">
           <div class="input-field col s6">
-            <input id="first_name" type="text" class="validate">
+            <input name='first_name' id="first_name" type="text" class="validate">
             <label for="first_name">First Name</label>
           </div>
           <div class="input-field col s6">
-            <input id="last_name" type="text" class="validate">
+            <input name='last_name' id="last_name" type="text" class="validate">
             <label for="last_name">Last Name</label>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s6">
             <i class="material-icons prefix">phone</i>
-            <input id="icon_telephone" type="tel" class="validate" pattern='\(?\d{3}\)?-?\d{3}-?\d{4}'>
-            <label for="icon_telephone">Telephone</label>
+            <input name='phone' id="phone" type="tel" class="validate" pattern='\(?\d{3}\)?-?\d{3}-?\d{4}'>
+            <label for="phone">Telephone</label>
           </div>          
           <div class="input-field col s6">
-            <input id="email" type="email" class="validate">
+            <input name='email' id="email" type="email" class="validate">
             <label for="email">Email</label>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s12">
-            <input id="street_name" type="text" class="validate">
+            <input name='street_name' id="street_name" type="text" class="validate">
             <label for="street_name">Street</label>
           </div>
           <div class="input-field col s6">
-            <input id="city_name" type="text" class="validate">
+            <input name='city_name' id="city_name" type="text" class="validate">
             <label for="city_name">City</label>
           </div>
           <div class="input-field col s3">
-            <select>
+            <select name='state'>
               <option value="">State</option>
               <option value="AL">Alabama</option>
               <option value="AK">Alaska</option>
@@ -140,17 +140,17 @@
             </select>       
           </div>  
           <div class="input-field col s3">
-            <input id="zipcode" type="text" class="validate" pattern='\d{5}(-\d{4})?'>
+            <input name='zipcode' id="zipcode" type="text" class="validate" pattern='\d{5}(-\d{4})?'>
             <label for="zipcode">Zip Code</label>
           </div>          
         </div>
       </div>
       <hr />
       <div class='input-group' id='order-details'>
-        <h5 label-for='order-details'>Order Details</h5>
+        <h5 id='order-details'>Order Details</h5>
         <div class='row'>
           <div class="input-field col s12">
-            <select multiple class="icons">
+            <select multiple class="icons" name='order' id='order'>
               <option value="" disabled selected></option>
               <option value="1"
                 data-icon='https://www.dailydot.com/wp-content/uploads/db4/41/6e8734dfe00c1b1d-2048x1024.jpg'
@@ -189,26 +189,26 @@
           <div class='input-field col s6 m3'>
             <h6>Spice Level</h6>
             <p>  
-              <label>
-                <input name="spicy" type="radio" checked />
+              <label for='no-spice'>
+                <input name="spicy" id='no-spice' value='none' type="radio" checked />
                 <span>No spicy</span>
               </label>
             </p>
             <p>  
-              <label>
-                <input name="spicy" type="radio" />
+              <label for='mild'>
+                <input name="spicy" id='mild' value='small' type="radio" />
                 <span>Mild</span>
               </label>
             </p>
             <p>  
-              <label>
-                <input name="spicy" type="radio"  />
+              <label for='medium'>
+                <input name="spicy" id='medium' value='medium' type="radio"  />
                 <span>Medium</span>
               </label>
             </p>
             <p>  
-              <label>
-                <input name="spicy" type="radio" />
+              <label for='spicy'>
+                <input name="spicy" id='spicy' value='large' type="radio" />
                 <span>Spicy</span>
               </label>
             </p>
@@ -216,20 +216,20 @@
           <div class='input-field col s6 m3'>
             <h6>Sauces</h6>
             <p>
-              <label>
-                <input type="checkbox" />
+              <label for='sriracha'>
+                <input type="checkbox" id='sriracha' name='sriracha' value='sriracha' />
                 <span>Sriracha</span>
               </label>
             </p>
             <p>
-              <label>
-                <input type="checkbox" />
+              <label for='hoisin'>
+                <input type="checkbox" id='hoisin' name='hoisin' value='hoisin' />
                 <span>Hoisin</span>
               </label>
             </p>
             <p>
-              <label>
-                <input type="checkbox" />
+              <label for='peanut'>
+                <input type="checkbox" id='peanut' name='peanut' value='peanut' />
                 <span>Peanut</span>
               </label>
             </p>
