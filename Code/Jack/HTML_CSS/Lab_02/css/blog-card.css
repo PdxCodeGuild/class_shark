@@ -18,9 +18,10 @@
 
 .ctxt {
 	text-overflow: ellipsis;
-	white-space: nowrap;
+	white-space: normal;
 	overflow: hidden;
 	color: black;
+	word-break: break-all;
 }
 
 .my-card-img {
