@@ -1,0 +1,19 @@
+body {
+	background-color: #F0F0F0;
+	display: grid;
+	justify-content: center;
+}
+
+.my-table {
+	margin-top: 40px;
+	box-shadow: 3px 3px 5px black;
+	background-color: #DEDEDE;
+	display: flex;
+	justify-content: center;
+
+}
+
+.my-btn-dec {
+
+}
+
