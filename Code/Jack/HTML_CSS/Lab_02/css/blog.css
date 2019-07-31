@@ -1,0 +1,29 @@
+html {
+/*	--lh: 1.4rem;
+	line-height: var(--lh);*/
+	background-color: #FAFAFA;
+}
+
+main {
+	padding-top: 30px;
+}
+
+#current-blog-container {
+	color: black;
+	height: 100%;
+}
+
+#current-blog-text {
+}
+
+.card-content {
+	padding: 10px !important;
+	width: 100%;
+	text-overflow: ellipsis;
+/*	white-space: nowrap;*/
+	overflow: auto;
+}
+
+#blog-preview-wrapper {
+
+}
