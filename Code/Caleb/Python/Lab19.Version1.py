@@ -6,10 +6,14 @@ Let's write a python program to give basic blackjack playing advice during a gam
   - Over 21, advise "Already Busted"
 Print out the current total point value and the advice.
 
-Version 1: 
+Version 2:
+Aces can be worth 11 if they won't put the total point value of both cards over 21. 
+Remember that you can have multiple aces in a hand. 
+Try generating a list of all possible hand values by doubling the number of values in the output whenever you encounter an ace. 
+For one half, add 1, for the other, add 11. This ensures if you have multiple aces that you account for the full range of possible values. 
 '''
 
-A = 1
+A = [1, 11]
 J = 10
 Q = 10
 K = 10
@@ -19,8 +23,12 @@ face_cards = ['J', 'Q', 'K']
 
 print('Welcome to Lab 19, also known as Blackjack Advice. This is a program coded in python by Caleb Mealey.')
 print('In this game, you will be asked to enter 3 cards. You must enter a valid entry from a traditional 52 playing card deck: A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, or K. After analyzing your inputted 3 cards, the computer will advise whether or not to "Hit", "Stay", if you already have "Blackjack", or if you\'re "Already Busted".')
+print('In this version, Version 2, Aces will be worth either 1 or 11, and the computer will calculate the totals for you.')
 
 def playagain():
+    '''
+    The main menu loop which loops through the response to end the game
+    '''
     answer_list_yes = ['y', 'yes', 'Y', 'Yes', 'YES']
     answer_list_no = ['n', 'no', 'N', 'No', 'NO']
     play_again_tf = True
@@ -36,19 +44,27 @@ def playagain():
         else:
             print('Invalid Entry')
             answer = input('Enter (y)es or (n)o:')
+    return
 
 def blackjack_advice():
+    '''
+    The main function calling for the user to input the three cards that are in their hand.
+    '''
+    sum_of_cards = 0
+    aces = 0
     TF_1 = False
     while not TF_1:
         first_card = input('What\'s your first card? ')
         if first_card in valid_cards:
             if first_card == 'A':
                 first_card = 1
+                aces += 1
             elif first_card in face_cards:
                 first_card = 10
             else:
                 first_card = int(first_card)
             TF_1 = True
+            break
         else:
             print('Invalid Entry. Please enter a valid card.')
 
@@ -58,11 +74,13 @@ def blackjack_advice():
         if second_card in valid_cards:
             if second_card == 'A':
                 second_card = 1
+                aces += 1
             elif second_card in face_cards:
                 second_card = 10
             else:
                 second_card = int(second_card)
             TF_2 = True
+            break
         else:
             print('Invalid Entry. Please enter a valid card.')
 
@@ -73,26 +91,36 @@ def blackjack_advice():
         if third_card in valid_cards:
             if third_card == 'A':
                 third_card = 1
+                aces += 1
             elif third_card in face_cards:
                 third_card = 10
             else:
                 third = int(third_card)
             TF_3 = True
+            break
         else:
             print('Invalid Entry. Please enter a valid card.')
-          
-        sum_of_cards = int(first_card) + int(second_card) + int(third_card)
-        print(f' Your current total is : {sum_of_cards}')
-        if sum_of_cards < 17:
-            print('Hit!')
-        elif 21 > sum_of_cards >= 17:
-            print('Stay')
-        elif sum_of_cards == 21:
-            print('Blackjack!')
-        else:
-            print('Already Busted.')
 
-        playagain()
+    sum_of_cards = int(first_card) + int(second_card) + int(third_card)
+    if aces > 1:
+        if sum_of_cards <= 11:
+            sum_of_cards += 10
+        else:
+            sum_of_cards = sum_of_cards
+    print(f' Your current total is : {sum_of_cards}')
+    if sum_of_cards < 17:
+        print('Hit!')
+        break
+    elif 21 > sum_of_cards >= 17:
+        print('Stay')
+        break
+    elif sum_of_cards == 21:
+        print('Blackjack!')
+        break
+    else:
+        print('Already Busted.')
+        break
+    playagain()
 
 blackjack_advice()
 
