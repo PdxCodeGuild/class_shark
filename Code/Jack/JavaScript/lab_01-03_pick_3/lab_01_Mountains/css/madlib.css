@@ -1,7 +1,5 @@
 body {
 	background-color: #F0F0F0;
-	display: grid;
-	justify-content: center;
 }
 
 .my-table {
@@ -17,3 +15,22 @@ body {
 
 }
 
+.my-mtn-table {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+	align-items: column;
+	width: 1000px;
+	height: 500px;
+	background-color: black;
+}
+
+.my-mtn-col {
+	display: grid;
+	width: 1fr;
+	height: 1fr;
+}
+
+.the-btn {
+	height: 1fr;
+	width: 1fr;
+}
