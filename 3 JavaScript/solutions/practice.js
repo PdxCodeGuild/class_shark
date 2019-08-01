@@ -47,3 +47,17 @@ function findLongestWordLength(str) {
   )
   return longest.length
 }
+
+
+/* Basic Algorithm Scripting: Confirm the Ending
+Check if a string (first argument, str) ends with the given target string (second argument, target). */
+
+// built-in solution
+function confirmEnding(str, target) {
+  return str.endsWith(target);
+}
+
+// slice solution (compare substrings)
+function confirmEnding(str, target) {
+  return str.slice(-target.length) === target;
+}
