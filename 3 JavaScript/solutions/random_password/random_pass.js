@@ -4,15 +4,22 @@ Lab 6: generate a random password
 */
 
 const characters = '1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM;,./@^'
-let n = 1
 
-while (n) {
-  n = parseInt(prompt('Enter your desired password length: '))
+// selectors
+let passLengthInput = document.querySelector('input[name="pass_length"]')
+let generateBtn = document.querySelector('#generate')
+
+// event listeners
+generateBtn.addEventListener('click', (event) => {
+  console.log(event)
+  n = passLengthInput.value
   let password = ''
 
   for (let i=0; i<n; ++i) {
     let idx = Math.floor(Math.random() * characters.length)
     password += characters[idx]
   }
-  alert(password)
-}
+  document.querySelector('#password').innerText = password
+
+})
+
