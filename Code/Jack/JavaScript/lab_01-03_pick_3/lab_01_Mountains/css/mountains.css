@@ -8,7 +8,6 @@ body {
 	background-color: #DEDEDE;
 	display: flex;
 	justify-content: center;
-
 }
 
 .my-btn-dec {
@@ -17,7 +16,7 @@ body {
 
 .my-mtn-table {
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
 	align-items: column;
 	width: 1000px;
 	height: 500px;
@@ -25,7 +24,6 @@ body {
 }
 
 .my-mtn-col {
-	display: grid;
 	width: 1fr;
 	height: 1fr;
 }
