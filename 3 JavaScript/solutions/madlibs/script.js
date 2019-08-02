@@ -1,24 +1,41 @@
 /* Lab 2: Mad Lib
 given a series of words, generate a silly sentence
-  "_____________! he said ________ as he jumped into his convertible
-    exclamation            adverb
-   ______ and drove off with his __________ wife."
+  "_____________! he said ______ as he jumped into his convertible
+    exclamation            verb
+   ______ and drove off with his ___________ wife."
     noun                          adjective
 */
+// selecting input from DOM
+const exc = document.querySelector('input[name="exclamation"]')
+const v = document.querySelector('input[name="verb"]')
+const n = document.querySelector('input[name="noun"]')
+const adj = document.querySelector('input[name="adjective"]')
+const madlib = document.querySelector('#madlib')
+const generateBtn = document.querySelector('#generate')
 
-// # get words from the user
-let exclamation = prompt('give me an exclamation! ')
-let verb = prompt('give me a verb: ')
-let noun = prompt('give me a noun: ')
-let adjective = prompt('give me an adjective: ')
-
-// # putting together the words into an output 
+//  putting together the words into an output 
 // str concatenation
-// let output = exclamation + '! he said ' + verb + ' as he jumped into his convertible '
-// output += noun + ' and drove off with his ' + adjective + ' wife.'
-
 // formatted str
-let output = `"${exclamation}!," he said ${verb}ly, as he jumped into his convertible ${noun} and drove off with his ${adjective} wife.`
+const output = () => {
+  // get words from the user
+  let exclamation = exc.value
+  let verb = v.value
+  let noun = n.value
+  let adjective = adj.value
+  // display the output onscreen
+  madlib.innerText = `"${exclamation}!," he said ${verb}ly, as he jumped into his convertible ${noun} and drove off with his ${adjective} wife.`
+}
 
-// # print the output
-alert(output)
+// event listener
+generateBtn.addEventListener('click', function(evt) {
+  evt.preventDefault()
+  output()
+})
+
+// event listener
+generateBtn.addEventListener('mousemove', function(evt) {
+  // if (evt.)
+  console.log(evt)
+  output()
+})
+
