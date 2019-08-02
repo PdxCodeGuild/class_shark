@@ -25,4 +25,4 @@ function theFunc(ele) {
 }
 
 const btn = document.querySelector('#btnOne')
-btn.addEventListener('click', theFunc)
+btn.addEventListener('click', theFunc(this))
