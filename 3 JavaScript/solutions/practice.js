@@ -61,3 +61,27 @@ function confirmEnding(str, target) {
 function confirmEnding(str, target) {
   return str.slice(-target.length) === target;
 }
+
+/* Basic Algorithm Scripting: Falsy Bouncer
+Filter out all falsy values from an array.
+
+Falsy values in JavaScript are false, null, 0, "", undefined, and NaN. */
+
+function bouncer(arr) {
+  return arr.filter(elem => elem)
+}
+
+// equivalent to above
+function bouncer(arr) {
+  let truthy = []
+  for (let elem of arr) {
+    if (elem) truthy.push(elem)
+  }  
+  return truthy
+}
+
+function bouncer(arr) {
+  return arr.filter(Boolean)
+}
+
+
