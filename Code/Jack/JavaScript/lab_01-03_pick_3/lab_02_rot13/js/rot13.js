@@ -14,36 +14,15 @@ function grabInput() {
 	var	Adjective_1 = document.getElementById("adjOne")
 }
 
-// const buttons = document.querySelector(".the-btn");
-// buttons.forEach((button) => {
-// 	button.onclick = function(B) {
-// 		B.target.style.backgroundColor = "#FFFFFF";
-// 		alert('HERE')
-// 		B.preventDefault()
-// 	}
-// })
 
-function theFunc() {
-	this.style.backgroundColor = '#FFFFFF';
-	alert('HERE');
+function theFunc(ele) {
+	var here = ele.id;
+	var string = `#${here}`;
+	alert(string);
+	var temp = document.querySelector(id='#btnOne');
+	var color = 'blue';
+	document.querySelector(id='#btnOne').style.backgroundColor = color;
 }
 
-function setUpTable(row, col) {
-	const table = document.querySelector('#my-mtn-table')
-	let temp = ''
-	let tempCol = ''
-	for (let i = 0; i < col; i++) {
-		temp += `<div class='my-mtn-col'>`
-		for (let j = 0; j < row; j++) {
-			temp += `<button id='btn${i}${j}' onclick='theFunc()' class='the-btn'></button>`
-		}
-		temp += `</div>`
-		tempCol += ' 1fr'
-
-	}
-	tempCol += ';'
-	table.setAttribute('style', 'grid-template-columns = tempCol')
-
-	table.innerHTML = temp
-	console.log(temp)
-}
+const btn = document.querySelector('#btnOne')
+btn.addEventListener('click', theFunc)

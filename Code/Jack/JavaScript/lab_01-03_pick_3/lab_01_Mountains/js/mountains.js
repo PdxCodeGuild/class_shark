@@ -35,7 +35,7 @@ function setUpTable(row, col) {
 	for (let i = 0; i < col; i++) {
 		temp += `<div class='my-mtn-col'>`
 		for (let j = 0; j < row; j++) {
-			temp += `<button id='btn${i}${j}' onclick='theFunc()' class='the-btn'></button>`
+			temp += `<button id='btn${i}${j}' onclick='theFunc(call(document.querySelector('#btn${i}${j}')))' class='the-btn'></button>`
 		}
 		temp += `</div>`
 		tempCol += ' 1fr'
