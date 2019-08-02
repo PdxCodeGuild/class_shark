@@ -10,11 +10,34 @@
 
 
 function grabInput() {
-	var A_Place = document.getElementById("aPlace").value
-	var	Adjective_1 = document.getElementById("adjOne").value
+	var A_Place = document.getElementById("aPlace")
+	var	Adjective_1 = document.getElementById("adjOne")
 }
 
-const myButton = document.getElementById('btnOne');
-myButton.onclick = function() {
-	grabInput();
+// const buttons = document.querySelector(".the-btn");
+// buttons.forEach((button) => {
+// 	button.onclick = function(B) {
+// 		B.target.style.backgroundColor = "#FFFFFF";
+// 		alert('HERE')
+// 		B.preventDefault()
+// 	}
+// })
+
+function theFunc() {
+	this.style.backgroundColor = '#FFFFFF';
+	alert('HERE');
+}
+
+function setUpTable(row, col) {
+	const table = document.querySelector('#my-mtn-table')
+	let temp = ''
+	for (let i = 0; i < col; i++) {
+		temp += `<div class='my-mtn-col'>`
+		for (let j = 0; j < row; i++) {
+			temp += `<button id='btn${i}${j}' onclick='theFunc' class='the-btn'></button>`
+		}
+		temp += `</div>`
+	}
+	table.innerHTML = temp
+	console.log(temp)
 }
