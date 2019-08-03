@@ -7,6 +7,7 @@ M-F 6:00PM – 9:30PM
 
 ## No class the following dates
 - **Thursday, July 4th**
+- **Friday, July 5th**
 - **Monday, Sept 2nd** (Labor Day)
 
 ## Labs Assigned
@@ -22,15 +23,23 @@ M-F 6:00PM – 9:30PM
 | 6/14 | (16) |
 | 6/17 | (17), 18, 19 |
 | 6/18 | 20 |
+| 6/19 | 21, (22) |
+| 6/21 | 0, 23 |
+| 6/25 | (24) |
+| 7/1 | 25, 26, (27) |
+| 7/15 | 28 |
 
 
 ### HTML/CSS 
 | Assigned on | Lab \#s |
 | ------------- | ---- |
+| 7/18 | 1 |
+| 7/22 | 2, 3, (4), 5 |
 
 ### JS
 | Assigned on | Lab \#s |
 | ------------- | ---- |
+| 7/29 | 1, 2, 3 |
 
 
 ### Django
@@ -58,6 +67,7 @@ M-F 6:00PM – 9:30PM
         
 - Frontend (HTML/CSS/JS):
     - https://www.freecodecamp.org/ (Practice, projects, (almost) textbook all-in-one!)
+    - https://www.codepen.io/ (Live-rendering static websites, showcases for cool html/css/js projects)
     - https://sayazamurai.github.io/python-vs-javascript/#control-flow (Python3 and ES6 JS side by side comparisons)
     - https://sass-lang.com/guide (SASS: CSS preprocessor tutorial)
     - https://vuejs.org/v2/guide/ (Vue.js official guide)

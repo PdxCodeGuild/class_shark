@@ -1,0 +1,46 @@
+"""
+Name:           Scott Tran
+Date            6/18/2019
+Assignment:     Convert a given number (1-99) into its english representation. 
+"""
+
+
+ones = {0: "zero", 1: "one", 2: "two", 3: "three", 4: "four", 5: "five", 6: "six", 7: "seven", 8: "eight", 9: "nine"} 
+teens = {0: "ten", 1: "eleven", 2: "twelve", 3: "Thirteen", 4: "forteen", 5: "fifteen", 6: "sixteen", 7: "seventeen", 8: "eighteen", 9: "nineteen"}
+
+tens = {2: "twenty", 3: "thirty", 4: "forty", 5: "fifty", 6: "sixty", 7: "seventy", 8: "eighty", 9: "ninety"}
+
+def integer():
+    while True:
+        try:
+            n = int(input("Please give me a number between 1 and 99 to translate: "))
+            if n > 0 and n < 100: 
+                return n
+            else:
+                print("That is not a number in range.", end =" ")
+                False
+        except ValueError:
+            print("No valid integer! Please try again ...")
+
+
+
+
+
+
+def num(x):
+
+    if x < 10:
+        return ones[x]
+    elif x > 9 and x < 20:    
+        teens_num = x%10
+        return teens[teens_num]
+    elif x >19 and x < 100:
+        tens_num = x//10
+        ones_num = x%10
+        return tens[tens_num] + "-" + ones[ones_num]
+    else:
+        return 'Error'
+
+
+
+print(f"The english representation of that number is {num(integer())}.")

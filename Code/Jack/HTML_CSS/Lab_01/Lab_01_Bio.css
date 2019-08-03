@@ -1,0 +1,55 @@
+#maindiv {
+    background-color:rgba(0,0,0,0.8);
+    margin: 0 200px;
+    padding:0 20px;
+    border-radius: 15px 15px 15px 15px;
+    border-color: black white;
+    border-width: 0px 20px 0px 20px;
+    min-width: 350px;
+}
+
+#HeadShotOne {
+    border-radius: 300px 300px 0px 0px;
+}
+
+#HeadShotDiv {
+    position:;
+    display: inline;
+    
+}
+
+
+img {
+    display: block;
+    border: 1px solid white;
+    float:right;
+    margin:8px;
+}
+html, body {
+    margin:0;
+    padding:0;
+}
+body {
+    color:white;
+    background-image:url("http://farm9.staticflickr.com/8076/8276144516_8ed5cd4fd3_o.jpg");
+    background-size:cover;
+    font-family:'Open Sans';
+    font-size:18px;
+}
+h1 {
+    font-weight:normal;
+    text-align:center;
+    font-size:40px;
+    padding:10px;
+    margin:0px;
+}
+a {
+    text-decoration:none;
+    color:white;
+}
+a:visited {
+    color:goldenrod;
+}
+#footer {
+    text-align:center;
+}

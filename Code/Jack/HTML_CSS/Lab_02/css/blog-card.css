@@ -1,0 +1,41 @@
+#three-recent-blog {
+	display: flex;
+	flex-flow: column space-between;
+}
+
+.whole-card {
+	background-color: #546e7a;
+	border-radius: 8px 1px 8px 1px;
+}
+
+.whole-card-content {
+	width: 100%;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	padding: 10px 3px 5px 3px;
+}
+
+.ctxt {
+	text-overflow: ellipsis;
+	white-space: normal;
+	overflow: hidden;
+	color: black;
+	word-break: break-all;
+}
+
+.my-card-img {
+	width: 100%;
+	filter: drop-shadow(0 0 1px #333);
+}
+
+.cimg {
+	width: 100%;
+	border-radius: 3px 1px 3px 1px;
+
+}
+
+.my-card-link {
+	background-color: #425c68;
+	border-radius: 5px 5px 5px 1px;
+}
