@@ -1,0 +1,44 @@
+/*stylesheet.css*/
+.nav-wrapper {
+	background-color: #546e7a;
+
+}
+
+.brand-logo {
+	color: #fff59d;
+	font-family: 'Playfair Display SC', serif;
+	
+}
+
+#forest {
+	padding: 1em;
+	border-radius: 20px;
+	align-items: center;
+
+}
+
+main {
+	background-color: #b0bec5 ;
+}
+
+.section {
+	width: 75%;
+	height: 75%;
+}
+
+.card-content {
+	font-family: 'Playfair Display SC', serif;
+}
+
+.card-action {
+	font-family: "Playfiar Display SC", serif;
+}
+
+.page-footer {
+	background-color: #546e7a;
+	font-family: 'Playfair Display SC', serif;
+}
+
+.follow {
+	font-size: 16px;
+}
