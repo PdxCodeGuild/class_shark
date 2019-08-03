@@ -10,7 +10,7 @@ Let's build a simple calculator. It should support the following functions at mi
 - AC (all clear)
 
 Use event listeners to handle interaction:
-- When the calcular buttons are pressed
+- When the calculator buttons are pressed
 - Enable keyboard input
 
 ## Advanced
