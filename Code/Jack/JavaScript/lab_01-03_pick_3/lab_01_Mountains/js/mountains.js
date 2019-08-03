@@ -31,13 +31,19 @@ function theFunc() {
 function setUpTable(row, col) {
 	const table = document.querySelector('#my-mtn-table')
 	let temp = ''
+	let tempCol = ''
 	for (let i = 0; i < col; i++) {
 		temp += `<div class='my-mtn-col'>`
-		for (let j = 0; j < row; i++) {
-			temp += `<button id='btn${i}${j}' onclick='theFunc' class='the-btn'></button>`
+		for (let j = 0; j < row; j++) {
+			temp += `<button id='btn${i}${j}' onclick='theFunc(call(document.querySelector('#btn${i}${j}')))' class='the-btn'></button>`
 		}
 		temp += `</div>`
+		tempCol += ' 1fr'
+
 	}
+	tempCol += ';'
+	table.setAttribute('style', 'grid-template-columns = tempCol')
+
 	table.innerHTML = temp
 	console.log(temp)
 }

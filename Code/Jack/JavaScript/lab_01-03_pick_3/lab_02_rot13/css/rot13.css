@@ -1,0 +1,24 @@
+body {
+	background-color: #F0F0F0;
+	display: flex;
+	justify-content: center;
+	height: 8000px;
+}
+
+.rot-input-wrapper {
+	overflow: visible;
+	margin: 40px; 
+	border: 4px solid blue; 
+	height: 400px;}
+
+
+.rot-input {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 10px;
+	border: 4px solid red;
+}
+
+#btnOne {
+	background-color: green;
+}

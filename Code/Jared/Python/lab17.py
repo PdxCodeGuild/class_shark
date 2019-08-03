@@ -19,8 +19,8 @@ def anagram(word1, word2):
         return True
 
 
-first_word = input('Enter a word: ')
-second_word = input('Enter a second word: ')
+first_word = input('Enter a word: ').lower().replace(' ', '')
+second_word = input('Enter a second word: ').lower().replace(" ", "")
 
 if anagram(first_word, second_word) == True:
     print(f"{first_word} and {second_word} are anagrams.")
@@ -30,12 +30,12 @@ else:
 
 
 def anagram2(word1, word2):
-    first_word = (word1)
-    first_word.replace(" ", " ")
+    first_word = (word1).lower()
+    first_word.replace(" ", "")
     #first_word = list(first_word)
 
-    second_word = (word2)
-    second_word.replace(" ", " ")
+    second_word = (word2).lower()
+    second_word.replace(" ", "")
     #second_word = list(second_word)
 
     if sorted(first_word) == sorted(second_word):

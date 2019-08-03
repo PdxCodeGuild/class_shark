@@ -1,0 +1,41 @@
+/*style.css*/
+.container {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	background-color: white;
+	padding: 30px 30;
+}
+
+p {
+	color: blue;
+	font-size: 18px;
+	font-family: sans-serif;
+}
+
+main {
+	margin: 0;
+	padding: 60px 60;
+	background-color: black
+}
+
+#chess {
+	display: inline;
+	float: right;
+	border-radius: 50%;
+}
+
+.works{
+	dispaly: flex;
+	flex-direction: row;
+	align-items: center
+}
+
+q {
+	font-family: cursive;
+	color: white;
+}
+
+ul {
+	list-style-type: circle;
+}

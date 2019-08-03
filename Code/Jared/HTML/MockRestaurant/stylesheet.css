@@ -1,0 +1,38 @@
+/*stylesheet.css*/
+
+.brand-logo {
+	padding-left: 1em !important;
+	font-family: 'PT Serif', serif;
+}
+
+.nav-wrapper {
+	background-color: #c0ca33;
+}
+
+.page-footer{
+	background-color: #c0ca33;
+}
+h1{
+	font-family: 'DM Serif Display', serif;
+}
+
+h2 {
+	font-family: 'PT Serif', serif;
+}
+
+p {
+	font-family: 'DM Serif Display', serif;
+}
+
+.small-container{
+	position: relative;
+	height: 250px;
+	width: 250px;
+	overflow: hidden;
+}
+
+#sourdough {
+	height: 1000px;
+	width: 700px;
+}
+

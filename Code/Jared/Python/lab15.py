@@ -21,13 +21,12 @@ def teen_phrase(num):
 while True:
     num = int(input("Enter a number between 1 and 100: "))
 
-    if 10 >= num or num > 20:
+    if num == 0:
+        print('zero')
+    elif 10 >= num or num > 20:
         print(num_phrase(num))
     elif 11 < num < 20:
         print(teen_phrase(num))
-    elif num == 0:
-        print('zero')
-    elif num == 'done':
         break
     print('-' * 60)
 # print(teen_phrase(""))
