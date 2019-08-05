@@ -11,43 +11,66 @@ const ce = document.querySelector('#ce')
 const ac = document.querySelector('#ac')
 
 // variables
-let ans = null
-let operation = []
-let op = null
-let currentNumber = ''
-let isDecimal = false
+let operation = []      // history of operations
+let ans = null          // current answer
+let op = null           // current operator
+let currentNumber = ''  // current number
+let isDecimal = false   // decimal flag
+const symbols = {
+  '+': 'add',
+  '-': 'sub',
+  '×': 'mult',
+  '*': 'mult',
+  '÷': 'div',
+  '/': 'div',   
+  '.': 'dec',
+  '=': 'eq',
+  'CE': 'ce',
+  'AC': 'ac'
+}
 
 // functions
+
+// computes a op b
 function calculate(a, op, b) {
   if (op === '+') {
     return a + b
   } else if (op === '-') {
     return a - b
-  } else if (op === '/') {
-    return a / b
-  } else if (op === '*') {
+  } else if (op === '*' || op === '×') {
     return a * b
+  } else if (op === '/' || op === '÷') {
+    return a / b
   }
 }
 
+// resets currentNumber and isDecimal and displays value and history onscreen
 function clearAndDisplay(value) {
-  if (value === undefined) value = 0 
+  if (value === null) value = 0 
   currentNumber = ''
   isDecimal = false  
-  if (typeof value === 'number') {
-    if (value % 1 || value > 99999999) { // if value is a float or large int, set precision
-      value = value.toPrecision(10)
-    }
+
+  // format number so it doesn't overflow the display
+  // if value is a float, set precision and trim trailing 0s
+  if (value % 1 ) {
+    value = parseFloat(value.toPrecision(8))
   }
+  // if value is a large int, set precision
+  if (value > 99999999) { 
+    value = value.toPrecision(8)      
+  }
+  // display value and history onscreen
   display.innerText = value
   history.innerText = operation.join('')
 }
 
+// adds digit to currentNumber and displays it onscreen
 function addDigit(digit) {
     currentNumber += digit
     display.innerText = currentNumber  
 }
 
+// adds decimal to currentNumber
 function addDecimal() {
   if (!isDecimal) {
     currentNumber += '.'
@@ -56,34 +79,44 @@ function addDecimal() {
   }  
 }
 
+// adds operator
 function addOperator(operator) {
+  // if an operator is already set, calculate ans op currentNumber
   if (op && currentNumber) {
     ans = calculate(ans, op, parseFloat(currentNumber))
+  // else if no ans is set, set ans as currentNumber or 0 if currentNumber is null
   } else if (!ans && ans !== 0) {
     ans = (currentNumber ? parseFloat(currentNumber) : 0)
   }
   op = operator
+  // add currentNumber and operator to history
   if (currentNumber) operation.push(parseFloat(currentNumber))
   operation.push(op)
+  // display the operator
   clearAndDisplay(op)
 }
 
+// compute ans op currentNumber and display onscreen
 function equals() {
   if (currentNumber) {
     operation.push(parseFloat(currentNumber))
+    ans = (ans !== null ? ans : 0)
     ans = calculate(ans, op, parseFloat(currentNumber))
   }
   clearAndDisplay(ans)  
 }
 
+// reset all values
 function clearAll() {
-  ans = 0
   operation = []
+  ans = null
   op = null
   clearAndDisplay(ans)  
 }
 
 // event listeners
+
+// button event listeners
 
 // digits.forEach((digit) => {
 //   digit.addEventListener('click', (evt) => {
@@ -91,6 +124,7 @@ function clearAll() {
 //   })
 // })
 
+// same logic for each digit button
 for (let digit of digits) {
   digit.addEventListener('click', (evt) => {
     addDigit(digit.innerText)
@@ -101,6 +135,7 @@ decimal.addEventListener('click', (evt) => {
   addDecimal()
 })  
 
+// same logic for each operator button
 for (let operator of operators) {
   operator.addEventListener('click', (evt) => {
     addOperator(operator.innerText)
@@ -119,17 +154,38 @@ ac.addEventListener('click', (evt) => {
   clearAll()
 })
 
-window.addEventListener('keyup', evt => {
-  console.log(evt)
-  if (!isNaN(evt.key)) {
+// keypress event listener to enable keyboard input
+window.addEventListener('keydown', evt => {
+
+  // set logic for specific keys
+  if (!isNaN(evt.key)) { // digits 
+    // style button with corresponding key
+    let button = document.querySelector(`#btn-${evt.key}`)
+    button.classList.add('active')
     addDigit(evt.key)
-  } else if ('+-*/'.includes(evt.key)) {
-    addOperator(evt.key)
-  } else if (evt.key === '.') {
-    addDecimal()
-  } else if (['=', 'Enter'].includes(evt.key)) {
-    equals()
-  } else if (evt.key === 'Backspace') {
-    clearAndDisplay()
+  } else {
+    // style button with corresponding key
+    let button = document.querySelector(`#${symbols[evt.key]}`)
+    if (button) button.classList.add('active')
+    if ('+-*/'.includes(evt.key)) { // operators
+      addOperator(evt.key)
+    } else if (evt.key === '.') { // decimal
+      addDecimal()
+    } else if (['=', 'Enter'].includes(evt.key)) { // = or enter
+      equals()
+    } else if (evt.key === 'Backspace') { // backspace
+      clearAndDisplay(ans)
+    }
   } 
+})
+
+window.addEventListener('keyup', evt => {
+  // handle digits separately, since they have different selectors
+  if (!isNaN(evt.key)) { // digits 
+    let button = document.querySelector(`#btn-${evt.key}`)
+    if (button) button.classList.remove('active')
+  } else {
+    let button = document.querySelector(`#${symbols[evt.key]}`)
+    if (button) button.classList.remove('active')
+  }
 })
