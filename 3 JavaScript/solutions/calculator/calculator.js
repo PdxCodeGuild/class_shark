@@ -25,6 +25,7 @@ const symbols = {
   '/': 'div',   
   '.': 'dec',
   '=': 'eq',
+  'Enter': 'eq',
   'CE': 'ce',
   'AC': 'ac'
 }
@@ -156,7 +157,7 @@ ac.addEventListener('click', (evt) => {
 
 // keypress event listener to enable keyboard input
 window.addEventListener('keydown', evt => {
-
+  console.log(evt)
   // set logic for specific keys
   if (!isNaN(evt.key)) { // digits 
     // style button with corresponding key

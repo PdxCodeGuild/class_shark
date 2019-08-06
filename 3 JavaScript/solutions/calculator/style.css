@@ -150,6 +150,11 @@ button:hover {
     opacity: 0.8;
 }
 
+button:focus {
+    border: solid;
+    border-width: 1px;
+}
+
 button:active, .active {
     box-shadow: 0px 0px 4px 0px black;;
     transform: translateY(2px);
