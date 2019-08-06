@@ -67,24 +67,31 @@ print('Welcome to Lab 22 - Compute Automated Readability Index. A program writte
 print('This program will compute the ARI of a given text file. The ARI (automated readability index) is a formula for computing the U.S. grade level for a given block of text.')
 
 def ARI(characters, words, sentences):
+'''
+The equation to plug in our values for the characters, words, sentences, and output the calculated Automated Readability Index.
+'''
     return round(4.71*(characters/words)+0.5*(words/sentences)-21.43)
 
 def openfile(file_location):
     with open(f'{file_location}', 'r', encoding="utf8") as b:
         book_text = b.read()
         book_text = book_text.strip().lower()
+        # Initialize the counting variables
         char_count = 0
         words_count = 0
         sentences_count = 0
+        # Count the number of sentences by the various punctuation which ends a sentence ".?!"
         for i in range(len(book_text)):
             if book_text[i] in ['.','?','!']:
                 sentences_count += 1
         translator = str.maketrans('', '', punctuation)
         book_text_no_punc = book_text.translate(translator)
         book_text_no_punc_ls = book_text_no_punc.split()
+        # After stripping the text of punctuation, and separating it into a list, we can now loop through and count the total amount of words
         for words in book_text_no_punc_ls: 
             words_count += 1
         char_string = book_text_no_punc.replace(' ', '')
+        # After replacing all spaces with no spaces, we can now loop through and count all of the ASCII characters.
         for x in range(len(char_string)):
             if char_string[x] in ascii_letters:
                 char_count += 1
