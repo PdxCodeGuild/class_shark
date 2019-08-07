@@ -78,6 +78,7 @@ input {
 
 #btn-add {
   height: 100%;
+  width: 60px;
   padding: 0 1em;
   border: black;
   background-color: black;
