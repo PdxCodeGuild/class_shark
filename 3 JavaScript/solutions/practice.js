@@ -112,3 +112,38 @@ function chunkArrayInGroups(arr, size) {
   return chunks  
 }
 
+/* Basic Algorithm Scripting: Title Case a Sentence
+Return the provided string with the first letter of each word capitalized. 
+Make sure the rest of the word is in lower case.
+*/
+
+// using map
+function titleCase(str) {
+  return str.split(' ')
+            .map(word => word[0].toUpperCase() + word.slice(1).toLowerCase())
+            .join(' ')
+}
+
+// old fashioned loop
+function titleCase(str) {
+    // convert str into array of words
+    let words = str.split(' ')
+    // loop through words
+    for (let i=0; i<words.length; i++) {
+        let word = ''
+    // set first char uppercase
+        word += words[i][0].toUpperCase()
+    // set rest of word lowercase
+        word += words[i].slice(1).toLowerCase()
+        words[i] = word
+    }
+    // join array of words back into string
+    return words.join(' ')
+}
+
+// using reduce
+function titleCase(str) {
+    return str.split(' ')
+              .reduce((acc, word) => acc +' '+ word[0].toUpperCase() + word.slice(1).toLowerCase(), '')
+              .trim()
+}
