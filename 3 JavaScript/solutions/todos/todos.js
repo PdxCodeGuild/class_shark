@@ -50,7 +50,22 @@ function addTodo() {
     toggleBtn.classList.add('fas')
     toggleBtn.classList.add('fa-check')
     // add event listeners to button
-
+    deleteBtn.addEventListener('click', evt => {
+      // equivalent
+      // let todo = deleteBtn.closest('li')
+      // let todo = evt.target.closest('li')
+      // let todo = evt.target.parentElement
+      let todo = todoElement
+      // remove todo from object
+      todolist.remove(todo.innerText)
+      // remove todo from DOM
+      listHolder.removeChild(todo)
+    })
+    toggleBtn.addEventListener('click', evt => {
+      let todo = todoElement
+      todolist.toggleComplete(todo.innerText)
+      todo.classList.toggle('completed')
+    })
     // add buttons to todo element
     todoElement.appendChild(deleteBtn)
     todoElement.appendChild(toggleBtn)
