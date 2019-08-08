@@ -147,3 +147,24 @@ function titleCase(str) {
               .reduce((acc, word) => acc +' '+ word[0].toUpperCase() + word.slice(1).toLowerCase(), '')
               .trim()
 }
+
+/* Practice: Sum All Numbers in a Range
+We'll pass you an array of two numbers. 
+Return the sum of those two numbers plus the sum of all the numbers between them.
+The lowest number will not always come first.
+
+sumAll([1, 4]) // returns 10 (because 1+2+3+4)
+sumAll([10, 5]) */
+function sumAll(arr) {
+  // sort arr
+  const [a, b] = arr.sort((a, b) => a-b)
+  // get range from a to b
+  const range = []
+  for (let i=a; i<=b; i++) {
+    range.push(i)
+  }
+  // // alternately, single line range
+  // const range = Array.from(Array(b-a+1).keys(), num => num + a)
+  // sum all elements in range
+  return range.reduce((acc, cur) => acc + cur)
+}
