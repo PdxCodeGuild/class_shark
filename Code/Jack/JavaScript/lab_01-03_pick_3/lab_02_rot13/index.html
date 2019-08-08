@@ -2,7 +2,7 @@
 <html lang="en-US">
     <head>
         <meta charset="utf-8">
-        <title>Lab_01_mountains</title>
+        <title>Lab_02_rot13</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="./css/rot13.css">
     </head>
@@ -10,9 +10,9 @@
         <div class='container rot-input-wrapper'>
 
 		<div class='rot-input'>
-			<form id='cipher-form'>
+			<form id='cipher-form' class='hidden'>
 
-			  Cipher Rotation: <input type="number" id="rot-val" placeholder="13"><br>
+			  Cipher Rotation: <input type="number" id="rot-val" placeholder="13" value="13"><br>
 			  
 			  <div class='container'>
 			    <div class='my-btn-dec'>
@@ -22,6 +22,10 @@
 			</form>
             <div class='msg-con'>
                 <p id='encMsg'></p>
+            </div>
+            <div class='decode-wrapper'>
+                <button id='decode-btn'>Decode</button>
+                <p id='decodeMsg'></p>
             </div>
 		</div>
     </div>

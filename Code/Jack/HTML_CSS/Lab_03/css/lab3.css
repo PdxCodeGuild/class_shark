@@ -1,0 +1,46 @@
+html, body, .block {
+  font-family: 'Roboto Slab', serif;
+  height: 100%;
+
+}
+
+body {
+	background-color: grey;
+}
+
+.design-thingy {
+	background-color: grey;
+	width: 100%;
+	height: 100px;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	font-size: 22px;
+}
+
+.inner-design-thingy {
+	margin-top: 20px;
+}
+
+.designT {
+	height: 40px;
+	width: 40px;
+	overflow: hidden;
+}
+
+.cardDesignT {
+	height: 300px;
+	width: 300px;
+	overflow: hidden;
+}
+
+.card-holder {
+	background-color: grey;
+	display: flex;
+	justify-content: center;
+}
+
+.my-card {
+	width: 400px;
+	height: 500px;
+}
