@@ -168,3 +168,85 @@ function sumAll(arr) {
   // sum all elements in range
   return range.reduce((acc, cur) => acc + cur)
 }
+
+/* Intermediate Algorithm Scripting: Convert HTML Entities
+Convert the characters &, <, >, " (double quote), and ' (apostrophe), 
+in a string to their corresponding HTML entities. */
+function convertHTML(str) {
+  // &colon;&rpar;
+  const html = {
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&apos;',
+  }
+  let chars = str.split('')
+  console.log(chars)
+  for (let i=0; i<chars.length; ++i) {
+      if (chars[i] in html) {
+          chars[i] = html[chars[i]]
+      }
+  }
+  console.log(chars)
+  return chars.join('');
+}
+
+// map solution
+function convertHTML(str) {
+  const html = {
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&apos;',
+  }
+  let chars = str.split('')
+  chars = chars.map(letter => ((letter in html) ? html[letter] : letter))
+  // [html.get(letter, letter) for letter in chars]
+  return chars.join('')
+}
+
+// reduce solution
+function convertHTML(str) {
+  const html = {
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&apos;',
+  }
+  let chars = str.split('')
+  chars = chars.reduce((acc, letter) => acc + ((letter in html) ? html[letter] : letter), '')
+  console.log(chars)
+  return chars
+}
+
+// switch case solution
+function convertHTML(str) {
+    let chars = str.split('')
+    let ret = ''
+    for (let char of chars) {
+        switch(char) {
+            case '&':
+                ret += '&amp;'
+                break
+            case '<':
+                ret += '&lt;'
+                break
+            case '>':
+                ret += '&gt;'
+                break
+            case '"':
+                ret += '&quot;'
+                break        
+            case "'":
+                ret += '&apos;'
+                break
+            default:
+                ret += char                           
+        }
+    }
+    return ret
+}
+
