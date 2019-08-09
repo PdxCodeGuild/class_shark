@@ -9,7 +9,20 @@ const app = new Vue({
     ans: null,
     op: null,
     currentNumber: '',
-    isDecimal: false
+    isDecimal: false,
+    symbols: {
+      '+': 'add',
+      '-': 'sub',
+      '×': 'mult',
+      '*': 'mult',
+      '÷': 'div',
+      '/': 'div',   
+      '.': 'dec',
+      '=': 'eq',
+      'Enter': 'eq',
+      'CE': 'ce',
+      'AC': 'ac'
+    }  
   },
   methods: {
     calculate: function() {
@@ -90,9 +103,12 @@ const app = new Vue({
     },
     formattedDisplay: function() {
       // format number so it doesn't overflow the display
-      if (this.display === '' || this.display === null) return ''
-      // display operators as is
-      if (isNaN(this.display)) return this.display
+      // display operators and null/empty values as is
+      if (this.display in this.symbols ||
+          this.display === '' || 
+          this.display === null) {
+            return this.display
+      }
 
       let value = parseFloat(this.display)
       // if value is a large int, set precision
@@ -110,19 +126,6 @@ const app = new Vue({
     }
   },
   mounted: function() {
-      const symbols = {
-        '+': 'add',
-        '-': 'sub',
-        '×': 'mult',
-        '*': 'mult',
-        '÷': 'div',
-        '/': 'div',   
-        '.': 'dec',
-        '=': 'eq',
-        'Enter': 'eq',
-        'CE': 'ce',
-        'AC': 'ac'
-      }  
 
     // keypress event listener to enable keyboard input
     window.addEventListener('keydown', evt => {
@@ -134,7 +137,7 @@ const app = new Vue({
         this.addDigit(evt.key)
       } else {
         // style button with corresponding key
-        let button = document.querySelector(`#${symbols[evt.key]}`)
+        let button = document.querySelector(`#${this.symbols[evt.key]}`)
         if (button) button.classList.add('active')
         if ('+-*/'.includes(evt.key)) { // operators
           this.addOperator(evt.key)
@@ -154,7 +157,7 @@ const app = new Vue({
         let button = document.querySelector(`#btn-${evt.key}`)
         if (button) button.classList.remove('active')
       } else {
-        let button = document.querySelector(`#${symbols[evt.key]}`)
+        let button = document.querySelector(`#${this.symbols[evt.key]}`)
         if (button) button.classList.remove('active')
       }
     })
