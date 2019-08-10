@@ -10,19 +10,6 @@ function encode(msg, ciphRot) {
 	return encMsg
 }
 
-function decode(msg, ciphRot) {
-	let decMsg = ''
-	ciphRot *= -1;
-	alert(ciphRot)
-	for (let i = 0; i < msg.length; i++) {
-		if (msg[i] == msg[i].toUpperCase()) {
-			decMsg += ciphUp[(ciphUp.indexOf(msg[i]) + ciphRot) % 26]
-		} else if (msg[i] == msg[i].toLowerCase()) {
-			decMsg += ciphLo[(ciphLo.indexOf(msg[i]) + ciphRot) % 26]
-		} else {	decMsg += msg[i]	}
-	}
-	return decMsg
-}
 ////////////////////////////////////////////////
 const ciphLo = 'abcdefghijklmnopqrstuvwxyz'
 const ciphUp = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -36,28 +23,16 @@ function timeToEncode(ele, ciphRot) {
 	let msg = document.querySelector('#msg').value;
 		msg = encode(msg, ciphRot);
 	document.querySelector('#encMsg').innerHTML = "Your message: " + `${msg}`;
-	document.querySelector('.decode-wrapper').setAttribute('style', 'visibility: visible;')
 	})
 	}
 
-function timeToDecode() {
-	let ugMsg = document.querySelector('#encMsg').innerHTML
-	ugMsg = ugMsg.slice(14)
-	alert(decode(ugMsg, rotNum))
-}
 
 
 ///////////////////////////////////////////////
 
 const btn = document.querySelector('#btnOne')
 btn.addEventListener('click',(evt)=>{
-	rotNum = document.querySelector('#rot-val').value
+	let rotNum = document.querySelector('#rot-val').value
 	rotNum = parseInt(rotNum)
 	timeToEncode(this, rotNum)
-})
-
-const decBtn = document.querySelector('#decode-btn')
-decBtn.addEventListener('click', (evt)=>{
-	evt.preventDefault();
-	timeToDecode()
 })
