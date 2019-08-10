@@ -250,3 +250,26 @@ function convertHTML(str) {
     return ret
 }
 
+
+/* Intermediate Algorithm Scripting: Pig Latin
+Translate the provided string to pig latin.
+Pig Latin takes the first consonant (or consonant cluster) of an English word, 
+moves it to the end of the word and suffixes an "ay".
+If a word begins with a vowel you just add "way" to the end. */
+function translatePigLatin(str) {
+  const vowels = 'aeiou'
+  // word starts with a vowel end with 'way'
+  if (vowels.includes(str[0])) return str+'way'
+  // word starts with a consonant
+  for (let i=1; i<str.length; i++) {
+    // loop through until we encounter a vowel
+    if (vowels.includes(str[i])) {
+      // move the consonants to the end of the word and add 'ay'
+      return str.slice(i) + str.slice(0, i) + 'ay'
+    }
+  }
+  // word that has no vowels
+  return str + 'ay'
+}
+
+translatePigLatin("consonant");
