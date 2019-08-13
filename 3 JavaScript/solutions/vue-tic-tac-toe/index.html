@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tic Tac Toe (with Vue!)</title>
+    <link rel="stylesheet" href='styles.css'>
+</head>
+<body>
+    <h1>Tic Tac Toe: Three in a Row</h1>
+    <div id='app'>
+        <h2>{{message}}</h2>
+        <div v-bind:class="gameOver" id='board'>
+            <cell 
+                v-for='position, i in board' 
+                v-bind:key='i'
+                v-bind:id='i'
+                class='cell'
+                v-bind='{position, i, addToken}'
+            ></cell>
+        </div>
+        <button @click='reset'>Play again</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src='tictactoe.js'></script>
+</body>
+</html>
