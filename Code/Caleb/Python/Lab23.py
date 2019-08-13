@@ -8,7 +8,6 @@
 #         line = f'{name} {favoritefruit} {favoritecolor}\n'
 #         file.write(line)
 
-import csv
 
 # Display Welcome Statement, Explain that we are opening a 'contacts.csv' file which was originally created by Caleb Mealey.
 print('Welcome to Lab 23: Contact List. A program coded in python by Caleb Mealey.')
