@@ -273,3 +273,40 @@ function translatePigLatin(str) {
 }
 
 translatePigLatin("consonant");
+
+/* Intermediate Algorithm Scripting: Diff Two Arrays
+Compare two arrays and return a new array with any items only found in 
+one of the two given arrays, but not both. 
+In other words, return the symmetric difference, or XOR of the two arrays. */
+
+// loop solution
+function diffArray(arr1, arr2) {
+  // combine arrays
+  let union = [...arr1, ...arr2]
+  let xor = []
+  // loop through each item
+  for (let elem of union) {
+    // grab item if it is in arr1 or arr2 but not both
+    if (!(arr1.includes(elem) && arr2.includes(elem))) {
+      xor.push(elem)
+    }
+  }
+  return xor
+}
+
+// filter solution
+function diffArray(arr1, arr2) {
+  // combine arrays
+  let union = [...arr1, ...arr2]
+  // loop through each item
+  return union.filter(elem => !(arr1.includes(elem) && arr2.includes(elem)))
+}
+
+// set solution
+function diffArray(arr1, arr2) {
+  const set1 = new Set(arr1)
+  const set2 = new Set(arr2)
+  const union = new Set([...set1, ...set2])
+  return [...union].filter((elem) => !(set1.has(elem) && set2.has(elem)))
+}
+
