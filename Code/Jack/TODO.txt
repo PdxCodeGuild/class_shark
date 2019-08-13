@@ -1,0 +1,4 @@
+Python
+___________
+lab_26_tictactoe.py - win conditions
+lab_28 - most of it
