@@ -2,3 +2,14 @@ Python
 ___________
 lab_26_tictactoe.py - win conditions
 lab_28 - most of it
+
+
+HTML/CSS
+___________
+lab_3 company home page - working but could use extra
+lab_5 - extra credit unfinished
+
+JavaScript 1-7
+____________
+lab 6 - all
+lab 7 - all
