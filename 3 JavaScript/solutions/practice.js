@@ -310,3 +310,15 @@ function diffArray(arr1, arr2) {
   return [...union].filter((elem) => !(set1.has(elem) && set2.has(elem)))
 }
 
+/* Intermediate Algorithm Scripting: Spinal Tap Case
+Convert a string to spinal case. Spinal case is all-lowercase-words-joined-by-dashes.
+*/
+function spinalCase(str) {
+  // "It's such a fine line between stupid, and clever."
+  // --David St. Hubbins
+  const sep = /[\s_-]/g
+  const camel = /([a-z])([A-Z])/g
+  str = str.replace(camel, '$1-$2')
+  str = str.replace(sep, '-')
+  return str.toLowerCase()
+}
