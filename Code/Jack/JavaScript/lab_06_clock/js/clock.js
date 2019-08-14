@@ -1,39 +1,37 @@
-var countdown = new Vue({
-	el: '#countdown',
-	data: {
-		isrc : 'index.html',
-		time : 5,
-		siteList: ['https://en.wikipedia.org/wiki/Steel_(1997_film)'
-					,"http://www.mozilla.org"
-					,'https://www.imdb.com/title/tt0062803/'
-					//,'https://www.youtube.com/watch?v=xfr64zoBTAQ',
-					],
-	},
-	methods: {
-		goGoGo: function() {
-			//window.location.assign(this.siteList[this.getRand(0,this.siteList.length)])
-			this.isrc = this.siteList[this.getRand(0,this.siteList.length)]
-			this.time = 5
+let app = new Vue({
+  el: '#clockApp',
+  data: {
+    clockTime: 'this here',
+    interval: null,
+    stopwatch: 'stop watch',
+    timer: 'timer',
+  },
+  methods: {
+    getTime: function() {
+      var date = new Date();
+      var h = date.getHours(); // 0 - 23
+      var m = date.getMinutes(); // 0 - 59
+      var s = date.getSeconds(); // 0 - 59
+      var session = "AM";
+      
+      if(h == 0){
+          h = 12;
+      }
+      
+      if(h > 12){
+          h = h - 12;
+          session = "PM";
+      }
+      
+      h = (h < 10) ? "0" + h : h;
+      m = (m < 10) ? "0" + m : m;
+      s = (s < 10) ? "0" + s : s;
+      
+      this.clockTime = (h + ":" + m + ":" + s + " " + session);
+    },
+  },
 
-		},
-
-		getRand: function(min, max) {
-			return Math.floor(Math.random() * (max - min) + min);
-		},
-
-		beginCount: function(duration, display) {
-    		let myVar = setInterval(this.counting, 1000)
-    	},
-
-    	counting: function () {
-			console.log('here')
-    		this.time = this.time - 1
-	        if (this.time <= 0) {
-            	this.goGoGo();
-       		}
-    	},
-	},
+  mounted: function() {
+    this.interval = setInterval(this.getTime, 1000)
+  }
 })
-
-
-

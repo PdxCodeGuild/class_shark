@@ -1,27 +1,15 @@
-html, body {
-  background-color: #D3D3D3;
-  font: roboto;
+body {
+    background: black;
 }
 
-#countdown {
-  font-size: 32px;
-  width: 400px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+.clock {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    color: #17D4FE;
+    font-size: 60px;
+    font-family: Orbitron;
+    letter-spacing: 7px;
 
-.small {
-  font-size: 16px;
-  font-weight: bold;
-}
-
-#countWrapper {
-  display: flex;
-  justify-content: center;
- margin-top: 100px;
-}
-
-.hr {
-  style='width: 300px;
 }
