@@ -48,19 +48,19 @@ class Game(object):
                (self.board[0][2] == self.board[1][1] == self.board[2][0]):
                return True
 
-        for i in range(3)
+        for i in range(3):
         # col
             if self.board[i][0] == self.board[i][0] == self.board[i][0]:
                 return True
         # row
             if self.board[0][i] == self.board[0][1] == self.board[0][i]:
                 return True
-        elif self.board[1][0] == self.board[1][1] and self.board[1][1] == self.board[1][2]:
-            return f'{self.board[0][0]} wins7!'
-        elif self.board[2][0] == self.board[2][1] and self.board[2][1] == self.board[2][2]:
-            return f'{self.board[0][0]} wins8!'
-        else:
-            return False
+            elif self.board[1][0] == self.board[1][1] == self.board[1][2]:
+            	return f'{self.board[0][0]} wins7!'
+            elif self.board[2][0] == self.board[2][1] == self.board[2][2]:
+            	return f'{self.board[0][0]} wins8!'
+            else:
+            	return False
 
     # def diag_search(i,j):
     #     pos = self.board[i][j]

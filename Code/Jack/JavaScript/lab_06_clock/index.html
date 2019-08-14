@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Clock</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel='stylesheet' href='./css/clock.css'>
+</head>
+<body>
+
+  <div id='clockApp'>
+  	<div class='clock'>
+      <div>{{ clockTime }}</div>
+      <hr>
+      <div>
+      	{{stopwatch}}
+      	<button>stopwatch</button>
+      </div>
+      <hr>
+      <div>
+      	{{timer}}
+      	<button>timer</button>
+      </div>
+  	</div>
+  </div>
+
+
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<script src='./js/clock.js'></script>
+</body>
+</html>
