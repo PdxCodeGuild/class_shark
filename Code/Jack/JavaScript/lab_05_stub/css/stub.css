@@ -1,0 +1,27 @@
+html, body {
+  background-color: #D3D3D3;
+  font: roboto;
+}
+
+#countdown {
+  font-size: 32px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.small {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#countWrapper {
+  display: flex;
+  justify-content: center;
+ margin-top: 100px;
+}
+
+.hr {
+  style='width: 300px;
+}

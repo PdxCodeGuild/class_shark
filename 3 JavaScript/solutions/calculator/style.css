@@ -34,15 +34,30 @@ body {
 #calc-heading {
     grid-area: title;
     font-size: 16pt;
+    margin: 1em 0 0 0;
     text-transform: uppercase;
     text-align: center;
     color: white;
 }
 
-#display {
+#display-container {
     grid-area: display;
     background-color: darkgrey;
     border-radius: 5px;
+    padding: 5px;
+    text-align: right;
+}
+
+#display {
+    height: 28px;
+    font-size: 24px;
+}
+
+#history {
+    height: 18px;
+    font-size: 14px;
+    bottom: 100%;
+    overflow-x: hidden;
 }
 
 #ac {
@@ -135,3 +150,12 @@ button:hover {
     opacity: 0.8;
 }
 
+button:focus {
+    border: solid;
+    border-width: 1px;
+}
+
+button:active, .active {
+    box-shadow: 0px 0px 4px 0px black;;
+    transform: translateY(2px);
+}

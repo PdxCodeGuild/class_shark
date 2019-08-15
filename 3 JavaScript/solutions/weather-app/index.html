@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Open Weather App</title>
+    <link rel="stylesheet" type="text/css" href="weather.css">
+</head>
+<body>
+    <div id='weather-app'>
+        <div id='zip-search'>
+            <input type='number' v-model="zip" />
+            <button @click='getWeatherData'>Get Weather</button>
+        </div>
+        <h1>{{location}}</h1>
+        <img v-bind:src="icon" v-bind:alt='weather'/>
+        <h2>{{weather}}</h2>
+        <p>{{description}}</p>
+        <h3>
+            <span>High: {{hi}}°F</span>
+            <span>Low: {{lo}}°F</span>
+        </h3>
+        <h3>Current: {{temp}}°F</h3>
+        <div id='cat-fact'>
+            <h3>Free cat fact:</h3>
+            <p>{{catFact}}</p>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <script src="weather.js"></script>
+</body>
+</html>

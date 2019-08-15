@@ -1,0 +1,159 @@
+<!doctype html>
+
+<html lang='en-US'>
+<head>
+    <title>DIY Burrito</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="./css/materialize.min.css"  media="screen,projection"/>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet"> 
+
+    <link rel="stylesheet" type="text/css" href="./css/lab5.css">
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+</head>
+<body>
+  <div class='form-container container'>
+    <form id='burrito-form' method='post'>
+      <div class='row'>
+        <div class='img-cont col s12 m4 l4'>
+          <img id='img-cont' src='./imgs/burrito.png'>
+        </div>
+        <div class='menu-One col s12 m8 l8 row'>
+
+          <div class='tortilla col s12 m6 l6'>
+            <fieldset> 
+              <legend>Tortilla</legend>
+              <p>  
+                <label for='white'>
+                  <input name="tortilla" id='white' value='white' type="radio" checked />
+                  <span>White Flour</span>
+                </label>
+              </p>
+              <p>  
+                <label for='wheat'>
+                  <input name="tortilla" id='wheat' value='wheat' type="radio" checked />
+                  <span>Wheat Flour</span>
+                </label>
+              </p>
+              <p>  
+                <label for='spinach'>
+                  <input name="tortilla" id='spinach' value='spinach' type="radio" checked />
+                  <span>Spinach</span>
+                </label>
+              </p>
+              <p>  
+                <label for='corn'>
+                  <input name="tortilla" id='corn' value='corn' type="radio" checked />
+                  <span>Corn</span>
+                </label>
+              </p>
+            </fieldset>
+          </div>
+
+          <div class='protein col s12 m6 l6'>
+            <fieldset>
+              <legend>Protein</legend>
+              <p>  
+                <label for='carnitas'>
+                  <input name="protein" id='carnitas' value='carnitas' type="radio" checked />
+                  <span>Carnitas</span>
+                </label>
+              </p>
+              <p>  
+                <label for='chicken'>
+                  <input name="protein" id='chicken' value='chicken' type="radio" checked />
+                  <span>Chicken</span>
+                </label>
+              </p>
+              <p>  
+                <label for='sofritas'>
+                  <input name="protein" id='sofritas' value='sofritas' type="radio" checked />
+                  <span>Sofritas</span>
+                </label>
+              </p>
+              <p>  
+                <label for='none'>
+                  <input name="protein" id='none' value='none' type="radio" checked />
+                  <span>None</span>
+                </label>
+              </p>
+            </fieldset>
+          </div>
+        </div>
+
+        <div class='menu-Two row'>
+        
+          <div class='rice col s6 m4 l4'>
+            <fieldset>
+              <legend>Rice</legend>
+              <p>  
+                <label for='white'>
+                  <input name="rice" id='white' value='white' type="radio" checked />
+                  <span>White rice</span>
+                </label>
+              </p>
+              <p>  
+                <label for='brown'>
+                  <input name="rice" id='brown' value='brown' type="radio" checked />
+                  <span>Brown rice</span>
+                </label>
+              </p>
+            </fieldset>
+          </div>
+
+          <div class='beans col s6 m4 l4'>
+            <fieldset>
+              <legend>Beans</legend>
+              <p>  
+                <label for='black'>
+                  <input name="bean" id='black' value='black' type="radio" checked />
+                  <span>Black beans</span>
+                </label>
+              </p>
+              <p>  
+                <label for='pinto'>
+                  <input name="bean" id='pinto' value='pinto' type="radio" checked />
+                  <span>Pinto beans</span>
+                </label>
+              </p>
+            </fieldset>
+          </div>
+
+          <div class='addlItm col s6 m4 l4'>
+            <fieldset>              
+            <legend>Additional Items</legend>
+            <p>  
+              <label for='cheese'>
+                <input name="cheese" id='cheese' value='cheese' type="checkbox" checked />
+                <span>Cheese</span>
+              </label>
+            </p>
+            <p>  
+              <label for='sourCream'>
+                <input name=sourCream" id='sourCream' value='sourCream' type="checkbox" checked />
+                <span>Sourcream</span>
+              </label>
+            </p>
+            </fieldset>
+          </div>
+
+        </div>
+      </div>
+      <div class='container'>
+        <button type='submit'>submit</button>
+      </div>
+    </form>
+  </div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script type="text/javascript" src="./js/materialize.min.js"></script> 
+<script type="text/javascript" src="./js/lab5.js"></script>
+</body>
+</html>
