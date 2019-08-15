@@ -1,0 +1,25 @@
+/*stylesheet.css*/
+#container{
+	border: solid;
+	margin: 1em;
+}
+
+#transaction{
+margin: 1px;
+padding: 1em;
+}
+
+#transAmount{
+margin: 1px;
+padding: 1em;
+}
+
+#balance{
+	padding:1em;
+	margin:1em;
+}
+
+#checkBalance{
+margin:1px;
+padding: 1em;
+}
