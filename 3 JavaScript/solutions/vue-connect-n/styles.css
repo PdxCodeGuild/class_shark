@@ -1,0 +1,47 @@
+/*styles.css*/
+body {
+    font-family: Helvetica, Century, sans-serif;
+}
+
+#app {
+    margin: auto;
+}
+
+.controls {
+    padding: 1em;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 500px;
+    height: 500px;
+    background-color: tan;
+}
+
+.row {
+    display: flex;
+}
+
+.cell {
+    display: grid;
+    width: 100%;
+    outline: solid;
+}
+
+.cell > * {
+    border: solid;
+    border-radius: 50%;
+}
+
+.white {
+    background-color: white;
+}
+
+.black {
+    background-color: black;    
+}
+
+#play-again {
+    margin: auto;
+}
