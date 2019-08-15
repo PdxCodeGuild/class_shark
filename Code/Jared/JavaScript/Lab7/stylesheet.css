@@ -1,0 +1,13 @@
+/*stylesheet.css*/
+
+#container{
+	background-color: black;
+}
+
+#text{
+	background-size: 70%
+	width: 70%;
+	color: white;
+	font-family: times
+
+}

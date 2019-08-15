@@ -1,9 +1,64 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Peaks and Valleys</title>
+	<title>ATM</title>
+	<link rel='stylesheet' href='stylesheet.css'>
 </head>
-<body>
 
+<body>
+	<div id='container'>
+		<h1>{{ message }}</h1>
+<!-- 	<form>
+ -->		<div>
+			<label for='transaction'>Transaction:</label>
+			<select v-model= 'selected'>
+				<option value=''>Select Transaction Type</option>
+				<option 
+					 value='deposit'>Make Depsosit
+					<!-- v-on:click='deposit' -->
+				</option>
+				<option 
+					 value='withdraw'>Make Withdraw
+					<!-- v-on:click='withdraw' -->
+				</option>
+				<option value='checkBalance'>Check Balance</option>
+			</select>
+			<span>Selected: {{ selected }}</span>	
+		</div>
+
+		<div id='transAmount'>
+			<label for=''>Enter the amount:</label>
+			<input v-model.number='amount'
+				v-on:keyup.enter='select'
+				type='number' 
+				id='amount'
+				placeholder="0">
+			<button 
+				v-on:click='select'
+				>Submit</button>
+
+		</div>
+		<div id='accountBalance'>
+			<label for='current'>Balance:</label>
+			<textarea name='currentBalance'
+				rows = '1' cols='30'
+				readonly>{{ accountBalance }}
+			</textarea>
+		</div>	
+		<div>
+			<p>Any further transactions today?</p>
+			<div>
+				<button v-on:click='clearEntry'>Yes</button>
+				<button v-on:click='clearEntry'>No</button>
+			</div>
+		</div>
+	<!-- </form> -->
+	</div>
+
+	
+	
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src='script.js'></script>	
 </body>
+
 </html>
