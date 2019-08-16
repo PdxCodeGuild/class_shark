@@ -345,3 +345,49 @@ function myReplace(str, before, after) {
   return str.replace(before, after);
 }
 
+/* ntermediate Algorithm Scripting: Drop it
+Given the array arr, iterate through and remove each element starting from the first element 
+(the 0 index) until the function func returns true when the iterated element is passed through it.
+Then return the rest of the array once the condition is satisfied, 
+otherwise, arr should be returned as an empty array. */
+function dropElements(arr, func) {
+  for (let i=0; i<arr.length; i++) {
+    if (func(arr[i])) return arr.slice(i)      
+  }
+  return []
+}
+
+function dropElements(arr, func) {
+  // loop through arr indexes
+  while (!func(arr[0])) {
+    arr.shift()
+  }
+  return arr
+}
+
+function dropElements(arr, func) {
+  // loop through arr indexes
+  let firstTrue = false
+  return arr.reduce((acc, cur) => {
+    if (firstTrue || func(cur)) {
+      firstTrue = true
+      return [...acc, cur]
+    } else {
+      return []
+    }
+  }, [])
+}
+
+function dropElements(arr, func) {
+  // loop through arr indexes
+  let firstTrue = false
+  return arr.filter((cur) => {
+    if (firstTrue || func(cur)) {
+      firstTrue = true
+      return true
+    } else {
+      return false
+    }
+  })
+}
+
