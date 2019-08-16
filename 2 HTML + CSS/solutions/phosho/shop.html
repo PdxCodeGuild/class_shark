@@ -50,41 +50,41 @@
   </header>
     
   <main class='container'>
-    <form class="col s12" action='https://webhook.site/9294d25a-464a-4fee-8de4-d9e9fe082204' method='post'>
+    <form id='order-form' class="col s12">
       <div class='input-group' id='customer-details'>
         <h5 id='customer-details'>Customer Details</h5>
         <div class="row">
           <div class="input-field col s6">
-            <input name='first_name' id="first_name" type="text" class="validate">
+            <input v-model:value='customer.first_name' name='first_name' id="first_name" type="text" class="validate">
             <label for="first_name">First Name</label>
           </div>
           <div class="input-field col s6">
-            <input name='last_name' id="last_name" type="text" class="validate">
+            <input v-model:value='customer.last_name'name='last_name' id="last_name" type="text" class="validate">
             <label for="last_name">Last Name</label>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s6">
             <i class="material-icons prefix">phone</i>
-            <input name='phone' id="phone" type="tel" class="validate" pattern='\(?\d{3}\)?-?\d{3}-?\d{4}'>
+            <input v-model:value='customer.phone' name='phone' id="phone" type="tel" class="validate" pattern='\(?\d{3}\)?-?\d{3}-?\d{4}'>
             <label for="phone">Telephone</label>
           </div>          
           <div class="input-field col s6">
-            <input name='email' id="email" type="email" class="validate">
+            <input v-model:value='customer.email' name='email' id="email" type="email" class="validate">
             <label for="email">Email</label>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s12">
-            <input name='street_name' id="street_name" type="text" class="validate">
+            <input v-model:value='customer.address.street' name='street_name' id="street_name" type="text" class="validate">
             <label for="street_name">Street</label>
           </div>
           <div class="input-field col s6">
-            <input name='city_name' id="city_name" type="text" class="validate">
+            <input v-model:value='customer.address.city' name='city_name' id="city_name" type="text" class="validate">
             <label for="city_name">City</label>
           </div>
           <div class="input-field col s3">
-            <select name='state'>
+            <select name='state' v-model:value='customer.address.state'>
               <option value="">State</option>
               <option value="AL">Alabama</option>
               <option value="AK">Alaska</option>
@@ -140,7 +140,7 @@
             </select>       
           </div>  
           <div class="input-field col s3">
-            <input name='zipcode' id="zipcode" type="text" class="validate" pattern='\d{5}(-\d{4})?'>
+            <input v-model:value='customer.address.zip' name='zipcode' id="zipcode" type="text" class="validate" pattern='\d{5}(-\d{4})?'>
             <label for="zipcode">Zip Code</label>
           </div>          
         </div>
@@ -150,7 +150,7 @@
         <h5 id='order-details'>Order Details</h5>
         <div class='row'>
           <div class="input-field col s12">
-            <select multiple class="icons" name='order' id='order'>
+            <select multiple class="icons" name='order' id='order' v-model:value='order.list'>
               <option value="" disabled selected></option>
               <option value="1"
                 data-icon='https://www.dailydot.com/wp-content/uploads/db4/41/6e8734dfe00c1b1d-2048x1024.jpg'
@@ -190,25 +190,25 @@
             <h6>Spice Level</h6>
             <p>  
               <label for='no-spice'>
-                <input name="spicy" id='no-spice' value='none' type="radio" checked />
+                <input v-model:value='order.spicy' name="spicy" id='no-spice' value='none' type="radio" checked />
                 <span>No spicy</span>
               </label>
             </p>
             <p>  
               <label for='mild'>
-                <input name="spicy" id='mild' value='small' type="radio" />
+                <input v-model:value='order.spicy' name="spicy" id='mild' value='small' type="radio" />
                 <span>Mild</span>
               </label>
             </p>
             <p>  
               <label for='medium'>
-                <input name="spicy" id='medium' value='medium' type="radio"  />
+                <input v-model:value='order.spicy' name="spicy" id='medium' value='medium' type="radio"  />
                 <span>Medium</span>
               </label>
             </p>
             <p>  
               <label for='spicy'>
-                <input name="spicy" id='spicy' value='large' type="radio" />
+                <input v-model:value='order.spicy' name="spicy" id='spicy' value='large' type="radio" />
                 <span>Spicy</span>
               </label>
             </p>
@@ -217,26 +217,26 @@
             <h6>Sauces</h6>
             <p>
               <label for='sriracha'>
-                <input type="checkbox" id='sriracha' name='sriracha' value='sriracha' />
+                <input v-model:value='order.sauces' type="checkbox" id='sriracha' name='sriracha' value='sriracha' />
                 <span>Sriracha</span>
               </label>
             </p>
             <p>
               <label for='hoisin'>
-                <input type="checkbox" id='hoisin' name='hoisin' value='hoisin' />
+                <input v-model:value='order.sauces' type="checkbox" id='hoisin' name='hoisin' value='hoisin' />
                 <span>Hoisin</span>
               </label>
             </p>
             <p>
               <label for='peanut'>
-                <input type="checkbox" id='peanut' name='peanut' value='peanut' />
+                <input v-model:value='order.sauces' type="checkbox" id='peanut' name='peanut' value='peanut' />
                 <span>Peanut</span>
               </label>
             </p>
           </div>
         </div>
       </div>
-      <input type='submit' class='btn waves-effect right' />
+      <input @click.once="post" type='submit' class='btn waves-effect right' />
       <br />
     </form>
   </main>
@@ -272,6 +272,8 @@
   <!--  Scripts-->
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
   <!-- Your scripts -->
   <script src="script.js"></script>
   </body>
