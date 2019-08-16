@@ -345,11 +345,12 @@ function myReplace(str, before, after) {
   return str.replace(before, after);
 }
 
-/* ntermediate Algorithm Scripting: Drop it
+/* Intermediate Algorithm Scripting: Drop it
 Given the array arr, iterate through and remove each element starting from the first element 
 (the 0 index) until the function func returns true when the iterated element is passed through it.
 Then return the rest of the array once the condition is satisfied, 
 otherwise, arr should be returned as an empty array. */
+// array.slice()
 function dropElements(arr, func) {
   for (let i=0; i<arr.length; i++) {
     if (func(arr[i])) return arr.slice(i)      
@@ -357,14 +358,15 @@ function dropElements(arr, func) {
   return []
 }
 
+// array.shift()
 function dropElements(arr, func) {
-  // loop through arr indexes
   while (!func(arr[0])) {
     arr.shift()
   }
   return arr
 }
 
+// arr.reduce()
 function dropElements(arr, func) {
   // loop through arr indexes
   let firstTrue = false
@@ -378,6 +380,7 @@ function dropElements(arr, func) {
   }, [])
 }
 
+// arr.filter()
 function dropElements(arr, func) {
   // loop through arr indexes
   let firstTrue = false
