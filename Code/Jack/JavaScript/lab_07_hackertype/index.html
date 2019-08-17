@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hacking Main</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel='stylesheet' href='./css/hack.css'>
+</head>
+<body>
+
+<div id='vue-content'>
+  <div ref='messageDisplay' id='messages'>
+    <div id='app'>
+  	  <div>
+        <div v-on:keydown.shift='shifterOn' @keyup.shift='shifterOff'>{{ hackStuff }}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<script src='./js/hack.js'></script>
+</body>
+</html>
