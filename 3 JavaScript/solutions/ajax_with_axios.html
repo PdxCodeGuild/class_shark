@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>axios examples</title>
+</head>
+<body>
+
+<script src='http://unpkg.com/axios/dist/axios.min.js'></script>
+<script>
+// axios get request example
+async function get(url, config) {
+    try {
+        const response = await axios.get(url, config)
+        console.log(response)
+    } catch(err) {
+        console.log(err)
+    }
+}
+
+// axios post request example
+async function post(url, data, config) {
+    try {
+        const response = await axios.post(url, data, config)  
+        console.log(response)
+    } catch(err) {
+        console.log(err)
+    }
+}
+
+
+</script>
+</body>
+</html>
