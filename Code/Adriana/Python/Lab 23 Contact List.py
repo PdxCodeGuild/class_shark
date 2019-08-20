@@ -3,6 +3,7 @@
 #CONVERT LINES OF TEXT TO LIST OF DICTIONARIES
 #Header represents the Keys
 #Text in other lines represent the values
+#Needs updating
 
 def read_csv(file):
     contact_list = []
