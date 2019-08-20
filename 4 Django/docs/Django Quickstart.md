@@ -29,9 +29,9 @@ In Windows:
 
 You are now in your virtual environment! This is a clean state with only Python and Pip installed. Install all the dependencies for your project inside this environment. 
 
-For this course, install Django 2.0.0 
+For this course, install Django 2.2.4 (latest version as of 8/2019)
 ```
-> pip install django==2.0.0
+> pip install django==2.2.4
 ```
 
 (Optional) To export your packages:
