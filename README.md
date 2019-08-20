@@ -48,6 +48,7 @@ M-F 6:00PM – 9:30PM
 ### Django
 | Assigned on | Lab \#s |
 | ------------- | ---- |
+| 8/19 | 1 |
 
 
 ## Class Members
