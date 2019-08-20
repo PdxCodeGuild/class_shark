@@ -29,12 +29,12 @@ In Windows:
 
 You are now in your virtual environment! This is a clean state with only Python and Pip installed. Install all the dependencies for your project inside this environment. 
 
-For this course, install Django 2.2.4 (latest version as of 8/2019)
+For this course, install Django 2.2.4 (latest version as of 08/2019) 
 ```
 > pip install django==2.2.4
 ```
 
-(Optional) To export your packages:
+Export your packages:
 ```
 > pip freeze > requirements.txt
 ```
@@ -69,7 +69,7 @@ def <viewname>(request):
 ## Create a Route to the View
 
 - Create a `urls.py` inside your app
-- Add a route in your app's `urls.py` which points to the the view
+- Add a route in your app's `urls.py` which points to the view
 - Add an `app_name` to be able to look up paths when you render a template
 
 ```python
@@ -107,9 +107,6 @@ At this point, you should run the server (`python manage.py runserver`) and go t
 
 - Add a `def __str__(self):` to your model so the admin interface knows how to display it.
 - Make your app visible in the admin panel by registering your models with our app's `admin.py`
-    ```py
-    admin.site.register(Model)
-    ```
 
 ```python
 from django.contrib import admin
@@ -118,7 +115,7 @@ admin.site.register(<model name 1>)
 admin.site.register(<model name 2>)
 ```
 
-- Go to `localhost:8000/admin` in your browser, and add some data.
+- Go to `localhost:8000/admin` in your browser, and verify that your models are connected.
 
 
 ## Create a Template
