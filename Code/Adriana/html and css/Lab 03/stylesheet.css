@@ -1,0 +1,21 @@
+/*stylesheet.css*/
+
+@font-face {
+    src: "fonts/Yorktown.ttf";
+    font-family: yorktown;
+}
+
+h3 {
+font-size: 26px;
+color: cyan accent-2;
+}
+
+.row .card {
+    height: 400px
+    }
+
+brand-logo {
+   font-size: 30px;
+   font-weight: 700
+   font-family: yorktown;
+}
