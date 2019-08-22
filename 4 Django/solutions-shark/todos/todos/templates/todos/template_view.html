@@ -1,0 +1,58 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Todos</title>
+      
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'todos/css/todos.css' %}">
+      
+  </head>
+
+  <body>
+    <div id="app">
+        <h1>${ message }</h1>
+      
+        <div class="holder">
+            <div class='container'>
+                <!-- Hint: modify this input to handle addTodo() -->
+                <input 
+                    v-model:value="todo"
+                    v-on:keyup.enter="addTodo"
+                    type="text" 
+                    placeholder="Enter a task you have..." />
+                <button
+                    v-on:click='addTodo'
+                    id='btn-add'
+                >
+                    <i class='fas fa-plus'></i>                    
+                </button>
+            </div>
+            <ul>
+                <li
+                    v-for="todo, i in todos"
+                    v-bind:key="i"
+                    v-bind:class="{completed: todo.completed}"
+                >
+                    ${ todo.text }
+                    <i v-on:click='removeTodo(i)'
+                        class='fas fa-times'
+                    ></i>
+                    <i v-on:click='toggleComplete(i)'
+                        class='fas fa-check'
+                    ></i>
+                </li>
+            </ul>
+        </div>
+        
+    </div>
+      
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="{% static 'todos/js/todos.js' %}"></script>
+  </body>
+
+</html>
