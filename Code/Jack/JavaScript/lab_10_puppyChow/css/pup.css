@@ -1,0 +1,14 @@
+body {
+    background: black;
+    display: flex;
+    justify-content: center;
+}
+
+#quote {
+	size: 400px 800px;
+	border: 10px solid red;
+	padding: 40px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
