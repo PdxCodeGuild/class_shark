@@ -1,0 +1,25 @@
+/*weather.css*/
+body {
+    background-color: lightblue;  
+    font-family: Helvetica, Century, sans-serif;
+}
+
+#weather-app {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+    padding: 5%;
+    width: 50%;
+    border-radius: 50px;
+}
+
+#zip-search {
+    display: flex;
+    margin: auto;
+}
+
+img {
+    margin: auto;
+}
