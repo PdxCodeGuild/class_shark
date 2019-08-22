@@ -54,8 +54,7 @@ To exit your virtual environment:
 ## Create an App
 
 - Create an app: `python manage.py startapp <app-name>`
-- Add your app (`appname.apps.AppnameConfig`) to the `INSTALLED_APPS` in `settings.py`
-	- Note: AppnameConfig is found in your `appname/apps.py` file
+- Add your app name to the `INSTALLED_APPS` in `settings.py`
 
 ## Create a View
 
