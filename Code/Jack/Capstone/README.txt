@@ -13,6 +13,8 @@ recipie search:
     - search by ingredients (http://www.recipepuppy.com/about/api/)
     - option: top sugg based on remaining macro req calced with ingredient macros
     - 'screen saver' effect of good looking meals for motivation
+****- HTV: using (http://qutip.org or https://github.com/ProjectQ-Framework/ProjectQ) to perform search with quantum:
+	a. while using recipepuppy api, build local db which uses q# for new entries verf.
 
 Milestone 2
 ________________________________________________________________________________________________________
