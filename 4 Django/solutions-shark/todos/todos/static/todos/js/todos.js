@@ -1,4 +1,7 @@
-var app = new Vue({
+axios.defaults.xsrfCookieName = 'csrftoken'
+axios.defaults.xsrfHeaderName = "X-CSRFTOKEN"
+
+const app = new Vue({
     el: '#app',
     delimiters: ['${', '}'], // set custom delimiters here instead of {{}}    
     data: {
@@ -10,33 +13,36 @@ var app = new Vue({
         todo: '',
     },
     methods: {
-        addTodo: function() {
-            // add todo to this.todos
-            this.todos.push({text: this.todo, completed: false})
+        grabTodos: async function() {
+            const response = await axios.get('api/todos/')
+            this.todos = response.data 
+        },
+        addTodo: async function() {
+            const response = await axios.post('api/todos/', {text: this.todo})
+            console.log(response)
+            this.grabTodos()
+            // // add todo to this.todos
+            // this.todos.push({text: this.todo, completed: false})
             this.todo = ''
         },
-        removeTodo: function(index) {
+        removeTodo: async function(index) {
+            const response = await axios.delete(`/api/todos/${this.todos[index].pk}/`)
+            console.log(response)            
             // remove todo from this.todos
-            this.todos.splice(index, 1)
+            // this.todos.splice(index, 1)
+            this.grabTodos()
         },
-        toggleComplete: function(index) {
+        toggleComplete: async function(index) {
+            const todo = this.todos[index]
+            const response = await axios.patch(`/api/todos/${todo.pk}/`, {completed: !todo.completed})
             // mark todo as done
             this.todos[index].completed = !this.todos[index].completed            
+            this.grabTodos()
         },
     },
     mounted: function() {
         // mounted() handles any logic you want prior to the vue app mounting
         // this is a good place to request any data you want to render, such as from localStorage (what we're doing here), or from an API call
-        let cachedTodos = localStorage.getItem('todos')
-        if (cachedTodos) {
-            cachedTodos = JSON.parse(cachedTodos)
-            this.todos = cachedTodos
-        }
+        this.grabTodos()
     },
 });
-
-// store todos to localStorage before the page unloads
-window.addEventListener('unload', evt => {
-  let todosJSON = JSON.stringify(app.todos)
-  localStorage.setItem('todos', todosJSON)
-})
