@@ -1,517 +1,523 @@
 let app = new Vue({
   el: '#app',
   data: {
-    mult: 1,
+    mult: 2,
     hackStuff: '',
-    allTheHax: 
-    `if (hax) {
-      haxor != on;
-    } else {{{
-    struct group_info *groups_alloc(int gidsetsize){
-  struct group_info *group_info;
-  int nblocks;
-  int i;
+    allTheHax: `
+          /**
+            /**
+                    
+                      if (hax) {
+                        haxor != on;
+                      } else {{{
+                      struct group_info *groups_alloc(int gidsetsize){
+                    struct group_info *group_info;
+                    int nblocks;
+                    int i;
 
 
-  nblocks = (gidsetsize + NGROUPS_PER_BLOCK - 1) / NGROUPS_PER_BLOCK;
-  /* Make sure we always allocate at least one indirect block pointer */
-  nblocks = nblocks ? : 1;
-  group_info = kmalloc(sizeof(*group_info) + nblocks*sizeof(gid_t *), GFP_USER);
-  if (!group_info)
-    return NULL;
+                      nblocks = (gidsetsize + NGROUPS_PER_BLOCK - 1) / NGROUPS_PER_BLOCK;
+                      /* Make sure we always allocate at least one indirect block pointer */
+                      nblocks = nblocks ? : 1;
+                      group_info = kmalloc(sizeof(*group_info) + nblocks*sizeof(gid_t *), GFP_USER);
+                      if (!group_info)
+                        return NULL;
 
-  group_info->ngroups = gidsetsize;
-  group_info->nblocks = nblocks;
-  atomic_set(&group_info->usage, 1);
+                      group_info->ngroups = gidsetsize;
+                      group_info->nblocks = nblocks;
+                      atomic_set(&group_info->usage, 1);
 
-  if (gidsetsize <= NGROUPS_SMALL)
-    group_info->blocks[0] = group_info->small_block;
-  else {
-    for (i = 0; i < nblocks; i++) {
-      gid_t *b;
-      b = (void *)__get_free_page(GFP_USER);
-      if (!b)
-        goto out_undo_partial_alloc;
-      group_info->blocks[i] = b;
-    }
-  }
-  return group_info;
+                      if (gidsetsize <= NGROUPS_SMALL)
+                        group_info->blocks[0] = group_info->small_block;
+                      else {
+                        for (i = 0; i < nblocks; i++) {
+                          gid_t *b;
+                          b = (void *)__get_free_page(GFP_USER);
+                          if (!b)
+                            goto out_undo_partial_alloc;
+                          group_info->blocks[i] = b;
+                        }
+                      }
+                      return group_info;
 
 
-out_undo_partial_alloc:
+                      out_undo_partial_alloc:
 
-  while (--i >= 0) {
+                      while (--i >= 0) {
 
-    free_page((unsigned long)group_info->blocks[i]);
+                        free_page((unsigned long)group_info->blocks[i]);
 
-  }
+                      }
 
-  kfree(group_info);
+                      kfree(group_info);
 
-  return NULL;
+                      return NULL;
 
-}
+                      }
 
 
 
-EXPORT_SYMBOL(groups_alloc);
+                      exportPORT_SYMBOL(groups_alloc);
 
 
 
-void groups_free(struct group_info *group_info)
+                      void groups_free(struct group_info *group_info)
 
-{
+                      {
 
-  if (group_info->blocks[0] != group_info->small_block) {
+                      if (group_info->blocks[0] != group_info->small_block) {
 
-    int i;
+                        int i;
 
-    for (i = 0; i < group_info->nblocks; i++)
+                        for (i = 0; i < group_info->nblocks; i++)
 
-      free_page((unsigned long)group_info->blocks[i]);
+                          free_page((unsigned long)group_info->blocks[i]);
 
-  }
+                      }
 
-  kfree(group_info);
+                      kfree(group_info);
 
-}
+                      }
 
 
 
-EXPORT_SYMBOL(groups_free);
+                      EXPORT_SYMBOL(groups_free);
 
 
 
-/* export the group_info to a user-space array */
+                      /* export the group_info to a user-space array */
 
-static int groups_to_user(gid_t __user *grouplist,
+                      static int groups_to_user(gid_t __user *grouplist,
 
-        const struct group_info *group_info)
+                            const struct group_info *group_info)
 
-{
+                      {
 
-  int i;
+                      int i;
 
-  unsigned int count = group_info->ngroups;
+                      unsigned int count = group_info->ngroups;
 
 
 
-  for (i = 0; i < group_info->nblocks; i++) {
+                      for (i = 0; i < group_info->nblocks; i++) {
 
-    unsigned int cp_count = min(NGROUPS_PER_BLOCK, count);
+                        unsigned int cp_count = min(NGROUPS_PER_BLOCK, count);
 
-    unsigned int len = cp_count * sizeof(*grouplist);
+                        unsigned int len = cp_count * sizeof(*grouplist);
 
 
 
-    if (copy_to_user(grouplist, group_info->blocks[i], len))
+                        if (copy_to_user(grouplist, group_info->blocks[i], len))
 
-      return -EFAULT;
+                          return -EFAULT;
 
 
 
-    grouplist += NGROUPS_PER_BLOCK;
+                        grouplist += NGROUPS_PER_BLOCK;
 
-    count -= cp_count;
+                        count -= cp_count;
 
-  }
+                      }
 
-  return 0;
+                      return 0;
 
-}
+                      }
 
 
 
-/* fill a group_info from a user-space array - it must be allocated already */
+                      /* fill a group_info from a user-space array - it must be allocated already */
 
-static int groups_from_user(struct group_info *group_info,
+                      static int groups_from_user(struct group_info *group_info,
 
-    gid_t __user *grouplist)
+                        gid_t __user *grouplist)
 
-{
+                      {
 
-  int i;
+                      int i;
 
-  unsigned int count = group_info->ngroups;
+                      unsigned int count = group_info->ngroups;
 
 
 
-  for (i = 0; i < group_info->nblocks; i++) {
+                      for (i = 0; i < group_info->nblocks; i++) {
 
-    unsigned int cp_count = min(NGROUPS_PER_BLOCK, count);
+                        unsigned int cp_count = min(NGROUPS_PER_BLOCK, count);
 
-    unsigned int len = cp_count * sizeof(*grouplist);
+                        unsigned int len = cp_count * sizeof(*grouplist);
 
 
 
-    if (copy_from_user(group_info->blocks[i], grouplist, len))
+                        if (copy_from_user(group_info->blocks[i], grouplist, len))
 
-      return -EFAULT;
+                          return -EFAULT;
+                    
 
 
+                        grouplist += NGROUPS_PER_BLOCK;
 
-    grouplist += NGROUPS_PER_BLOCK;
+                        count -= cp_count;
 
-    count -= cp_count;
+                      }
 
-  }
+                      return 0;
 
-  return 0;
+                      } 
 
-}
 
 
+                      /* a simple Shell sort */
 
-/* a simple Shell sort */
+                      static void groups_sort(struct group_info *group_info)
 
-static void groups_sort(struct group_info *group_info)
+                      {
 
-{
+                      int base, max, stride;
 
-  int base, max, stride;
+                      int gidsetsize = group_info->ngroups;
 
-  int gidsetsize = group_info->ngroups;
 
 
+                      for (stride = 1; stride < gidsetsize; stride = 3 * stride + 1)
 
-  for (stride = 1; stride < gidsetsize; stride = 3 * stride + 1)
+                        ; /* nothing */
 
-    ; /* nothing */
+                      stride /= 3;
 
-  stride /= 3;
 
 
+                      while (stride) {
 
-  while (stride) {
+                        max = gidsetsize - stride;
 
-    max = gidsetsize - stride;
+                        for (base = 0; base < max; base++) {
 
-    for (base = 0; base < max; base++) {
+                          int left = base;
 
-      int left = base;
+                          int right = left + stride;
 
-      int right = left + stride;
+                          gid_t tmp = GROUP_AT(group_info, right);
 
-      gid_t tmp = GROUP_AT(group_info, right);
 
 
+                          while (left >= 0 && GROUP_AT(group_info, left) > tmp) {
 
-      while (left >= 0 && GROUP_AT(group_info, left) > tmp) {
+                            GROUP_AT(group_info, right) =
 
-        GROUP_AT(group_info, right) =
+                                GROUP_AT(group_info, left);
 
-            GROUP_AT(group_info, left);
+                            right = left;
 
-        right = left;
+                            left -= stride;
 
-        left -= stride;
+                          }
 
-      }
+                          GROUP_AT(group_info, right) = tmp;
 
-      GROUP_AT(group_info, right) = tmp;
+                        }
 
-    }
+                        stride /= 3;
 
-    stride /= 3;
+                      }
 
-  }
+                      }
 
-}
 
 
+                      /* a simple bsearch */
 
-/* a simple bsearch */
+                      int groups_search(const struct group_info *group_info, gid_t grp)
 
-int groups_search(const struct group_info *group_info, gid_t grp)
+                      {
 
-{
+                      unsigned int left, right;
 
-  unsigned int left, right;
 
 
+                      if (!group_info)
 
-  if (!group_info)
+                        return 0;
 
-    return 0;
 
 
+                      left = 0;
 
-  left = 0;
+                      right = group_info->ngroups;
 
-  right = group_info->ngroups;
+                      while (left < right) {
 
-  while (left < right) {
+                        unsigned int mid = left + (right - left)/2;
 
-    unsigned int mid = left + (right - left)/2;
+                        if (grp > GROUP_AT(group_info, mid))
 
-    if (grp > GROUP_AT(group_info, mid))
+                          left = mid + 1;
 
-      left = mid + 1;
+                        else if (grp < GROUP_AT(group_info, mid))
 
-    else if (grp < GROUP_AT(group_info, mid))
+                          right = mid;
 
-      right = mid;
+                        else
 
-    else
+                          return 1;
 
-      return 1;
+                      }
 
-  }
+                      return 0;
 
-  return 0;
+                      }
 
-}
 
 
+                      /**
 
-/**
+                   *   set_groups - Change a group subscription in a set of credentials
 
- * set_groups - Change a group subscription in a set of credentials
+                   *   @new: The newly prepared set of credentials to alter
 
- * @new: The newly prepared set of credentials to alter
+                   *   @group_info: The group list to install
 
- * @group_info: The group list to install
+                   *  
 
- *
+                   *   Validate a group subscription and, if valid, insert it into a set
 
- * Validate a group subscription and, if valid, insert it into a set
+                   *   of credentials.
 
- * of credentials.
+                   *  /
+                      
+                      int set_groups(struct cred *new, struct group_info *group_info)
+                      
+                      {
 
- */
+                      put_group_info(new->group_info);
 
-int set_groups(struct cred *new, struct group_info *group_info)
+                      groups_sort(group_info);
 
-{
+                      get_group_info(group_info);
 
-  put_group_info(new->group_info);
+                      new->group_info = group_info;
 
-  groups_sort(group_info);
+                      return 0;
+                      
+                      }
+                      
+                      
+                      
+                      EXPORT_SYMBOL(set_groups);
+                      
+                      
+                      
+                      /**
 
-  get_group_info(group_info);
+                   *   set_current_groups - Change current's group subscription
 
-  new->group_info = group_info;
+                   *   @group_info: The group list to impose
 
-  return 0;
+                   *  
 
-}
+                   *   Validate a group subscription and, if valid, impose it upon current's task
 
+                   *   security record.
 
+                   *  /
+                      
+                      int set_current_groups(struct group_info *group_info)
+                      
+                      {
 
-EXPORT_SYMBOL(set_groups);
+                      struct cred *new;
 
+                      int ret;
 
 
-/**
 
- * set_current_groups - Change current's group subscription
+                      new = prepare_creds();
 
- * @group_info: The group list to impose
+                      if (!new)
 
- *
+                        return -ENOMEM;
 
- * Validate a group subscription and, if valid, impose it upon current's task
 
- * security record.
 
- */
+                      ret = set_groups(new, group_info);
 
-int set_current_groups(struct group_info *group_info)
+                      if (ret < 0) {
 
-{
+                        abort_creds(new);
 
-  struct cred *new;
+                        return ret;
 
-  int ret;
+                      }
 
 
 
-  new = prepare_creds();
+                      return commit_creds(new);
+                    
+                    }
+                    
+                    
+                    
+                    EXPORT_SYMBOL(set_current_groups);
+                    
+                    
+                    
+                    SYSCALL_DEFINE2(getgroups, int, gidsetsize, gid_t __user *, grouplist)
+                    
+                    {
 
-  if (!new)
+                      const struct cred *cred = current_cred();
 
-    return -ENOMEM;
+                      int i;
 
 
 
-  ret = set_groups(new, group_info);
+                      if (gidsetsize < 0)
 
-  if (ret < 0) {
+                        return -EINVAL;
 
-    abort_creds(new);
 
-    return ret;
 
-  }
+                      /* no need to grab task_lock here; it cannot change */
 
+                      i = cred->group_info->ngroups;
 
+                      if (gidsetsize) {
 
-  return commit_creds(new);
+                        if (i > gidsetsize) {
 
-}
+                          i = -EINVAL;
 
+                          goto out;
 
+                        }
 
-EXPORT_SYMBOL(set_current_groups);
+                        if (groups_to_user(grouplist, cred->group_info)) {
 
+                          i = -EFAULT;
 
+                          goto out;
 
-SYSCALL_DEFINE2(getgroups, int, gidsetsize, gid_t __user *, grouplist)
+                        }
 
-{
+                      }
+                      
+                      out:
 
-  const struct cred *cred = current_cred();
+                      return i;
+                      
+                      }
+                      
+                      
+                      
+                      /*
 
-  int i;
+                   *    SMP: Our groups are copy-on-write. We can set them safely
 
+                   *    without another task interfering.
 
+                   *  /
+                      
+                      
+                      
+                      SYSCALL_DEFINE2(setgroups, int, gidsetsize, gid_t __user *, grouplist)
+                      
+                      {
 
-  if (gidsetsize < 0)
+                      struct group_info *group_info;
 
-    return -EINVAL;
+                      int retval;
 
 
 
-  /* no need to grab task_lock here; it cannot change */
+                      if (!nsown_capable(CAP_SETGID))
 
-  i = cred->group_info->ngroups;
+                        return -EPERM;
 
-  if (gidsetsize) {
+                      if ((unsigned)gidsetsize > NGROUPS_MAX)
 
-    if (i > gidsetsize) {
+                        return -EINVAL;
 
-      i = -EINVAL;
 
-      goto out;
 
-    }
+                      group_info = groups_alloc(gidsetsize);
 
-    if (groups_to_user(grouplist, cred->group_info)) {
+                      if (!group_info)
 
-      i = -EFAULT;
+                        return -ENOMEM;
 
-      goto out;
+                      retval = groups_from_user(group_info, grouplist);
 
-    }
+                      if (retval) {
 
-  }
+                        put_group_info(group_info);
 
-out:
+                        return retval;
 
-  return i;
+                      }
 
-}
 
 
+                      retval = set_current_groups(group_info);
 
-/*
+                      put_group_info(group_info);
 
- *  SMP: Our groups are copy-on-write. We can set them safely
 
- *  without another task interfering.
 
- */
+                      return retval;
+                      
+                      }
+                      
+                      
+                      
+                      /*
 
+                   *   Check whether we're fsgid/egid or in the supplemental group..
 
+                   *  /
+                      
+                      int in_group_p(gid_t grp)
+                      
+                      {
 
-SYSCALL_DEFINE2(setgroups, int, gidsetsize, gid_t __user *, grouplist)
+                      const struct cred *cred = current_cred();
 
-{
+                      int retval = 1;
 
-  struct group_info *group_info;
 
-  int retval;
 
+                      if (grp != cred->fsgid)
 
+                        retval = groups_search(cred->group_info, grp);
 
-  if (!nsown_capable(CAP_SETGID))
+                      return retval;
+                      
+                      }
+                      
 
-    return -EPERM;
 
-  if ((unsigned)gidsetsize > NGROUPS_MAX)
+                      EXPORT_SYMBOL(in_group_p);
+                      
+                      
+                      
+                      int in_egroup_p(gid_t grp)
+                      
+                      {
 
-    return -EINVAL;
+                      const struct cred *cred = current_cred();
 
+                      int retval = 1;
 
 
-  group_info = groups_alloc(gidsetsize);
 
-  if (!group_info)
+                      if (grp != cred->egid)
 
-    return -ENOMEM;
+                        retval = groups_search(cred->group_info, grp);
 
-  retval = groups_from_user(group_info, grouplist);
-
-  if (retval) {
-
-    put_group_info(group_info);
-
-    return retval;
-
-  }
-
-
-
-  retval = set_current_groups(group_info);
-
-  put_group_info(group_info);
-
-
-
-  return retval;
-
-}
-
-
-
-/*
-
- * Check whether we're fsgid/egid or in the supplemental group..
-
- */
-
-int in_group_p(gid_t grp)
-
-{
-
-  const struct cred *cred = current_cred();
-
-  int retval = 1;
-
-
-
-  if (grp != cred->fsgid)
-
-    retval = groups_search(cred->group_info, grp);
-
-  return retval;
-
-}
-
-
-
-EXPORT_SYMBOL(in_group_p);
-
-
-
-int in_egroup_p(gid_t grp)
-
-{
-
-  const struct cred *cred = current_cred();
-
-  int retval = 1;
-
-
-
-  if (grp != cred->egid)
-
-    retval = groups_search(cred->group_info, grp);
-
-  return retval;
-
-}}}
-}}`,
+                      return retval;
+                      
+                        }}}
+                        }}
+                      **/`,
+  
+      /****/
   },
   methods: {
     hacking: function(hax){
@@ -521,12 +527,16 @@ int in_egroup_p(gid_t grp)
       window.scrollTo(0,document.body.scrollHeight);
     },
 
+    donothing: function() {
+      return 0
+    },
+
     doTheHack: function() {
       let percent = 0
       this.hackStuff += '\n' + `Hack_The_Planet.exe compiling...
       Hacking: %${percent}`
       for (let i = 0; i < 100; i++) {
-        setTimeout(, Math.floor(Math.random() * 1000))
+        setTimeout(this.donothing, Math.floor(Math.random() * 1000))
         percent = i
         if (i > 10) {
           this.hackStuff = this.hackStuff.slice(0,-2)
@@ -545,7 +555,8 @@ int in_egroup_p(gid_t grp)
 
     shifterOff: function() {
       this.mult = 1
-    }
+    },
+
   },
 
   mounted() {
@@ -557,14 +568,10 @@ int in_egroup_p(gid_t grp)
       } else if (k === 9) {
         app.hacking(40*app.mult)
       } else if (k === 13) {
-        app.doTheHack()
+      app.doTheHack()
       } else {
         app.hacking(3*app.mult)
       }
     })
   },
 })
-
-var messageDisplay = vueContent.$refs.messageDisplay;
-messageDisplay.scrollTop = messageDisplay.scrollHeight;
-var shifter = document.addEventListener('keydown', 'shift')
