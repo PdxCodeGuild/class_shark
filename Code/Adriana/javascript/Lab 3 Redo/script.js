@@ -12,7 +12,7 @@ function LetterGrade() {
         result.innerHTML = "You got an 'C'. Room for improvement!"
     }
     else if ( grade >= 60 && grade < 70) {
-        result.innerHTML = "You got an 'D'. Do better"
+        result.innerHTML = "You got an 'D'. Do better, work harder"
     }
     else if ( grade < 60) {
         result.innerHTML = "You got an 'F'. Get a tutor"
