@@ -2,6 +2,13 @@
 
 **Checklist** 
 
+Note: I'm lazy and instead of making another page for the checklist, here's a script you can enter in your console to make the checklist below work.
+
+```js
+document.querySelectorAll('li > input')
+.forEach(elem => elem.disabled = false)
+```
+
 - [ ] [Set up Virtual Environment](#set-up-virtual-environment)
 - [ ] [Create a Project and App](#create-a-project-and-app)
 - [ ] [Create an App](#create-an-app)
