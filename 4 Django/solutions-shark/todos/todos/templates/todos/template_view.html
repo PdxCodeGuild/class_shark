@@ -38,13 +38,15 @@
                     v-bind:key="i"
                     v-bind:class="{completed: todo.completed}"
                 >
-                    ${ todo.text }
-                    <i v-on:click='removeTodo(i)'
-                        class='fas fa-times'
-                    ></i>
-                    <i v-on:click='toggleComplete(i)'
-                        class='fas fa-check'
-                    ></i>
+                    <span> ${ todo.text } </span>
+                    <div class='control-buttons'>
+                        <i v-on:click='removeTodo(i)'
+                            class='fas fa-times'
+                        ></i>
+                        <i v-on:click='toggleComplete(i)'
+                            class='fas fa-check'
+                        ></i>
+                    </div>    
                 </li>
             </ul>
         </div>

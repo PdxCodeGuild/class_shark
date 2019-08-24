@@ -6,10 +6,7 @@ const app = new Vue({
     delimiters: ['${', '}'], // set custom delimiters here instead of {{}}    
     data: {
         message: 'Your todo list:',
-        todos: [
-            {text: 'Learn Vue.js', completed: false},
-            {text: 'Master frontend', completed: false}
-        ],
+        todos: [],
         todo: '',
     },
     methods: {
@@ -34,7 +31,12 @@ const app = new Vue({
         },
         toggleComplete: async function(index) {
             const todo = this.todos[index]
-            const response = await axios.patch(`/api/todos/${todo.pk}/`, {completed: !todo.completed})
+            todo.completed = !todo.completed
+            const fields = {
+                completed: todo.completed,
+                completed_date: (todo.completed ? new Date() : null)
+            }
+            const response = await axios.patch(`/api/todos/${todo.pk}/`, fields)
             // mark todo as done
             this.todos[index].completed = !this.todos[index].completed            
             this.grabTodos()

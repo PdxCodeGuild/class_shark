@@ -17,7 +17,7 @@ def todos(request):
         todo.save()
         return HttpResponse(status=201)        
 
-    todos = Todo.objects.all().order_by('-created_date')
+    todos = Todo.objects.all().order_by('completed', '-created_date')
     todo_list = []
     for todo in todos:
         todo_dict = {

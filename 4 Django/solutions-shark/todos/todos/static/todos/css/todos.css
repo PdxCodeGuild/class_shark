@@ -35,9 +35,11 @@ nav a {
 }
 
 ul {
+  height: 60vh;
   margin: 0;
   padding: 0;
   list-style-type: none;
+  overflow: auto;
 }
 
 ul li {
@@ -85,10 +87,23 @@ input {
   color: #687F7F;
 }
 
-li > i {
-float:right;
-padding-left: 1em;
-cursor:pointer;
+li {
+  display: flex;
+  justify-content: space-between;
+}
+
+li > span {
+  width: 75%;
+}
+
+.control-buttons {
+  width: 25%;
+}
+
+.control-buttons > i {
+  float: right;
+  padding-left: 1em;
+  cursor:pointer;
 }
 
 i:hover {
