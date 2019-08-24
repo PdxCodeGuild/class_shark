@@ -2,38 +2,74 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="07989f7e-243d-4022-8cdd-176afd51fbf5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../Python/Lab 06 Password Generator Version 1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Python/Lab 06 Password Generator Version 3.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Python/Lab 09 Unit Converter Version 1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Python/Lab 09 Unit Converter Version 2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Python/Lab 13 Rot Cipher.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Python/Lab 21 Count Words V1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Python/Lab 23 Contact List.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Python/Lab 26 Tic Tac Toe.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../html and css/Lab 03/Homepage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../html and css/Lab 03/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../html and css/Lab 03/stylesheet.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab 3 Redo/.idea/Grade.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab 3 Redo/.idea/libraries/R_User_Library.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab 3 Redo/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab 3 Redo/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab 3 Redo/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab 3 Redo/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab 3 Redo/script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab 4 Redo/.idea/8-Ball.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab 4 Redo/.idea/libraries/R_User_Library.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab 4 Redo/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab 4 Redo/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab 4 Redo/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab 4 Redo/8ball.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab 4 Redo/black8ball.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab 4 Redo/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab 4 Redo/script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab 4 To Do List/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab 4 To Do List/practice.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab 4 To Do List/stylesheet.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab 4 To Do List/todos.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/Lab 7 Hacker Typer.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/R_User_Library.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab 7 Redo/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab 7 Redo/.idea/Rock_Paper_Scissors.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab 7 Redo/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab 7 Redo/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab 7 Redo/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MadLibs/.idea/MadLibs.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MadLibs/.idea/libraries/R_User_Library.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MadLibs/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MadLibs/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MadLibs/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MadLibs/.idea/workspace.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../MadLibs/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MadLibs/script.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Make_Change/index.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Make_Change/script.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Password/index.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Password/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lab 00.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../Python/Lab 00.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lab 02 Mad Lib Version 1.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../Python/Lab 02 Mad Lib Version 1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lab 03 Grading Version 1.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../Python/Lab 03 Grading Version 1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lab 04 Magic 8-ball Version 1.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../Python/Lab 04 Magic 8-ball Version 1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lab 05 Random Emoticon Generator Version 1.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../Python/Lab 05 Random Emoticon Generator Version 1.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Practice/.idea/Practice.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Practice/.idea/libraries/R_User_Library.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Practice/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Practice/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Practice/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../notes for ttt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lab 00.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lab 02 Mad Lib Version 1.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lab 03 Grading Version 1.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lab 04 Magic 8-ball Version 1.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lab 05 Random Emoticon Generator Version 1.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Lab 06 Password Generator Version 1.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lab 07 Rock Paper Scissors Version 1.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../Python/Lab 07 Rock Paper Scissors Version 1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lab 08 Make Change Version 1.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../Python/Lab 08 Make Change Version 1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lab 11 Simple Calculator Version 1.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../Python/Lab 11 Simple Calculator Version 1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lab 14 Pick 6.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../Python/Lab 14 Pick 6.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lab 15 Number to Phrase.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../Python/Lab 15 Number to Phrase.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lab 18 Peaks and Valleys.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../Python/Lab 18 Peaks and Valleys.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lab 19 BlackJack Advice.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../Python/Lab 19 BlackJack Advice.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lab 20 Credit Card Validation.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../Python/Lab 20 Credit Card Validation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lab 21 Count Words.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../Python/Lab 21 Count Words.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lab 25 ATM.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../Python/Lab 25 ATM.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lab 07 Rock Paper Scissors Version 1.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lab 08 Make Change Version 1.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lab 11 Simple Calculator Version 1.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lab 14 Pick 6.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lab 15 Number to Phrase.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lab 18 Peaks and Valleys.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lab 19 BlackJack Advice.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lab 20 Credit Card Validation.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lab 21 Count Words.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lab 25 ATM.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../class shark.txt" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,22 +78,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/script.js">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -113,7 +134,7 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="HTML" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Django" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -142,7 +163,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="744" y="0" width="784" height="832" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24897401" />
@@ -169,15 +189,15 @@
     <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_2.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/script.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script.js">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>
