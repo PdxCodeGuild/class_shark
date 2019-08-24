@@ -2,17 +2,17 @@
 
 **Checklist** 
 
-1. <input type='checkbox' /> [Set up Virtual Environment](#set-up-virtual-environment)
-1. <input type='checkbox' /> [Create a Project and App](#create-a-project-and-app)
-1. <input type='checkbox' /> [Create an App](#create-an-app)
-1. <input type='checkbox' /> [Create a View](#create-a-view)
-1. <input type='checkbox' /> [Create a Route to the View](#create-a-route-to-the-view)
-1. <input type='checkbox' /> [Create Models](#create-models)
-1. <input type='checkbox' /> [Add the Model to the Admin Panel](#add-the-model-to-the-admin-panel)
-1. <input type='checkbox' /> [Create a Template](#create-a-template)
-1. <input type='checkbox' /> [Render a Template](#render-a-template)
-1. <input type='checkbox' /> [Set up template directories](#set-up-template-directories)
-1. <input type='checkbox' /> [Set up static directories](#set-up-static-directories)
+- [ ] [Set up Virtual Environment](#set-up-virtual-environment)
+- [ ] [Create a Project and App](#create-a-project-and-app)
+- [ ] [Create an App](#create-an-app)
+- [ ] [Create a View](#create-a-view)
+- [ ] [Create a Route to the View](#create-a-route-to-the-view)
+- [ ] [Create Models](#create-models)
+- [ ] [Add the Model to the Admin Panel](#add-the-model-to-the-admin-panel)
+- [ ] [Create a Template](#create-a-template)
+- [ ] [Render a Template](#render-a-template)
+- [ ] [Set up template directories](#set-up-template-directories)
+- [ ] [Set up static directories](#set-up-static-directories)
 
 
 ## Set up Virtual Environment
