@@ -9,6 +9,7 @@ function predictions() {
     "Most likely",
     "Outlook good",
     "Yes",
+    "Heck No!",    
     "Signs point to yes",
     "Reply hazy try again",
     "Ask again later",
