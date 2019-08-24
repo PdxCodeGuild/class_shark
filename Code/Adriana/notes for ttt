@@ -1,0 +1,153 @@
+1. build a skeleton
+
+2. build out player which just takes in a name and a toke
+
+class Player:
+    def __init__(self, name, toke):
+        self.name = name
+        self.token = token
+
+    def __repr__ (self):
+        return self.token
+
+3. the next class is the game
+
+class TicTacToe:
+    def __init__(self):
+    #need to give something that represents a board
+        self.board = [[' ' for i range(3)] for i in range(3)]
+
+
+#too look at what that looks like she created the mainframe
+
+if __name__ == '__main__'
+     game = TicTacToe()
+     print(game.board)
+    or type
+    for row in game.board:
+        print(row)
+
+4. We can set up a repr that prints it out pretty for us.
+under repr
+
+    def__repr__(self):
+        draw_board = ''
+        for line in self.board:
+        #this needs to be edited because it returned a error
+       #so needs to create a string
+            line = [str(token) for toke in line]
+            draw_board += '|'.join(line) + '\n'
+        return draw_board
+
+5. now we create a function that moves a player on the board which will be definied by
+    def move(self, x, y, player):
+    #this moves the player onto the board
+
+
+        if type(self.board[y][x]) is Player:
+        # this will state whether the position is taken by another player
+        # need to have type to compare
+
+            return False
+        self.board[y][x] = player
+        return True
+
+6. to test it she went into the main esection and created p1 = Player(bobra, x) and p2 = Player(rabob, O)
+7. then created game.move as (0,0,p1) and (0,0,p2) this should not be allowed because they are in the same position
+
+8. we then did a move---> game.move(1,0,p2) and print(game)
+
+9. calculating winner is three ina  row
+
+    def calc_winner(self)
+    #returns a winner if ones exists
+
+    we will then hard code in the winner...
+
+    #horizontal winner
+    if type(self.board[0][0]) is Player and
+    (self.board[0][0] == self.board[0][1] == self.board[0][2]):
+    #if all these three are equal than we want to print what is equal
+        return self.board [0][0]
+
+10. so then you will have to calculate different types of winners. Now the verticle winner
+
+if type(self.board[0][0]) is Player and
+    (self.board[0][0] == self.board[1][0] == self.board[2][0]):
+    return self.board [0][0]
+
+then the input was game.move(0,2,p1) and game(
+
+11. since this is writing the same thing over again then we will write a loop instead
+
+    for i in range(3):
+    ***wins from above
+
+    so then we change the 0s from above to i instead!! AWESOME
+
+    **look at her solutions like 42-49
+
+    only have to loop through it 3 times because its a 3x3 board
+
+ 12. for a diagnoal winner it will be a different way... so you will have to hardcode them in
+
+ if type(self.board[1][1]) is Player:
+ # we will only go through this code when the center tile is selected
+
+
+    if type(self.board[0][0]==self.board[1][1] == self.baord[2][2]
+        return self.board[0][0]
+
+        ***look at the code she posts for this lines 51 - 56
+
+
+13. then you have to define if the board is full which defines if the board is true and false if its not
+
+14. for row in self.board:
+        for cell in row:
+            if cell == ' ': #if this is empty then we are done and its not full
+                return False
+
+    return True
+
+15. is the game over?
+
+def game_over(self):
+#returns true if there is  a winner or the game is full
+
+return self.is_full() or self.calc_winner()
+
+16. you can either hardcode or set up a repl
+
+17. she created a dictionary to make sure we dont mix up X and ys (coordinates)
+
+18. wrote this in main
+
+called it positions = and its a dictionary =
+1: (0, 0)
+2: (1, 0)
+3: (2, 0)
+4: (0, 1)
+5: (1, 1)
+6: (2, 1)
+7: (0, 2)
+8: (1, 2)
+9: (2, 2)
+
+
+#while its not game over we will keep looping through
+#1 let player one make a move
+#so need a n input
+
+while not game.game_over():
+    while True:
+        position = True('Move: ')
+
+
+***stopped typing so go to line 85
+at about minute 50 stopped listening..
+
+
+19. keep track of players and keep track of rounds
+
+

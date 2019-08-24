@@ -1,0 +1,7 @@
+@echo off
+start firefox "https://trello.com/b/yvHpCeSm" "https://github.com/"
+powershell.exe -noexit -command "cd C:\Users\A-A-Ron\Documents\PDXCG\class_shark\Code\Jack"
+powershell.exe -noexit -command "code ."
+C:\Users\A-A-Ron\AppData\Local\slack\slack.exe
+C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+

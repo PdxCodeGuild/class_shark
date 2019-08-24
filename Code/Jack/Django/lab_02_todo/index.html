@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Todo List</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/vuePrac.css">
+</head>
+<body>
+    <div id='app'>
+	  <h3>{{ message }}</h3>
+	  <div class='holder'>    		
+        <div class='container'>
+          <input 
+          	v-model:value='todo'
+          	v-on:keyup.enter='addTodo'
+          	type='text' 
+          	placeholder='Enter a task...' />
+          <button 
+            v-on:click="addTodo" 
+            id='btn-add'>
+            <i class="fas fa-plus"></i>
+          </button>
+        </div>
+        <ul>
+          <li 
+            v-for="todo, i in todos"
+            v-bind:key='i'
+            v-bind:class='{completed: todo.completed}'
+            >
+            {{ todo.todo }}
+            <i 
+              v-on:click='removeTodo(i)'
+              class='fas fa-times'></i>
+            <i
+              v-on:click='markDone(i)'
+              class='fas fa-check'
+            ></i>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="js/vuePrac.js"></script>
+</body>
+</html>
