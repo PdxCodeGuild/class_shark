@@ -1,0 +1,28 @@
+Everytime we go to the internet 
+First you want to do a pip import
+
+Import requests
+Response = requests.get(‘webssite link here’)
+
+Response object code 200 means success
+
+Look up http status codes
+
+The type of this response is a response object
+
+Python requests
+
+You can grab all the text – response.text (pull out all string context of the file)
+
+Request.post(link, 
+
+Json- 
+
+Requests.get(linkappid=api key)
+
+.text will spit out json text
+
+.json() will convert to python dictionary
+
+Given an api, acces this data and display it cleanly
+
