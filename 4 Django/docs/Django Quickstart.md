@@ -1,6 +1,6 @@
 # Django Quickstart Checklist
 
-**Table of Contents** 
+**Checklist** 
 
 - [ ] [Set up Virtual Environment](#set-up-virtual-environment)
 - [ ] [Create a Project and App](#create-a-project-and-app)
