@@ -1,4 +1,20 @@
-# Django Quickstart
+# Django Quickstart Checklist
+
+**Table of Contents** 
+
+- [ ] [Set up Virtual Environment](#set-up-virtual-environment)
+- [ ] [Create a Project and App](#create-a-project-and-app)
+- [ ] [Create an App](#create-an-app)
+- [ ] [Create a View](#create-a-view)
+- [ ] [Create a Route to the View](#create-a-route-to-the-view)
+- [ ] [Create Models](#create-models)
+- [ ] [Add the Model to the Admin Panel](#add-the-model-to-the-admin-panel)
+- [ ] [Create a Template](#create-a-template)
+- [ ] [Render a Template](#render-a-template)
+- [ ] [Set up template directories](#set-up-template-directories)
+- [ ] [Set up static directories](#set-up-static-directories)
+
+
 ## Set up Virtual Environment
 If you haven't install `virtualenv`, do so now:
 ```
@@ -132,19 +148,19 @@ def <view name>(request):
     return render(request, '<app name>/<template name>.html', context)
 ```
 
-### Set up template directories
+## Set up template directories
 In `settings.py`:
 ```py
 TEMPLATES = [
     {
-		...
-		'DIRS': [os.path.join(BASE_DIR, 'templates')],
-		...
-	}
+        ...
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        ...
+    }
 ]
 ```
 
-### Set up static directories
+## Set up static directories
 In `settings.py`
 ```py
 STATIC_URL = '/static/'
