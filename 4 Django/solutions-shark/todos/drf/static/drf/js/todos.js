@@ -23,7 +23,7 @@ const app = new Vue({
             this.todo = ''
         },
         removeTodo: async function(index) {
-            const response = await axios.delete(`/api/todos/${this.todos[index].pk}/`)
+            const response = await axios.delete(this.todos[index].url)
             console.log(response)            
             // remove todo from this.todos
             // this.todos.splice(index, 1)
@@ -36,9 +36,9 @@ const app = new Vue({
                 completed: todo.completed,
                 completed_date: (todo.completed ? new Date() : null)
             }
-            const response = await axios.patch(`/api/todos/${todo.pk}/`, fields)
+            const response = await axios.patch(todo.url, fields)
             // mark todo as done
-            this.todos[index].completed = !this.todos[index].completed            
+            // this.todos[index].completed = !this.todos[index].completed            
             this.grabTodos()
         },
     },

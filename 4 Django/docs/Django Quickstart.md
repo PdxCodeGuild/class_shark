@@ -1,4 +1,27 @@
-# Django Quickstart
+# Django Quickstart Checklist
+
+**Checklist** 
+
+- [ ] [Set up Virtual Environment](#set-up-virtual-environment)
+- [ ] [Create a Project and App](#create-a-project-and-app)
+- [ ] [Create an App](#create-an-app)
+- [ ] [Create a View](#create-a-view)
+- [ ] [Create a Route to the View](#create-a-route-to-the-view)
+- [ ] [Create Models](#create-models)
+- [ ] [Add the Model to the Admin Panel](#add-the-model-to-the-admin-panel)
+- [ ] [Create a Template](#create-a-template)
+- [ ] [Render a Template](#render-a-template)
+- [ ] [Set up template directories](#set-up-template-directories)
+- [ ] [Set up static directories](#set-up-static-directories)
+
+
+Note: I'm lazy and instead of making another page for the checklist, here's a script you can enter in your console to make the checklist above work.
+
+```js
+document.querySelectorAll('li > input')
+.forEach(elem => elem.disabled = false)
+```
+
 ## Set up Virtual Environment
 If you haven't install `virtualenv`, do so now:
 ```
@@ -46,7 +69,7 @@ To exit your virtual environment:
 
 ## Create a Project and App
 
-- Create a site/project: `django-admin startproject <site/project name>`
+- Create a site/project: `django-admin startproject <site/project name> .`
 - Move into the site's directory: `cd <site/project name>`
 - Run migrations to create the database and user system `python manage.py migrate`
 - Create an admin account with `python manage.py createsuperuser`, and enter a username, email address, and password
@@ -93,7 +116,7 @@ urlpatterns = [
 ]
 ```
 
-At this point, you should run the server (`python manage.py runserver`) and go to `localhost:8000/app_path/view_path` and verify that you can access the view.
+At this point, you should run the server (`python manage.py runserver`) and go to `localhost:8000/<app_path>/<view_path>` and verify that you can access the view.
 
 ## Create Models
 
@@ -132,19 +155,19 @@ def <view name>(request):
     return render(request, '<app name>/<template name>.html', context)
 ```
 
-### Set up template directories
+## Set up template directories
 In `settings.py`:
 ```py
 TEMPLATES = [
     {
-		...
-		'DIRS': [os.path.join(BASE_DIR, 'templates')],
-		...
-	}
+        ...
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        ...
+    }
 ]
 ```
 
-### Set up static directories
+## Set up static directories
 In `settings.py`
 ```py
 STATIC_URL = '/static/'

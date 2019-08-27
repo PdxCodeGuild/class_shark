@@ -15,7 +15,6 @@ body, html {
 
 #app {
     width: 50%;
-    min-width: 450px;
 }
 nav {
   padding: 20px 20px 20px 0;
@@ -30,16 +29,17 @@ nav a {
   margin-right: 15px;
 }
 
+@import "https://cdn.jsdelivr.net/npm/animate.css@3.5.1";
+@import "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"; 
+
 .holder {
   background: #fff;
 }
 
 ul {
-  height: 60vh;
   margin: 0;
   padding: 0;
   list-style-type: none;
-  overflow: auto;
 }
 
 ul li {
@@ -65,12 +65,11 @@ p {
 }
 
 .container {
-  display: flex;
-  height: 64px;
+  box-shadow: 0px 0px 40px lightgray;
 }
 
 input {
-  flex: 1;
+  width: calc(100% - 40px);
   border: 0;
   padding: 20px;
   font-size: 1.3em;
@@ -78,32 +77,10 @@ input {
   color: #687F7F;
 }
 
-#btn-add {
-  height: 100%;
-  width: 60px;
-  padding: 0 1em;
-  border: black;
-  background-color: black;
-  color: #687F7F;
-}
-
-li {
-  display: flex;
-  justify-content: space-between;
-}
-
-li > span {
-  width: 75%;
-}
-
-.control-buttons {
-  width: 25%;
-}
-
-.control-buttons > i {
-  float: right;
-  padding-left: 1em;
-  cursor:pointer;
+i {
+float:right;
+padding-left: 1em;
+cursor:pointer;
 }
 
 i:hover {
