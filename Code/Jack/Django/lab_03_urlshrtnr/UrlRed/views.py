@@ -1,3 +1,7 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 
-# Create your views here.
+def <view name>(request):
+    context = {}
+    return render(request, 'UrlRed/index.html', context)
+    # return HttpResponse(status=204)

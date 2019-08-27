@@ -1,3 +1,3 @@
 from django.contrib import admin
-
-# Register your models here.
+from .models import <model name 1> <model name 2>
+admin.site.register(<model name 1>)
