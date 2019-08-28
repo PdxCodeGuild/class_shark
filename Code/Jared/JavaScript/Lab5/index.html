@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lab 5</title>
+</head>
+<body>
+
+	<button id='site'>Submit</button>
+	<p id='countdown'></p>
+	<iframe id='website'
+		width='300'
+		height='400'
+		src=''>
+	</iframe>
+
+
+<script>
+let redirect = ['http://oereader.ca/', 'http://www.oegrammar.ca/']
+
+
+
+function getRandomUrl(arr){
+	return arr[Math.floor(Math.random()*arr.length)]
+}
+
+
+// redirect whole page
+// const url = document.querySelector('#site')
+
+// url.addEventListener('click', (evt) =>{
+// 	let count = 5
+// 	const timer = setInterval(function(){
+// 		document.querySelector('#countdown').innerHTML = count;
+// 		count -=1;
+// 		if (count === 0){
+// 			setTimeout(location.assign(getRandomUrl(redirect)), 1000)
+		// clearInterval(timer)
+// 		}
+// }, 1000)
+// })
+
+// redirect in i-frame
+const url = document.querySelector('#site')
+let res = document.querySelector('#website')
+url.addEventListener('click', (evt) =>{
+	let count = 5
+	const timer = setInterval(function(){
+		document.querySelector('#countdown').innerHTML = count;
+		count -=1;
+		if (count === 0){
+			setTimeout(res.setAttribute('src', getRandomUrl(redirect)), 1000)
+			clearInterval(timer)
+		}
+}, 1000)
+	// setTimeout(location.assign(getRandomUrl(redirect)), 5000)
+})
+
+</script>
+</body>
+</html>
