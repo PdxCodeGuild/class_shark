@@ -107,12 +107,11 @@ def getdata(request):
 
 ### Redirecting
 
-To redirect, you can use the HttpResponseRedirect class. It's also best to use the `reverse` function to look up the url using the name rather than hard-coding it.
+To redirect, you can use the `redirect` shortcut function and pass in the name of the route you want to redirect to.
 
 ```python
-from django.http import HttpResponseRedirect
-from django.urls import reverse
+from django.shortcuts import redirect
 def add(request):
     ...
-    return HttpResponseRedirect(reverse('todos:index'))
+    return redirect('todos:index')
 ```

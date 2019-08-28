@@ -1,0 +1,10 @@
+/*stylesheet.css*/
+
+body {
+  font-family: "open sans", sans-serif;
+}
+
+.row .card {
+    height: 320px
+
+}

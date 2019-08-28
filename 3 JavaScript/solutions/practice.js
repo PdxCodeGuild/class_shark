@@ -322,3 +322,75 @@ function spinalCase(str) {
   str = str.replace(sep, '-')
   return str.toLowerCase()
 }
+
+/* Intermediate Algorithm Scripting: Search and Replace
+Perform a search and replace on the sentence using the arguments provided and return the new sentence.
+First argument is the sentence to perform the search and replace on.
+Second argument is the word that you will be replacing (before).
+Third argument is what you will be replacing the second argument with (after).
+
+Note:
+Preserve the case of the first character in the original word when you are replacing it. 
+For example if you mean to replace the word "Book" with the word "dog", 
+it should be replaced as "Dog" */
+
+function myReplace(str, before, after) {
+  // if before is capitalized
+  // get after to have the same casing as before
+  if (before[0].toUpperCase() === before[0]) { 
+    after = after[0].toUpperCase() + after.slice(1)
+  } else {
+    after = after[0].toLowerCase() + after.slice(1)
+  }
+  return str.replace(before, after);
+}
+
+/* Intermediate Algorithm Scripting: Drop it
+Given the array arr, iterate through and remove each element starting from the first element 
+(the 0 index) until the function func returns true when the iterated element is passed through it.
+Then return the rest of the array once the condition is satisfied, 
+otherwise, arr should be returned as an empty array. */
+// array.slice()
+function dropElements(arr, func) {
+  for (let i=0; i<arr.length; i++) {
+    if (func(arr[i])) return arr.slice(i)      
+  }
+  return []
+}
+
+// array.shift()
+function dropElements(arr, func) {
+  while (!func(arr[0])) {
+    arr.shift()
+  }
+  return arr
+}
+
+// arr.reduce()
+function dropElements(arr, func) {
+  // loop through arr indexes
+  let firstTrue = false
+  return arr.reduce((acc, cur) => {
+    if (firstTrue || func(cur)) {
+      firstTrue = true
+      return [...acc, cur]
+    } else {
+      return []
+    }
+  }, [])
+}
+
+// arr.filter()
+function dropElements(arr, func) {
+  // loop through arr indexes
+  let firstTrue = false
+  return arr.filter((cur) => {
+    if (firstTrue || func(cur)) {
+      firstTrue = true
+      return true
+    } else {
+      return false
+    }
+  })
+}
+

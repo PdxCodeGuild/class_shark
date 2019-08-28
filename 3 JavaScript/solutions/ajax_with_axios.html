@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>axios examples</title>
+</head>
+<body>
+<!-- important: include axios script or else you won't have access to axios -->
+<script src='http://unpkg.com/axios/dist/axios.min.js'></script>
+<script>
+// axios get request example
+// async function because ajax requests take time
+async function get(url, config) { 
+    // url is your endpoint
+    // config is any configurations you might want, such as headers, cookies,
+    // query parameters, etc.
+    try {
+        // a request returns a response, but it takes some time
+        // use `await` to make an async process synchronous
+        const response = await axios.get(url, config)
+        // here we're just logging the response, but do any other stuff you want
+        // hint: you probably want to work with `response.data`
+        console.log(response) 
+    } catch(err) { // catch any errors if they occur and log them
+        console.log(err)
+    }
+}
+
+// axios post request example
+// async function because ajax requests take time
+async function post(url, data, config) { 
+    // url is your endpoint
+    // data is the data you are trying to post, such as an object or FormData
+    // config is any configurations you might want, such as headers, cookies,
+    // query parameters, etc.    
+    try {
+        const response = await axios.post(url, data, config)  
+        console.log(response)
+    } catch(err) { 
+        console.log(err)
+    }
+}
+
+</script>
+</body>
+</html>

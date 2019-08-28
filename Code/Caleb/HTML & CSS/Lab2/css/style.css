@@ -1,0 +1,100 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+      /* body{font-family: Arial}
+      .container {
+          width: 800px;
+          margin: 0 auto
+      } */
+h1 {
+    margin: 10px 0 0 0;
+    font-size: 24px;
+    color: white;
+}
+.btn_container {
+    width: 100%;
+    height: auto;
+    text-align: left;
+    margin: 20px 0;
+}
+.btn_text {
+    color: #fff;
+    background: #CE0015;
+    padding: 3px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+}
+.separator {
+    width: 800px;
+    height: 1px;
+    margin: 20px auto 10px;
+    border-bottom: 1px dotted #000;
+}
+
+ .post {
+   border-bottom: 1px dotted #000;
+   margin-bottom: 50px;
+ }
+   .post p {
+       animation: fadein 2s;
+       -moz-animation: fadein 2s; /* Firefox */
+       -webkit-animation: fadein 2s; /* Safari and Chrome */
+       -o-animation: fadein 2s; /* Opera */
+       color:white;
+ }
+   .post ul {
+       animation: fadein 2s;
+       -moz-animation: fadein 2s; /* Firefox */
+       -webkit-animation: fadein 2s; /* Safari and Chrome */
+       -o-animation: fadein 2s; /* Opera */
+       color:white;
+   }
+
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+         }
+     }
+    
+     @-moz-keyframes fadein { /* Firefox */
+        from {
+            opacity:0;
+        }
+        to {
+            opacity:1;
+        }
+     }
+     
+     @-webkit-keyframes fadein { /* Safari and Chrome */
+        from {
+            opacity:0;
+        }
+        to {
+            opacity:1;
+        }
+     }
+
+     @-o-keyframes fadein { /* Opera */
+        from {
+            opacity:0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+nav .brand-logo {
+    position: absolute;
+    color: #fff;
+    display: block;
+    font-size: 2rem;
+    padding: 0;

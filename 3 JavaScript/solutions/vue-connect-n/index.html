@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Connect N (with Vue!)</title>
+    <link rel="stylesheet" href='styles.css'>
+</head>
+<body>
+    <div id='app'>
+        <h1>Connect {{n}}: {{n}} in a Row</h1>
+        <div class='controls'>
+            <label>n: </label>
+            <input v-model='n' @change='reset' type='number' name='n' min='3' max='8' />
+            <label>board size: </label>
+            <input v-model='size' @change='reset' type='number' name='size' min='3' max='16' />
+        </div>
+        <h2>{{message}}</h2>
+        <div class='board'>
+            <div v-for='row, i in board' class='row'>
+                <cell v-for='position, j in row'
+                    class='cell'
+                    v-bind:id='`${i}-${j}`'
+                    v-bind:key='i*size+j'
+                    v-bind:position='position'
+                    @move='addToken(i, j)'
+                >
+                </cell>
+            </div>
+        </div>
+        <div class='score-board'>
+            <h4>Scores</h4>
+            <p>{{players[0].name}}: {{score[players[0].name]}}</p>
+            <p>{{players[1].name}}: {{score[players[1].name]}}</p>
+        </div>
+        
+        <button id='play-again' @click='reset'>Play again</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src='connect-n.js'></script>
+</body>
+</html>
