@@ -1,0 +1,48 @@
+{% extends "vue/base.html" %}
+{% block content %}
+    <div v-cloak>
+        <main class='content container'>
+            <div v-if='adding' class='edit-post row'>
+                <div class="form-group">        
+                    <label for='title'>Title</label>
+                    <input v-model='blogpost.title' name='title' class="form-control post-form" type="text" />
+                    <label for='text'>Text</label>
+                    <textarea v-model='blogpost.text' name='text' class="form-control post-form" type="textarea"></textarea>
+                    <br />
+                    <button @click='addBlogpost' class="save btn btn-default">Save</button>
+                </div>
+            </div>        
+
+             <div v-for='post in blogposts' v-if='post.published_date' class="row">
+                <div class='post'>
+                    {% if user.is_authenticated %}
+                        <div class='post-controls'>
+                            <button @click='isEditing(post)' class="save btn btn-default">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                            </button>
+                            <button @click='deleteBlogpost(post)' class="save btn btn-default">
+                                <span class="glyphicon glyphicon-remove"></span>
+                            </button>                            
+                        </div>
+                    {% endif %}
+        
+                    <div v-if='editing && post === blogpost' class='edit-post row'>
+                        <div class="form-group">        
+                            <label for='title'>Title</label>
+                            <input v-model='post.title' name='title' class="form-control post-form" type="text" />
+                            <label for='text'>Text</label>
+                            <textarea v-model='post.text' name='text' class="form-control post-form" type="textarea"></textarea>
+                            <br />
+                            <button @click='editBlogpost' class="save btn btn-default">Save</button>
+                        </div>
+                    </div>  
+                    <div v-else>      
+                        <p>published: ${ new Date(post.published_date) }</p>
+                        <h2><a :href="post.url">${ post.title }</a></h2>
+                        <p>${ post.text }</p>
+                    </div>
+                </div>
+            </div>    
+        </main>
+    </div>
+{% endblock content %}

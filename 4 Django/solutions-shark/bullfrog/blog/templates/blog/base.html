@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bullfrog | {% block title %}Home{% endblock title %}</title>
+
+    {# styles #}
+    {% block base_styles %}
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="{% static 'css/blog/blog.css' %}">
+    {% endblock base_styles %}
+    {% block extra_styles %}{% endblock extra_styles %}
+</head>
+<body>
+    <header class='page-header'>
+        <h1>
+            <a href="{% url 'blog:post_list' %}">Blog is short for Bullfrog</a>
+            {% if user.is_authenticated %}
+                <a href="{% url 'blog:post_new' %}" class="top-menu">
+                    <span class="glyphicon glyphicon-plus"></span>
+                </a>
+                <a href="{% url 'logout' %}" class="top-menu">Log out</a>
+            {% else %}
+                <a href="{% url 'login' %}" class="top-menu">Log in</a>
+                <a href="{% url 'signup' %}" class="top-menu">Sign up</a>
+            {% endif %}
+        </h1>
+    </header>
+    <main class='content container'>
+        {% block content %}
+        {% endblock content %}
+    </main>
+
+    {% block scripts %}{% endblock scripts %}
+</body>
+</html>
