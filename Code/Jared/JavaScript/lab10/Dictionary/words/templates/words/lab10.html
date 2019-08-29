@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>OED API</title>
+</head>
+<body>
+	<div id='container'>
+		<h1> ${ message }</h1>
+		<p>${ this.word }</p>
+	</div>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src='{% static "words/js/lab10.js" %}'></script>
+</body>
+</html>
