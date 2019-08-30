@@ -5,14 +5,15 @@ const app = new Vue({
     el: '#app',
     delimiters: ['${', '}'], // set custom delimiters here instead of {{}}    
     data: {
-        message: 'Your todo list:',
         todos: [],
         todo: '',
+        owner: '',
     },
     methods: {
         grabTodos: async function() {
             const response = await axios.get('api/todos/')
             this.todos = response.data 
+            this.owner = this.todos[0].owner
         },
         addTodo: async function() {
             const response = await axios.post('api/todos/', {text: this.todo})
@@ -46,5 +47,13 @@ const app = new Vue({
         // mounted() handles any logic you want prior to the vue app mounting
         // this is a good place to request any data you want to render, such as from localStorage (what we're doing here), or from an API call
         this.grabTodos()
+    },
+    computed: {
+        message: function() {
+            return `${this.owner}'s todo list:`
+        },
+        count: function() {
+            return this.todos.length
+        }
     },
 });
