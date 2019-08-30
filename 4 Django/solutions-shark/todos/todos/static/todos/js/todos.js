@@ -37,8 +37,8 @@ const app = new Vue({
                 completed_date: (todo.completed ? new Date() : null)
             }
             const response = await axios.patch(`/api/todos/${todo.pk}/`, fields)
-            // mark todo as done
-            this.todos[index].completed = !this.todos[index].completed            
+            // // mark todo as done
+            // this.todos[index].completed = !this.todos[index].completed            
             this.grabTodos()
         },
     },
