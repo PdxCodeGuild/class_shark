@@ -1,0 +1,15 @@
+{# {% extends "base.html" %} #}
+{% block title %}
+    Sign Up
+{% endblock title %}    
+{% block content %}
+    <form method="post" action="{% url 'register' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <input type="submit" class='btn btn-primary' value="register" />
+        <input type="hidden" name="next" value="{{ next }}" />
+    </form>    
+{% endblock content %}
+
+{% block main_scripts %}{% endblock main_scripts %}

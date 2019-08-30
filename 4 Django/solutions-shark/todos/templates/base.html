@@ -1,0 +1,41 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Todos | {% block title %}Home{% endblock title %}</title>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static "todos/css/todos.css" %}">
+    {% block extra_styles %}{% endblock extra_styles %}
+</head>
+<body>
+    {% block navbar %}
+    <header>
+        <nav>
+            <a href='{% url 'todos:index' %}'>
+                <i class='fas fa-home'></i> Home
+            </a>
+            {% if user.is_authenticated %}
+                <a href='{% url 'logout' %}'>Log Out</a>
+            {% else %}
+                <a href='{% url 'login' %}'>Log In</a>            
+                <a href='{% url 'register' %}'>Sign Up</a>            
+            {% endif %}
+        </nav>
+    </header>
+    {% endblock navbar %}
+
+    {% block content %}
+    {% endblock content %}
+
+    {% block main_scripts %}
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>          
+    {% endblock main_scripts %}
+
+    {% block extra_scripts %}{% endblock extra_scripts %}
+</body>
+</html>
