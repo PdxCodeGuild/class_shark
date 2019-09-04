@@ -4,7 +4,8 @@ from rest_framework import routers
 from . import controller_views
 
 router = routers.DefaultRouter()
-router.register(r'todos', controller_views.TodoViewSet)
+router.register(r'todos', controller_views.TodoViewSet, base_name='todo')
+router.register(r'users', controller_views.UserViewSet, base_name='user')
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.

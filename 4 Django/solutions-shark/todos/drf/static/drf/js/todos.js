@@ -5,13 +5,15 @@ const app = new Vue({
     el: '#app',
     delimiters: ['${', '}'], // set custom delimiters here instead of {{}}    
     data: {
-        message: 'Your todo list:',
         todos: [],
         todo: '',
+        owner: ''
     },
     methods: {
         grabTodos: async function() {
+            const userResponse = await axios.get('api/users/')
             const response = await axios.get('api/todos/')
+            this.owner = userResponse.data[0].username
             this.todos = response.data 
         },
         addTodo: async function() {
