@@ -1,25 +1,38 @@
 let PuppyChowApp = new Vue({
   el: '#puppyChow',
   data: {
-    api: 'http://www.recipepuppy.com/api/'
-    resp: {},
-    author: '',
+    api: 'https://cors-anywhere.herokuapp.com/http://www.recipepuppy.com/api/',
+    ingr: '',
+    ingrs: [],
+    recipe: '',
+    recipe_link: '',
+
   },
   methods: {
     get: async function() {
-      let gotten = this.api + this.ingr.join(',').toLowerCase()
-      this.resp = await axios.get(gotten);
-      console.log(this.resp)
-      // this.message = '"' + this.returns["data"]["quote"]["body"] + '"'
-      // this.author = '-' + this.returns["data"]["quote"]["author"]
-      // this.link = this.returns["data"]["quote"]["url"]
+  
+      const config =  {
+        params: {
+          i: this.ingrs.join(',').toLowerCase()
+        }
+      }
+      let resp = await axios.get(this.api, config)
+      this.recipe = resp.data.results[0]['title']
+      this.recipe_link = resp.data.results[0]['href']
+      console.log(resp)
 
     },
 
+    add: function() {
+      console.log(this.ingr)
+      this.ingrs.push(this.ingr)
+      this.ingr = ''
+    },
+
+    clear: function() {
+      this.ingrs = []
+      this.ingr = ''
+    }
 
   },
-
-  mounted: function() {
-    this.get()
-  }
 })
