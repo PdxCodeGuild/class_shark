@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Salvage Log Inquiry Form</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <!-- <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'> -->
+        <!-- <link rel="stylesheet" href="{% static 'css/blog.css' %}"> -->
+    </head>
+    <body>
+        <div>
+            <h1>Salvage Log Inquiry Form</h1>
+        </div>
+        <div class="content container">
+            <div class='row'>
+                <div class="col-md-8">
+                    <!-- {% block content %} -->
+                    <form id='Personal-Info-Form' action='#' method='post'>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="inputName">Name</label>
+                                <input type="name" class="form-control" id="inputName" placeholder="Name" v-model='userData.Name'>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputEmail4">Email</label>
+                                <input type="email" class="form-control" id="inputEmail4" placeholder="Email" v-model='userData.Email'>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputAddress">Address</label>
+                            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" v-model='userData.Address'>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputAddress2">Address 2</label>
+                            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" v-model='userData.Address2'>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="inputCity">City</label>
+                                <input type="text" class="form-control" id="inputCity" v-model='userData.City'>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="inputState">State</label>
+                                <select id="inputState" class="form-control">
+                                    <option selected>Choose...</option>
+                                    <option>...</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-2">
+                                <label for="inputZip">Zip</label>
+                                <input type="text" class="form-control" id="inputZip" v-model='userData.Zip'>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="gridCheck">
+                                <label class="form-check-label" for="gridCheck">
+                                    Salvage your Log
+                                </label>
+                                <input class="form-check-input" type="checkbox" id="gridCheck">
+                                <label class="form-check-label" for="gridCheck">
+                                    Custom Milling / Kiln Drying
+                                </label>
+                                <input class="form-check-input" type="checkbox" id="gridCheck">
+                                <label class="form-check-label" for="gridCheck">
+                                    Lumberyard Inquiry
+                                </label>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary" @click.prevent="submitted">Submit</button>
+                    </form>
+                    <div class="card" v-if="isSubmitted">
+                        <div class="card-body">
+                            <h4 class="card-title">Personal Info</h4>
+                            <p>Name: <b>{{ userData.Name }}</b></p>
+                            <p>Email: <b>{{ userData.Email }}</b></p>
+                            <p>Address: <b>{{ userData.Address }}</b></p>
+                            <p>Address2: <b>{{ userData.Address2 }}</b></p>
+                            <p>City: <b>{{ userData.City }}</b></p>
+                            <p>Zip: <b>{{ userData.Zip }}</b></p>
+                        </div>
+                    </div>
+                    <!-- {% endblock %} -->
+                </div>
+            </div>
+        </div>
+        <!-- — bootrtap js files → -->
+        <script src=”https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity=”sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN” crossorigin=”anonymous”></script>
+        <script src=”https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity=”sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q” crossorigin=”anonymous”></script>
+         <script src=”https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity=”sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl” crossorigin=”anonymous”></script>
+         <! — vue.js files →
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </body>
+</html>
