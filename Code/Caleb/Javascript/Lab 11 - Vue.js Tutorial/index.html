@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>VueJS Tutorials</title>
+        <link href='./css/style.css' rel='stylesheet'/>
+        <script src='https://unpkg.com/vue'></script>
+    </head>
+    <body>
+        <div id='vue-app'>
+            <h1>Keyboard Events</h1>
+            <label>Name:</label>
+            <input type='text' v-on:keyup.enter='logName'/>
+            <label>Age:</label>
+            <input type='text' v-on:keyup.enter='logAge'/>
+            
+            <h1>{{ greet('night') }}</h1>
+            <h1>Data Binding</h1>
+            <a v-bind:href='website'>The Net Ninja</a>
+            <input type='text' v-bind:value='name'>
+            <p v-html='websiteTag'></p>
+            <p>Name: {{ name }}</p>
+            <p>Job: {{ job }}</p>
+            <h1>Events</h1>
+            <button v-on:click.once='add(1)'>Add a Year</button>
+            <button v-on:click='subtract(1)'>Subtract a Year</button>
+            <button v-on:dblclick='add(10)'>Add 10 Years</button>
+            <button v-on:dblclick='subtract(10)'>Subtract 10 Years</button>
+            <p>My age is {{ age }}</p>
+            <div id='canvas' v-on:mousemove='updateXY'>{{ x }}, {{ y }}</div>
+            <a v-on:click.prevent='click' href="http://www.thenetninja.co.uk">The Net Ninja</a>
+        </div>
+    <script src='./js/app.js'></script>
+    </body>
+</html>

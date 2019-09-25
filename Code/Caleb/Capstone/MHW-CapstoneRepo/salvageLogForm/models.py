@@ -11,6 +11,9 @@ class PersonalInfo(models.Model):
     state =  models.CharField(max_length=100)
     zip = models.IntegerField()
     email = models.EmailField(max_length=100)
+    SalvageLogInquiryCheck = models.BooleanField(default=False)
+    MillingKilnInquiryCheck = models.BooleanField(default=False)
+    LumberyardInquiryCheck = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name
