@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}Salvage Tree/Log Info Form{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <h1>Salvage Log Info Form</h1>
+    </div>
+    <div class="content container" id='salvage-log-form'>
+        <div class='row'>
+            <div class="">
+                <form id='Salvage-Log-Info-Form'>
+                    {% csrf_token %}
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputSpecies">Log Species</label>
+                            <input type="text" class="form-control" 
+                            name='Species' id="inputSpecies" placeholder="Species" v-model='vsalvageLogData.Species'>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputLogDiameter">Log Diameter</label>
+                            <input type="text" class="form-control" name='LogDiameter' id="inputLogDiameter" placeholder="Log Diameter" v-model='vsalvageLogData.LogDiameter'>
+                        </div>
+                        <div class='form-group col-md-6'>
+                            <label for='inputTrunkHeight'>Trunk Height</label>
+                            <input type='integer' class='form-control' name='TrunkHeight' id='inputTrunkHeight' placeholder="8'-16'" v-model='vsalvageLogData.TrunkHeight'>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="inputAddress">Address</label>
+                            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" v-model='vsalvageLogData.Address' name='Address'>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="inputAddress2">Address 2</label>
+                            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" v-model='vsalvageLogData.Address2'>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputCity">City</label>
+                            <input type="text" class="form-control" id="inputCity" v-model='vsalvageLogData.City'>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="inputState">State</label>
+                            <select id="inputState" class="form-control" name="State" v-model='vsalvageLogData.State'>
+                                <label for="inputState">State</label>
+                                    <option value="CA">California</option>
+                                    <option value="CO">Colorado</option>
+                                    <option value="ID">Idaho</option>
+                                    <option value="OR">Oregon</option>
+                                    <option value="WA">Washington</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputZip">Zip</label>
+                            <input type="text" class="form-control" id="inputZip" v-model='vsalvageLogData.Zip'>
+                        </div>
+                    </div>   
+                    <button type="submit" class="btn btn-primary" @click.prevent="submitted">Submit</button>
+                </form>
+                <br>
+                <div class="card" v-if="isSubmitted">
+                    <div class="card-body">
+                        <h4 class="card-title">Salvage Log Info</h4>
+                        <p>Species: <b>${ vsalvageLogData.Species }</b></p>
+                        <p>Tree Trunk/Log Diameter: <b>${ vsalvageLogData.LogDiameter }</b></p>
+                        <p>Trunk-to-Crotch Height: <b>${ vsalvageLogData.TrunkHeight }</b></p>
+                        <p>Address: <b>${ vsalvageLogData.Address }</b></p>
+                        <p>Address2: <b>${ vsalvageLogData.Address2 }</b></p>
+                        <p>City: <b>${ vsalvageLogData.City }</b></p>
+                        <p>Zip: <b>${ vsalvageLogData.Zip }</b></p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block extra_scripts %}        
+    <script src="{% static './js/style-salvagelogform.js' %}"></script>
+{% endblock %}

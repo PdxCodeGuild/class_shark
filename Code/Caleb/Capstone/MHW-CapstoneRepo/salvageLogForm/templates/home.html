@@ -1,0 +1,170 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %} Home {% endblock %}
+
+{% block extra_styles %}
+    <link href="{% static './css/webflow.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static './css/milwaukie-hardwoods-llc.webflow.css' %}" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
+    <script type="text/javascript">WebFont.load({  google: {    families: ["Roboto:300,regular,500","Eczar:regular,500,600,700,800:latin-ext,latin","LibreFranklin:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic"]  }});</script>
+    <!-- <link href="https://daks2k3a4ib2z.cloudfront.net/img/favicon.ico" rel="shortcut icon" type="image/x-icon"> -->
+    <link href="https://daks2k3a4ib2z.cloudfront.net/img/webclip.png" rel="apple-touch-icon">
+{% endblock %}
+
+{% block content %}
+    <div id="homevideoslider">
+        <video style="width: 100%; height: auto; z-index: -1; position: absolute;" autoplay="autoplay" loop="loop" muted=""> <source src="{% static './assets/remix.MHW.HomePage.SliderVideo.mp4' %}" type="video/mp4" />
+        </video>
+    </div>
+    <div class="fixed-image-section" style='height: 50vw;'>
+        <div class="w-container" style='position: center;'>
+            <h1 class="page-heading">Founded in 2016</h1>
+            <div class="page-subheading">Portland's resource for milling, kiln drying, and transport of local salvage trees & lumber</div>
+        </div>
+    </div>
+    <div class='section'>
+        <div class="container">
+            <div class="section-title-group">
+                <h2 class="section-heading centered">Our Services</h2>
+            </div>
+            <div class="row">
+                <div class="feature-column col-md-4">
+                    <!-- <img src="images/Moving-Logs.png" width="100" srcset="images/Moving-Logs-p-500.png 500w, images/Moving-Logs.png 891w" sizes="(max-width:479px)66vw (max-width: 767px) 69vw, (max-width: 991px) 171.984375px, 224.984375px" alt="" class="grid-image moving-logs-column"> -->
+                    <h3>Moving Logs</h3>
+                    <p>Our boom crane truck is capable of lifting logs and weights up to 9000 lbs. We also have a 18&#x27; car hauler trailer we utilizeregularly.</p>
+                </div>
+                <div class="feature-column col-md-4">
+                    <!-- <img src="images/Chainsaw.png" width="100" alt="" class="grid-image"> -->
+                    <h3>Milling Logs</h3>
+                    <p>We mill up to 24&quot; diameter logs on our LT40 hydraulic Woodmizer bandsaw mill. For logs wider than 24&quot; diameter, we use a portable Granberg chainsaw mill.</p>
+                </div>
+                <div class="feature-column col-md-4">
+                    <!-- <img src="images/Boards.png" width="100" alt="" class="grid-image"> -->
+                    <h3>Kiln Drying Wood</h3>
+                    <p>We charge $0.75 per board foot when drying lumber or slabs. Our dehumidification kiln can handle slabs up to 16&#x27; in length.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cta-section centered-accented">
+        <div class="w-container">
+            <h2 class="cta-heading inline-block">We may not have all the answers, but we&#x27;re always happy to help!</h2><a href="{% url 'salvageLogForm:personalInfoForm' %}" class="button white">Contact Us Today</a>
+        </div>
+    </div>
+    <div class="section accent">
+        <div class="container">
+            <div class="section-title-group">
+                <h2 class="section-heading centered">Current Stock</h2>
+            </div>
+            <div data-duration-in="300" data-duration-out="100" class="tabs-wrapper w-tabs">
+                <div class="tab-menu w-tab-menu">
+                    <a data-w-tab="Tab 1" class="button tab w-inline-block w-tab-link w--current">
+                    <div>Slabs</div>
+                    </a>
+                    <a data-w-tab="Tab 2" class="button tab w-inline-block w-tab-link">
+                    <div>Lumber</div>
+                    </a>
+                    <a data-w-tab="Tab 3" class="button tab w-inline-block w-tab-link">
+                    <div>Turning Stock</div>
+                    </a>
+                </div>
+                <div class="w-tab-content">
+                    <div data-w-tab="Tab 1" class="w-tab-pane w--tab-active">
+                        <div class="row">
+                            <div class="waterfall-image-column w-col w-col-6">
+                                <img src="https://d3e54v103j8qbb.cloudfront.net/img/image-placeholder.svg" width="300" alt="">
+                            </div>
+                            <div class="waterfall-text-column w-col w-col-6">
+                                <h2>Slabs</h2>
+                                <p>We have elm, maple, and walnut slabs available in a variety of lengths, thicknesses and widths.<br><br>Slabs can bepurchased with or without natural edges. Further processing can be done from the rough milled &amp;kiln-dried slabs, including surfacing.<br><br>Call us to discuss your specific needs.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-w-tab="Tab 2" class="w-tab-pane">
+                        <div class="row">
+                            <div class="waterfall-text-column w-col w-col-6">
+                                <h2>Lumber</h2>
+                                <p>Currently all of our milled lumber are maple boards in a variety of lengths and widths.<br><br>Contact us to discuss your needs.</p>
+                            </div>
+                            <div class="waterfall-image-column w-col w-col-6">
+                                <img src="https://d3e54v103j8qbb.cloudfront.net/img/image-placeholder.svg" width="300" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div data-w-tab="Tab 3" class="w-tab-pane">
+                        <div class="row">
+                            <div class="waterfall-image-column w-col w-col-6">
+                                <img src="https://d3e54v103j8qbb.cloudfront.net/img/image-placeholder.svg" width="300" alt="">
+                            </div>
+                            <div class="waterfall-text-column w-col w-col-6">
+                                <h2>Turning Stock</h2>
+                                <p>We have a variety of turning stock, including maple and elm burl, spalted maple, and spalted maple burl.<br><br>Call us for our current inventory.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <div class="w-container">
+            <div class="section-title-group">
+                <h2 class="section-heading centered">Galleries</h2>
+                <div class="section-subheading center sasd-asd-as">Get an inside look at the operation from bucking a log back to the shop, milling, and drying themilled wood.
+                </div>
+            </div>
+            <div class="w-row">
+                <div class="w-col w-col-6">
+                    <div class="row">
+                        <div class="w-col w-col-4">
+                            <img src="{% static './assets/BoomCraneTruck.websitethumbnail.jpg' %}" width="100" alt="" class="grid-image">
+                        </div>
+                        <div class="w-col w-col-8">
+                            <h3>Transporting Logs</h3>
+                            <p>We&#x27;ve learned a lot and gotten much smarter, with some needed help from our motor-powered friends.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-col w-col-6">
+                    <div class="row">
+                        <div class="w-col w-col-4">
+                            <img src="{% static './assets/CustomMilling.websitethumbnail.jpg' %}" width="100" alt="" class="grid-image">
+                        </div>
+                    <div class="w-col w-col-8">
+                        <h3>Milling</h3>
+                        <p>Our &#x27;89 hydraulic woodmizer LT-40 HD does the bulk of our milling. With our Woodmizer & Lucas Mill we can mill logs of all sizes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="w-row">
+            <div class="w-col w-col-6">
+                <div class="row">
+                    <div class="w-col w-col-4">
+                        <img src="{% static './assets/SlabStacks.websitethumbnail.jpg' %}" width="100" alt="" class="grid-image">
+                    </div>
+                    <div class="w-col w-col-8">
+                        <h3>The Drying Process</h3>
+                        <p>We initially air-dry outdoors, in a well ventilated covered area. Learn more about our drying process here.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="w-col w-col-6">
+                <div class="row">
+                    <div class="w-col w-col-4">
+                        <img src="{% static './assets/lumberyard.websitethumbnail.jpg' %}" width="100" alt="" class="grid-image">
+                    </div>
+                    <div class="w-col w-col-8">
+                        <h3>Our Shop</h3>
+                        <p>We can&#x27;t promise our shop is always as clean as it is in the photos!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block extra_scripts %}
+    <script src="{% static './js/webflow.js' %}" type="text/javascript"></script>
+{% endblock %}
