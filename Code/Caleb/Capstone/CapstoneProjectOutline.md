@@ -15,7 +15,7 @@ Since I have already experimented with Materialize.CSS earlier in the course, I 
 There will be some quality photos on the site, even a gallery. If I have time I will hopefully include a video loop on the homepage.
 
 **Back End:**
-T
+
 The back end of the project is going to be run on Django, which is a python-based back-end framework.
 
 ## User Stories:

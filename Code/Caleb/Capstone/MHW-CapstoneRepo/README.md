@@ -3,7 +3,7 @@
 
 *What are the major features of your web application? What problem is it attempting to solve?*
 
-Milwaukie Hardwoods is the internet home of the physical business, owned and operated by myself and my father. We are a resource to transport, mill, kiln-dry, and process local hardwood logs & lumber. 
+**Milwaukie Hardwoods is the internet home of the physical business, owned and operated by myself and my father. We are a resource to transport, mill, kiln-dry, and process local hardwood logs & lumber.**
 
 Our primary issue is a fundamental marketing issue. We need to solicit free salvage logs from homeowners, arborists, and builders. We need to solicit log transport, milling, kiln-drying, and lumber processing work directly to customers. We need to exemplify that we are masters of our craft and demonstrate knowledge & provide value on the website in our content. We could also sell our lumber directly on the website.
 
@@ -15,7 +15,8 @@ Since I have already experimented with Materialize.CSS earlier in the course, I 
 There will be some quality photos on the site, even a gallery. If I have time I will hopefully include a video loop on the homepage.
 
 **Back End:**
-THe back end of the project is going to be run on Django, which is a python-based back-end framework.
+
+The back end of the project is going to be run on Django, which is a python-based back-end framework.
 
 ## User Stories:
 - *“As the business owner, I would like to be able to update current species of wood in stock with photos and basic descriptions of each load coming out of the kiln”*
@@ -38,17 +39,17 @@ THe back end of the project is going to be run on Django, which is a python-base
 ### Milestone 3 – Customer Furniture / Project Form (Tree to Table)
 -	Home Page / Static Pages 
 -	Our Services
-    o	Milling
-    o	Kiln Drying
-    o	Lumber Yard
-    o	Boom Crane Truck
-    o	Lumber Processing
-    o	Custom Furniture
-    o	Log Inquiry Form
-    o	Log Inquiry Flyer / f.a.q.
-    o	Lumber Inventory / Inquiry
-    o	Custom Furniture Form
-    o	   About Us
+    - Milling
+    - Kiln Drying
+    - Lumber Yard
+    - Boom Crane Truck
+    - Lumber Processing
+    - Custom Furniture
+    - Log Inquiry Form
+    - Log Inquiry Flyer / f.a.q.
+    - Lumber Inventory / Inquiry
+    - Custom Furniture Form
+    - About Us
 ### Milestone 4 – Backend access thru Django to blog & gallery
 ### *Milestone 4.5* - Quickbooks API integration (invoice look-up and portal)
 ### Milestone 5 – Customer Dashboard portal
