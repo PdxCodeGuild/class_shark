@@ -3,7 +3,7 @@ axios.defaults.xsrfHeaderName = "X-CSRFTOKEN"
 
 const app = new Vue({
     el: '#salvage-log-form',
-    delimiters: ['${', '}'],
+    delimiters: ['{$', '$}'],
     data() {
         return {
             vsalvageLogData: {

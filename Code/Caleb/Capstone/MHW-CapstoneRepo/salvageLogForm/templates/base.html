@@ -4,15 +4,19 @@
     <head>
         <title>Milwaukie Hardwoods | {% block title %} Home {% endblock %}</title>
         <link rel='stylesheet' href='https://necolas.github.io/normalize.css/8.0.1/normalize.css'>
+        {% block extra_styles %}
+        {% endblock %}
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <!-- <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'> -->
         <!-- <link rel="stylesheet" href="{% static 'css/blog.css' %}"> -->
         <meta content="width=device-width, initial-scale=1" name="viewport">
         <meta charset="utf-8">
-        {% block extra_styles %}
-        {% endblock %}
+
     </head>
     <body>
+        <div class="text-center banner section bg-dark">
+            <a href="{% url 'home' %}"><img src="{% static '.\assets\MHW_Logo.png' %} " class="rounded" alt="..." href="{% url 'home' %}"></a>
+        </div>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <!-- Navbar content -->
             <a class="navbar-brand" href="{% url 'home' %}">Milwaukie Hardwoods LLC</a>
@@ -29,6 +33,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'salvageLogForm:salvageLogForm' %}">Salvage Log/Tree Form</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'FAQ' %}">FAQ</a>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">

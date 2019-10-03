@@ -3,7 +3,7 @@ axios.defaults.xsrfHeaderName = "X-CSRFTOKEN"
 
 const app = new Vue({
     el: '#log-form',
-    delimiters: ['${', '}'],
+    delimiters: ['{$', '$}'],
     data() {
         return {
             vuserData: {
