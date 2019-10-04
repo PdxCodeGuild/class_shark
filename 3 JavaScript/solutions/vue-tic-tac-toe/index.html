@@ -2,11 +2,12 @@
 <html>
 <head>
     <title>Tic Tac Toe (with Vue!)</title>
+    <style>html{visibility: hidden;opacity:0;}</style>    
     <link rel="stylesheet" href='styles.css'>
 </head>
 <body>
     <h1>Tic Tac Toe: Three in a Row</h1>
-    <div id='app'>
+    <div id='app' v-cloak>
         <h2>{{message}}</h2>
         <div v-bind:class="gameOver" id='board'>
             <cell 

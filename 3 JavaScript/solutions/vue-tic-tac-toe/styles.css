@@ -4,9 +4,12 @@
 }
 
 #board {
+    display: -ms-grid;
     display: grid;
     margin: 2em;
+    -ms-grid-columns: (100px)[3];
     grid-template-columns: repeat(3, 100px);
+    -ms-grid-rows: (100px)[3];
     grid-template-rows: repeat(3, 100px);
     justify-content: center;
 }
@@ -17,4 +20,13 @@
     align-items: center;
     justify-content: center;
     font-size: 40px;
+}
+
+[v-cloak] {
+  display: none;
+}
+
+html {
+    visibility: visible;
+    opacity: 1;
 }
