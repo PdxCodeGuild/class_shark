@@ -10,8 +10,17 @@
   <div class='container'>
     <div id='puppyChow'>
       <div>
-        <input v-bind:value='ingrs' type="text" name="ingredients">
+        <input v-model:value='ingr' type="text" name="ingredients" placeholder='ingredient'>
       </div>
+      <div>
+        <button class='mahbtn' v-on:click='add'>Add ingredient</button>
+        <button v-on:click='get'>submit</button>
+        <button v-on:click='clear'>clear</button>
+      </div>
+      {{ ingrs }}
+      <div style='border: 10px solid black; min-height: 200px;'>
+        <a v-bind:href='recipe_link'>{{recipe}}</a>
+        </div>
     </div>
   
 
