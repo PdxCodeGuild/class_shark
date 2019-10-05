@@ -24,9 +24,12 @@
                             <label for="inputLogDiameter">Log Diameter</label>
                             <input type="text" class="form-control" name='LogDiameter' id="inputLogDiameter" placeholder="Log Diameter" v-model='vsalvageLogData.LogDiameter'>
                         </div>
-                        <div class='form-group col-md-6'>
+                        <div class='form-group col-md-12'>
                             <label for='inputTrunkHeight'>Trunk Height</label>
-                            <input type='integer' class='form-control' name='TrunkHeight' id='inputTrunkHeight' placeholder="8'-16'" v-model='vsalvageLogData.TrunkHeight'>
+                            <!-- <input type='integer' class='form-control' name='TrunkHeight' id='inputTrunkHeight' placeholder="8'-16'" v-model='vsalvageLogData.TrunkHeight'> -->
+                            <div class='slidecontainer'>
+                                <input id="tree_height" type="range" min="2" max="20" step="1" value="8" class='slider'/>
+                            </div>
                         </div>
                         <div class="form-group col-md-12">
                             <label for="inputAddress">Address</label>

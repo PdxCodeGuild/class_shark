@@ -1,6 +1,6 @@
 from django.db import models
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from .models import PersonalInfo, SalvageLogInfo
 import json
 
@@ -33,6 +33,7 @@ def salvageLogForm(request):
         #     return render(request, 'logs/salvageLogForm.html')
         # else:
         #     return render(request, 'logs/personalInfoForm.html')
+        return HttpResponse('Success')
     return render(request, 'ContactUsforms/salvageLogForm.html')
 
     # Create your views here.
@@ -66,4 +67,7 @@ def contactUsForm(request):
         #     return render(request, 'logs/salvageLogForm.html')
         # else:
         #     return render(request, 'logs/personalInfoForm.html')
+    return render(request, 'ContactUsforms/personalInfoForm.html')
+
+def form_view(request):
     return render(request, 'ContactUsforms/personalInfoForm.html')
