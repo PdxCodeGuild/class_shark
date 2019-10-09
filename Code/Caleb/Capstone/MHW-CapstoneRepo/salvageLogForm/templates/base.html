@@ -5,10 +5,10 @@
         <title>Milwaukie Hardwoods | {% block title %} Home {% endblock %}</title>
         <style>html{visibility: hidden;opacity:0;}</style>
         <link rel='stylesheet' href='https://necolas.github.io/normalize.css/8.0.1/normalize.css'>
+        <link href="{% static './css/milwaukie-hardwoods-llc.webflow.css' %}" rel="stylesheet" type="text/css">
         {% block extra_styles %}
         {% endblock %}
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-        <!-- <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'> -->
         <link rel="stylesheet" href="{% static './css/formstyles.css' %}" type='text/css'>
         <meta content="width=device-width, initial-scale=1" name="viewport">
         <meta charset="utf-8">
@@ -32,9 +32,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'salvageLogForm:ContactUsForm' %}">Contact Us Form</a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="{% url 'salvageLogForm:salvageLogForm' %}">Salvage Log/Tree Form</a>
-                    </li>
+                    </li> -->
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'FAQ' %}">FAQ</a>
                     </li>
@@ -47,6 +47,9 @@
         </nav>
         {% block content %}
         {% endblock %}
+        <br>
+        {% block footer %}
+        {% endblock %}
         <!-- — bootstrap js files → -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -57,4 +60,5 @@
         {% block extra_scripts %}
         {% endblock %}
     </body>
+
 </html>

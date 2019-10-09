@@ -8,9 +8,8 @@
 {% endblock %}
 
 {% block content %}
-<br>
 <div class="section text-center container">
-    <h1>Frequently Asked Questions</h1><br>
+    <h1>Frequently Asked Questions</h1>
 </div>
 <div class="section container">
     <h4>What is your mission?</h4>
@@ -52,6 +51,44 @@
 </div>
 
 
+{% endblock %}
+
+{% block footer %}
+<div class="footer accent">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <h1 class="footer-brand-text">Milwaukie Hardwoods, LLC</h1>
+                <p>Portable milling, transporting, drying and sale of locally harvested urban hardwood.</p>
+                <div>
+                    <a href="#" class="social-icon-link w-inline-block"><img src="{% static '.\assets\social-03.svg' %}" width="20" alt=""></a>
+                    <a href="#" class="social-icon-link w-inline-block"><img src="{% static '.\assets\social-18.svg' %}" width="20" alt=""></a>
+                    <a href="#" class="social-icon-link w-inline-block"><img src="{% static '.\assets\social-09.svg' %}" width="20" alt=""></a>
+                    <a href="#" class="social-icon-link w-inline-block"><img src="{% static '.\assets\social-06.svg' %}" width="20" alt=""></a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <h5>Hours of Operation</h5>
+                <h6>Monday - Friday:<br>9 am - 6 pm</h6>
+                <h6>Saturday:<br>10 am - 4 pm</h6>
+                <h6>Sunday:<br>Closed</h6>
+            </div>
+            <div class="col-md-3">
+                <h5>SITE MAP</h5>
+                <a href="#" class="footer-link">About Us</a>
+                <a href="{% url 'FAQ' %}" class="footer-link">Frequently Asked Questions</a>
+                <a href="{% url 'salvageLogForm:ContactUsForm' %}" class="footer-link">Contact Us</a>
+                <a href="{% url 'home' %}" class="footer-link">Home</a>
+            </div>
+            <div class="col-md-3">
+                <h5>AFFILIATES</h5>
+                <a href="https://woodmizer.com/us/Home/keyword/woodmizer/creative/279063860303gclidCj0KCQjwivbsBRDsARIsADyISJ-t9aloEmuq9l2wMYwmiTA2JRZ2P8LAQSBerO1wUQ7jrxBVAUIZsaMaArfwEALw_wcB" class="footer-link">Woodmizer</a>
+                <a href="https://www.lucasmill.com/" class="footer-link">Lucas Mill</a>
+                <a href="https://creativewoodworkingnw.com/" class="footer-link">Creative Wood Working</a>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
 
 {% block extra_scripts %}

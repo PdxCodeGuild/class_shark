@@ -74,7 +74,7 @@
                     <div data-w-tab="Tab 1" class="w-tab-pane w--tab-active">
                         <div class="row">
                             <div class="waterfall-image-column w-col w-col-6">
-                                <img src="https://d3e54v103j8qbb.cloudfront.net/img/image-placeholder.svg" width="300" alt="">
+                                <img src="{% static './assets/Slabs.jpg' %}" width="300" alt="">
                             </div>
                             <div class="waterfall-text-column w-col w-col-6">
                                 <h2>Slabs</h2>
@@ -89,14 +89,14 @@
                                 <p>Currently all of our milled lumber are maple boards in a variety of lengths and widths.<br><br>Contact us to discuss your needs.</p>
                             </div>
                             <div class="waterfall-image-column w-col w-col-6">
-                                <img src="https://d3e54v103j8qbb.cloudfront.net/img/image-placeholder.svg" width="300" alt="">
+                                <img src="{% static './assets/LumberYard.jpg' %}" width="300" alt="">
                             </div>
                         </div>
                     </div>
                     <div data-w-tab="Tab 3" class="w-tab-pane">
                         <div class="row">
                             <div class="waterfall-image-column w-col w-col-6">
-                                <img src="https://d3e54v103j8qbb.cloudfront.net/img/image-placeholder.svg" width="300" alt="">
+                                <img src="{% static './assets/Turning-Stock.jpg' %}" width="300" alt="">
                             </div>
                             <div class="waterfall-text-column w-col w-col-6">
                                 <h2>Turning Stock</h2>
@@ -165,6 +165,44 @@
         </div>
     </div>
 {% endblock %}
+
+{% block footer %}
+<div class="footer accent">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <h1 class="footer-brand-text">Milwaukie Hardwoods, LLC</h1>
+                <p>Portable milling, transporting, drying and sale of locally harvested urban hardwood.</p>
+                <div>
+                    <a href="#" class="social-icon-link w-inline-block"><img src="{% static '.\assets\social-03.svg' %}" width="20" alt=""></a>
+                    <a href="#" class="social-icon-link w-inline-block"><img src="{% static '.\assets\social-18.svg' %}" width="20" alt=""></a>
+                    <a href="#" class="social-icon-link w-inline-block"><img src="{% static '.\assets\social-09.svg' %}" width="20" alt=""></a>
+                    <a href="#" class="social-icon-link w-inline-block"><img src="{% static '.\assets\social-06.svg' %}" width="20" alt=""></a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <h5>Hours of Operation</h5>
+                <h6>Monday - Friday:<br>9 am - 6 pm</h6>
+                <h6>Saturday:<br>10 am - 4 pm</h6>
+                <h6>Sunday:<br>Closed</h6>
+            </div>
+            <div class="col-md-3">
+                <h5>SITE MAP</h5>
+                <a href="#" class="footer-link">About Us</a>
+                <a href="{% url 'FAQ' %}" class="footer-link">Frequently Asked Questions</a>
+                <a href="{% url 'salvageLogForm:ContactUsForm' %}" class="footer-link">Contact Us</a>
+            </div>
+            <div class="col-md-3">
+                <h5>AFFILIATES</h5>
+                <a href="https://woodmizer.com/us/Home/keyword/woodmizer/creative/279063860303/gclidCj0KCQjwivbsBRDsARIsADyISJ-t9aloEmuq9l2wMYwmiTA2JRZ2P8LAQSBerO1wUQ7jrxBVAUIZsaMaArfwEALw_wcB" class="footer-link">Woodmizer</a>
+                <a href="https://www.lucasmill.com/" class="footer-link">Lucas Mill</a>
+                <a href="https://creativewoodworkingnw.com/" class="footer-link">Creative Wood Working</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
 {% block extra_scripts %}
     <script src="{% static './js/webflow.js' %}" type="text/javascript"></script>
 {% endblock %}
