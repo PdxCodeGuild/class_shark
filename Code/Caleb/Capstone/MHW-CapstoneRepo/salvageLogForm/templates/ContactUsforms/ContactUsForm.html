@@ -1,0 +1,271 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}Contact Us Form{% endblock %}
+
+{% block content %}
+<div class='section' id='app' v-cloak>
+    <div class="content container" v-if='page === 0'>
+        <div class="row">
+            <h1>Contact Us Form</h1>
+        </div>
+            <form id='Personal-Info-Form' method='POST'>
+                {% csrf_token %}
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputName">Name</label>
+                        <input type="text" class="form-control" name='Name' id="inputName" placeholder="Name" v-model='vuserData.Name'>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputEmail">Email</label>
+                        <input type="text" class="form-control" name='Email' id="inputEmail" placeholder="Email" v-model='vuserData.Email'>
+                    </div>
+                    <div class='form-group col-md-6'>
+                        <label for='inputPhone'>Phone Number</label>
+                        <input type='integer' class='form-control' name='Phone' id='inputPhone' placeholder='(xxx) xxx-xxxx' v-model='vuserData.Phone'>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="inputAddress">Address</label>
+                        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" v-model='vuserData.Address' name='Address'>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="inputAddress2">Address 2</label>
+                        <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or unit" v-model='vuserData.Address2'>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputCity">City</label>
+                        <input type="text" class="form-control" id="inputCity" v-model='vuserData.City' placeholder="City">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="inputState">State</label>
+                        <select id="inputState" class="form-control" name="State" v-model='vuserData.State'>
+                            <option value="AL">Alabama</option>
+                            <option value="AK">Alaska</option>
+                            <option value="AZ">Arizona</option>
+                            <option value="AR">Arkansas</option>
+                            <option value="CA">California</option>
+                            <option value="CO">Colorado</option>
+                            <option value="CT">Connecticut</option>
+                            <option value="DE">Delaware</option>
+                            <option value="FL">Florida</option>
+                            <option value="GA">Georgia</option>
+                            <option value="HI">Hawaii</option>
+                            <option value="ID">Idaho</option>
+                            <option value="IL">Illinois</option>
+                            <option value="IN">Indiana</option>
+                            <option value="IA">Iowa</option>
+                            <option value="KS">Kansas</option>
+                            <option value="KY">Kentucky</option>
+                            <option value="LA">Louisiana</option>
+                            <option value="ME">Maine</option>
+                            <option value="MD">Maryland</option>
+                            <option value="MA">Massachusetts</option>
+                            <option value="MI">Michigan</option>
+                            <option value="MN">Minnesota</option>
+                            <option value="MS">Mississippi</option>
+                            <option value="MO">Missouri</option>
+                            <option value="MT">Montana</option>
+                            <option value="NE">Nebraska</option>
+                            <option value="NV">Nevada</option>
+                            <option value="NH">New Hampshire</option>
+                            <option value="NJ">New Jersey</option>
+                            <option value="NM">New Mexico</option>
+                            <option value="NY">New York</option>
+                            <option value="NC">North Carolina</option>
+                            <option value="ND">North Dakota</option>
+                            <option value="OH">Ohio</option>
+                            <option value="OK">Oklahoma</option>
+                            <option value="OR">Oregon</option>
+                            <option value="PA">Pennsylvania</option>
+                            <option value="RI">Rhode Island</option>
+                            <option value="SC">South Carolina</option>
+                            <option value="SD">South Dakota</option>
+                            <option value="TN">Tennessee</option>
+                            <option value="TX">Texas</option>
+                            <option value="UT">Utah</option>
+                            <option value="VT">Vermont</option>
+                            <option value="VA">Virginia</option>
+                            <option value="WA">Washington</option>
+                            <option value="WV">West Virginia</option>
+                            <option value="WI">Wisconsin</option>
+                            <option value="WY">Wyoming</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputZip">Zip</label>
+                        <input type="text" class="form-control" id="inputZip" v-model='vuserData.Zip' placeholder="Zip Code">
+                    </div>
+                    <div class="form-check form-group form-row">
+                        <input class="form-check-input" type="checkbox" id="SalvageLogInquiryCheck" v-model:checked='vuserData.SalvageLogInquiryCheck'>
+                        <label class="form-check-label" for="gridCheck">
+                            Salvage your Log
+                        </label>
+                    </div>
+                    <div class="form-check form-group form-row">
+                        <input class="form-check-input" type="checkbox" id="MillingKilnInquiryCheck" v-model:checked='vuserData.MillingKilnInquiryCheck'>
+                        <label class="form-check-label" for="gridCheck">
+                            Custom Milling / Kiln Drying
+                        </label>
+                    </div>
+                    <div class="form-check form-group form-row">
+                        <input class="form-check-input" type="checkbox" id="LumberyardInquiryCheck" v-model:checked='vuserData.LumberyardInquiryCheck'>
+                        <label class="form-check-label" for="gridCheck">
+                            Lumberyard Inquiry
+                        </label>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary" @click.prevent="submitted">Next</button>
+            </form>
+        </div>
+    <div class="container" v-if='page === 1'>
+        <br>
+        <div class='row'>
+            <div class="card col-md-6 justify-content-md-center" v-if="isSubmitted">
+                <div class="card-body">
+                    <h4 class="card-title">Personal Info</h4>
+                    <p>Name: <b>{$ vuserData.Name $}</b></p>
+                    <p>Email: <b>{$ vuserData.Email $}</b></p>
+                    <p>Phone Number: <b>{$ vuserData.Phone $}</b></p>
+                    <p>Address: <b>{$ vuserData.Address $}</b></p>
+                    <p>Address2: <b>{$ vuserData.Address2 $}</b></p>
+                    <p>City: <b>{$ vuserData.City $}</b></p>
+                    <p>Zip: <b>{$ vuserData.Zip $}</b></p>
+                    <p>Salvage Log Inquiry: <b>{$ vuserData.SalvageLogInquiryCheck $}</b></p>
+                    <p>Custom Milling / Kiln Drying Inquiry: <b>{$ vuserData.MillingKilnInquiryCheck $}</b></p>
+                    <p>Lumberyard Inquiry: <b>{$ vuserData.LumberyardInquiryCheck $}</b></p>
+                    <button type='submit' class='btn btn-primary' @click='EditPersonalInfo'>Edit Personal Info</button>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <h1>Salvage Log Info Form</h1>
+        </div>
+        <div class='row'>
+            <form id='Salvage-Log-Info-Form' id='salvage-log-form'>
+                {% csrf_token %}
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <label for="inputSpecies">Log Species</label>
+                        <select id="inputSpecies" class="form-control" name="Species" v-model='vsalvageLogData.Species'>
+                            <option value="Alder">Alder</option>
+                            <option value="White Ash">White Ash</option>
+                            <option value="Beech">Beech</option>
+                            <option value="Black Walnut">Black Walnut</option>
+                            <option value="Cedar">Cedar</option>
+                            <option value="Cherry">Cherry</option>
+                            <option value="Chestnut">Chestnut</option>
+                            <option value="Douglas Fir">Douglas Fir</option>
+                            <option value="Elm">Elm</option>
+                            <option value="Locust">Black/Yellow/Honey Locust</option>
+                            <option value="Maple">Maple</option>
+                            <option value="Big Leaf Maple">Big Leaf Maple</option>
+                            <option value="Silver Maple">Silver Maple</option>
+                            <option value="Oregon White Oak">Oregon White Oak</option>
+                            <option value="Red Oak">Red Oak</option>
+                            <option value="Pine">Pine</option>
+                        </select>
+                    </div>
+                    <!-- <div class="form-group col-md-6">
+                        <label for="inputSpecies">Log Species</label>
+                        <input type="text" class="form-control" name='Species' id="inputSpecies" placeholder="Species" v-model='vsalvageLogData.Species'>
+                    </div> -->
+                    <div class='form-group col-md-12'>
+                        <div class='slidecontainer'>
+                            <input id="inputLogDiameter" type="range" min="12" max="72"n v-model:value="vsalvageLogData.LogDiameter" class='slider'/>
+                            <p>Trunk Diameter: {$ vsalvageLogData.LogDiameter $}"</p>
+                        </div>
+                    </div>
+                    <div class='form-group col-md-12'>
+                        <div class='slidecontainer'>
+                            <input id="tree_height" type="range" min="1" max="20" v-model:value="vsalvageLogData.TrunkHeight" class='slider'/>
+                            <p>Trunk Height: {$ vsalvageLogData.TrunkHeight $}'</p>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="inputAddress">Address</label>
+                        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" v-model='vsalvageLogData.Address' name='Address'>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="inputAddress2">Address 2</label>
+                        <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" v-model='vsalvageLogData.Address2'>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputCity">City</label>
+                        <input type="text" class="form-control" id="inputCity" v-model='vsalvageLogData.City'>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="inputState">State</label>
+                        <select id="inputState" class="form-control" name="State" v-model='vsalvageLogData.State'>
+                            <label for="inputState">State</label>
+                            <option value="CA">California</option>
+                            <option value="OR">Oregon</option>
+                            <option value="WA">Washington</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputZip">Zip</label>
+                        <input type="text" class="form-control" id="inputZip" v-model='vsalvageLogData.Zip'>
+                    </div>
+                    <button type="submit" class="btn btn-primary" @click.prevent="submittedSalvLog">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="container" v-if='page === 2'>
+        <br>
+        <div class='row'>
+                <div class='col-md-12 justify-content-md-center'>
+                    <h3 class='justify-content-md-center'>Thank you for Completing Our Form!</h3>
+                    <div class='container content' v-if='form_yes'>
+                        <p>We are interested in your log, we can offer a keepsake piece - a handmade turned bowl or hollow form(wooden vessel) from either one of the offcuts of tree or another species of wood we have in our inventory.<p>
+                        <p>We will contact you in the next 24 hours to discuss the next steps.</p>
+                        <img src="{% static './assets/TreeKeepsakes.jpg' %}"width="300" alt="" class='justify-content-md-center row container'>
+                        <p>Here are some finished and unfinished keepsake bowls, and wooden vessels turned by our very own David Mealey!</p>           
+                    </div>
+                    <div class='container content' v-if='form_no'>
+                        <p>Due to the small diameter of the log, we cannot provide the pick-up and transport of the log free-of-charge. We will contact you in the next 24 hours to discuss the next steps.</p>
+                        <img src="{% static './assets/LoadedTruckBed.jpg' %}"width="300" alt="" class='justify-content-md-center row container'>
+                        <p>Depicted above is our boom crane truck bed fully loaded with several logs ready to be unloaded in our landing yard.</p> 
+                    </div>
+                </div>
+            </div>
+        <br>
+        <div class='row'>
+            <div class="card col-md-6 justify-content-md-center" v-if="isSubmitted">
+                <div class="card-body">
+                    <h4 class="card-title">Personal Info</h4>
+                    <p>Name: <b>{$ vuserData.Name $}</b></p>
+                    <p>Email: <b>{$ vuserData.Email $}</b></p>
+                    <p>Phone Number: <b>{$ vuserData.Phone $}</b></p>
+                    <p>Address: <b>{$ vuserData.Address $}</b></p>
+                    <p>Address2: <b>{$ vuserData.Address2 $}</b></p>
+                    <p>City: <b>{$ vuserData.City $}</b></p>
+                    <p>Zip: <b>{$ vuserData.Zip $}</b></p>
+                    <p>Salvage Log Inquiry: <b>{$ vuserData.SalvageLogInquiryCheck $}</b></p>
+                    <p>Custom Milling / Kiln Drying Inquiry: <b>{$vuserData.MillingKilnInquiryCheck $}</b></p>
+                    <p>Lumberyard Inquiry: <b>{$ vuserData.LumberyardInquiryCheck $}</b></p>
+                    <button type='submit' class='btn btn-primary' @click='EditPersonalInfo'>Edit Personal Info</button>
+                </div>
+            </div>
+            <div class="card col-md-6 justify-content-md-center" v-if="isSubmittedSalvLog">
+                <div class="card-body">
+                    <h4 class="card-title">Salvage Log Info</h4>
+                    <p>Species: <b>{$ vsalvageLogData.Species $}</b></p>
+                    <p>Tree Trunk/Log Diameter: <b>{$vsalvageLogData.LogDiameter $}</b></p>
+                    <p>Trunk-to-Crotch Height: <b>{$vsalvageLogData.TrunkHeight $}</b></p>
+                    <p>Address: <b>{$ vsalvageLogData.Address $}</b></p>
+                    <p>Address2: <b>{$ vsalvageLogData.Address2 $}</b></p>
+                    <p>City: <b>{$ vsalvageLogData.City $}</b></p>
+                    <p>Zip: <b>{$ vsalvageLogData.Zip $}</b></p>
+                    <button type='submit' class='btn btn-primary' @click='EditSalvLogInfo'>Edit Salvage Tree/Log Info</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block extra_scripts %}
+    <script src="{% static '/js/style-salvagelogform.js' %}"></script>
+{% endblock %}
